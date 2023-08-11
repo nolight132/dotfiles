@@ -1,5 +1,5 @@
 # Catppuccin Mocha 🌿 Hyprland config
- ![image](https://github.com/nolight132/dotfiles/assets/71591964/ba3185ee-d2cc-49fb-9a08-7761bb107db4)
+![image](https://github.com/nolight132/dotfiles/blob/main/screenshot_1.png)
 ## ✨✨✨
 - WM: [Hyprland](https://github.com/hyprwm/Hyprland)
 - Theme: [Catppuccin](https://github.com/catppuccin/catppuccin)

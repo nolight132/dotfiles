@@ -24,7 +24,7 @@ o.inccommand = "split" -- When nonempty, shows the effects of :substitute, :smag
 o.splitright = true
 o.splitbelow = true -- When on, splitting a window will put the new window below the current one
 o.termguicolors = true
-o.numberwidth = 8
+o.numberwidth = 6
 
 global.mapleader = " "
 
@@ -50,3 +50,9 @@ map("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", { desc = "Go to Definiti
 map("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", { desc = "Go to References" })
 map("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", { desc = "Go to Type Definition" })
 map("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", { desc = "Go to Implementation" })
+
+-- Inline git commands
+map("n", "<leader>gd", "<CMD>:Gitsigns preview_hunk_inline<CR>", { desc = "Gitsigns: Preview Hunk Inline" })
+
+map("n", "<leader>t", ":ToggleTerm<CR>", { noremap = true, silent = true, desc = "Toggle Terminal" })
+map("t", "<leader>t", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit Terminal Mode" })

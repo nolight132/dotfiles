@@ -18,13 +18,19 @@ o.title = true -- When on, the title of the window will be set to the value of '
 o.hidden = true -- When on a buffer becomes hidden when it is |abandon|ed
 o.ttimeoutlen = 0 -- The time in milliseconds that is waited for a key code or mapped key sequence to complete.
 o.wildmenu = true -- When 'wildmenu' is on, command-line completion operates in an enhanced mode.
-o.showcmd = true -- Show (partial) command in the last line of the screen. Set this option off if your terminal is slow.
+o.showcmd = false -- Show (partial) command in the last line of the screen. Set this option off if your terminal is slow.
 o.showmatch = true -- When a bracket is inserted, briefly jump to the matching one.
 o.inccommand = "split" -- When nonempty, shows the effects of :substitute, :smagic, :snomagic and user commands with the :command-preview flag as you type.
 o.splitright = true
 o.splitbelow = true -- When on, splitting a window will put the new window below the current one
 o.termguicolors = true
 o.numberwidth = 6
+o.signcolumn = "yes:2"
+
+-- Add this line to define your statuscolumn
+-- '%s' is for the signcolumn
+-- '%l' is for the line number (it automatically handles relative/absolute and aligns)
+o.statuscolumn = "%s%l    "
 
 global.mapleader = " "
 
@@ -50,9 +56,10 @@ map("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", { desc = "Go to Definiti
 map("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", { desc = "Go to References" })
 map("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", { desc = "Go to Type Definition" })
 map("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", { desc = "Go to Implementation" })
+map("n", "ge", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 
 -- Inline git commands
 map("n", "<leader>gd", "<CMD>:Gitsigns preview_hunk_inline<CR>", { desc = "Gitsigns: Preview Hunk Inline" })
 
 map("n", "<leader>t", ":ToggleTerm<CR>", { noremap = true, silent = true, desc = "Toggle Terminal" })
-map("t", "<leader>t", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit Terminal Mode" })
+map("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit Terminal Mode" })

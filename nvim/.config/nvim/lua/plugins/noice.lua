@@ -9,10 +9,14 @@ return {
 		messages = {
 			enabled = true,
 			view = "mini",
+			view_error = "mini",
+			view_warn = "mini",
 		},
 		notify = {
 			enabled = true,
 			view = "mini",
+			view_error = "mini",
+			view_warn = "mini",
 		},
 	},
 	dependencies = {

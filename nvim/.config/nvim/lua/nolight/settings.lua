@@ -63,3 +63,8 @@ map("n", "<leader>gd", "<CMD>:Gitsigns preview_hunk_inline<CR>", { desc = "Gitsi
 
 map("n", "<leader>t", ":ToggleTerm<CR>", { noremap = true, silent = true, desc = "Toggle Terminal" })
 map("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit Terminal Mode" })
+
+-- Project picker
+map("n", "<leader>p", function()
+	require("telescope").extensions.project.project({})
+end, { desc = "Find [P]rojects" })

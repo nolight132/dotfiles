@@ -11,8 +11,8 @@ return {
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "branch" },
-			lualine_c = { "filename" },
-			lualine_x = { "diagnostics", "filetype" },
+			lualine_c = { "filename", "diagnostics" },
+			lualine_x = { "filetype", require("lualine.components.indent_mode"), "lsp_status" },
 			lualine_y = { "progress" },
 			lualine_z = { "location" },
 		},

@@ -9,9 +9,10 @@ o.syntax = "on" -- When this option is set, the syntax with this name is loaded.
 o.autoindent = true -- Copy indent from current line when starting a new line.
 o.cursorline = true -- Highlight the screen line of the cursor with CursorLine.
 o.expandtab = true -- In Insert mode: Use the appropriate number of spaces to insert a <Tab>.
+o.fillchars:append({ eob = " " }) -- Set the fill character for end-of-buffer lines to a space.
 o.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent.
 o.tabstop = 2 -- Number of spaces that a <Tab> in the file counts for.
-o.encoding = "UTF-8" -- Sets the character encoding used inside Vim.
+o.encoding = "UTF-8" -- Sets the character encoding used inside Vim.sett
 o.ruler = true -- Show the line and column number of the cursor position, separated by a comma.
 o.mouse = "a" -- Enable the use of the mouse. "a" you can use on all modes
 o.title = true -- When on, the title of the window will be set to the value of 'titlestring'
@@ -31,6 +32,17 @@ o.signcolumn = "yes:2"
 -- '%s' is for the signcolumn
 -- '%l' is for the line number (it automatically handles relative/absolute and aligns)
 o.statuscolumn = "%s%l    "
+
+local border = "rounded" -- or "single", "double", "solid", etc.
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
+
+-- Set border for diagnostics (floating window)
+vim.diagnostic.config({
+	float = { border = border },
+})
 
 global.mapleader = " "
 
@@ -68,3 +80,27 @@ map("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit Term
 map("n", "<leader>p", function()
 	require("telescope").extensions.project.project({})
 end, { desc = "Find [P]rojects" })
+
+-- Tabs
+map("n", "<leader>,", "<Cmd>BufferPrevious<CR>", { silent = true })
+map("n", "<leader>.", "<Cmd>BufferNext<CR>", { silent = true })
+map("n", "<leader>c", "<Cmd>BufferClose<CR>", { silent = true })
+
+-- Re-order buffers
+map("n", "<leader><", "<Cmd>BufferMovePrevious<CR>", { silent = true })
+map("n", "<leader>>", "<Cmd>BufferMoveNext<CR>", { silent = true })
+
+-- Goto buffer in position...
+map("n", "<leader>1", "<Cmd>BufferGoto 1<CR>", { silent = true })
+map("n", "<leader>2", "<Cmd>BufferGoto 2<CR>", { silent = true })
+map("n", "<leader>3", "<Cmd>BufferGoto 3<CR>", { silent = true })
+map("n", "<leader>4", "<Cmd>BufferGoto 4<CR>", { silent = true })
+map("n", "<leader>5", "<Cmd>BufferGoto 5<CR>", { silent = true })
+map("n", "<leader>6", "<Cmd>BufferGoto 6<CR>", { silent = true })
+map("n", "<leader>7", "<Cmd>BufferGoto 7<CR>", { silent = true })
+map("n", "<leader>8", "<Cmd>BufferGoto 8<CR>", { silent = true })
+map("n", "<leader>9", "<Cmd>BufferGoto 9<CR>", { silent = true })
+map("n", "<leader>0", "<Cmd>BufferLast<CR>", { silent = true })
+
+-- Pin/unpin buffer
+map("n", "<leader>s", "<Cmd>BufferPin<CR>", { silent = true })

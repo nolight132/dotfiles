@@ -6,6 +6,9 @@ return {
 		local telescope = require("telescope")
 		telescope.setup({
 			-- These are the configurations for the built-in pickers
+			defaults = {
+				file_ignore_patterns = { ".git/" },
+			},
 			pickers = {
 				find_files = {
 					hidden = true,

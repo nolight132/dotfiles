@@ -2,6 +2,7 @@ return {
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
+		lazy = false,
 		config = function()
 			require("rose-pine").setup({
 				variant = "auto",
@@ -31,6 +32,13 @@ return {
 					TelescopeResultsNormal = { fg = "subtle", bg = "none" },
 					TelescopeSelection = { fg = "text", bg = "base" },
 					TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
+
+					Delimiter = { fg = "muted" },
+					Punctuation = { fg = "muted" },
+
+					-- Special = { underline = false },
+					-- Identifier = { underline = false },
+					-- Constant = { underline = false },
 				},
 			})
 		end,
@@ -39,7 +47,6 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		lazy = false,
 		priority = 1000,
 		opts = {
 			flavour = "mocha", -- latte, frappe, macchiato, mocha
@@ -62,7 +69,6 @@ return {
 	{
 		"ellisonleao/gruvbox.nvim",
 		name = "gruvbox",
-		lazy = false, -- Load this at startup if it's your main theme
 		priority = 1000,
 		config = function()
 			require("gruvbox").setup({
@@ -82,7 +88,6 @@ return {
 	{
 		"folke/tokyonight.nvim",
 		name = "tokyonight",
-		lazy = false,
 		priority = 1000,
 		opts = {
 			style = "moon", -- storm, moon, night, day
@@ -96,7 +101,6 @@ return {
 	{
 		"dracula/vim", -- The official Dracula theme
 		name = "dracula",
-		lazy = false,
 		priority = 1000,
 		config = function()
 			-- Dracula doesn't have a specific setup function in Lua,
@@ -109,7 +113,6 @@ return {
 	{
 		"EdenEast/nightfox.nvim",
 		name = "nightfox",
-		lazy = false,
 		priority = 1000,
 		config = function()
 			require("nightfox").setup({
@@ -142,7 +145,6 @@ return {
 	{
 		"rebelot/kanagawa.nvim",
 		name = "kanagawa",
-		lazy = false,
 		priority = 1000,
 		config = function()
 			require("kanagawa").setup({

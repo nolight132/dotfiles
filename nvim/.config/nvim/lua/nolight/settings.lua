@@ -28,6 +28,29 @@ o.termguicolors = true
 o.numberwidth = 6
 o.signcolumn = "yes:2"
 
+vim.diagnostic.enable()
+
+vim.api.nvim_create_autocmd({ "CursorHold" }, {
+	pattern = "*",
+	callback = function()
+		for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+			if vim.api.nvim_win_get_config(winid).zindex then
+				return
+			end
+		end
+		vim.diagnostic.open_float({
+			scope = "cursor",
+			focusable = false,
+			close_events = {
+				"CursorMoved",
+				"CursorMovedI",
+				"BufHidden",
+				"InsertCharPre",
+				"WinLeave",
+			},
+		})
+	end,
+})
 -- Add this line to define your statuscolumn
 -- '%s' is for the signcolumn
 -- '%l' is for the line number (it automatically handles relative/absolute and aligns)
@@ -60,47 +83,66 @@ map("n", "<leader>r", "<CMD>Neotree focus<CR>")
 map("n", "<leader>w", "<CMD>:w<CR>")
 map("n", "<leader>q", "<CMD>:q<CR>")
 
-map("n", "<ESC>", ":nohlsearch<CR>", { silent = true, desc = "Clear Search Highlight" })
-map("n", "<leader>h", ":nohlsearch<CR>", { silent = true, desc = "Clear Search Highlight" })
+map("n", "<ESC>", ":nohlsearch<CR>")
+map("n", "<leader>h", ":nohlsearch<CR>")
 
-map("n", "gh", "<CMD>lua vim.lsp.buf.hover()<CR>", { desc = "Hover Documentation" })
-map("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", { desc = "Go to Definition" })
-map("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", { desc = "Go to References" })
-map("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", { desc = "Go to Type Definition" })
-map("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", { desc = "Go to Implementation" })
-map("n", "ge", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+map("n", "K", function()
+	local has_lsp, result = pcall(vim.lsp.buf.hover)
+
+	if has_lsp and result then
+		-- LSP hover was successful, no need to do anything else as
+		-- vim.lsp.buf.hover should handle the display
+		return
+	end
+
+	-- LSP failed, fallback to diagnostic info
+	local has_diagnostic, diagnostic_result = pcall(vim.diagnostic.open_float)
+
+	if has_diagnostic and diagnostic_result then
+		-- Diagnostic info displayed successfully
+		return
+	end
+end)
+map("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>")
+map("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>")
+map("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>")
+map("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>")
 
 -- Inline git commands
-map("n", "<leader>gd", "<CMD>:Gitsigns preview_hunk_inline<CR>", { desc = "Gitsigns: Preview Hunk Inline" })
+map("n", "<leader>gd", "<CMD>:Gitsigns preview_hunk_inline<CR>")
+map("n", "<leader>gr", "<CMD>:Gitsigns reset_hunk<CR>")
 
-map("n", "<leader>t", ":ToggleTerm<CR>", { noremap = true, silent = true, desc = "Toggle Terminal" })
-map("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit Terminal Mode" })
+-- Terminal mode mappings
+map("t", "jk", "<C-\\><C-n>")
+map("n", "<leader>t", ":ToggleTerm<CR>")
 
 -- Project picker
 map("n", "<leader>p", function()
 	require("telescope").extensions.project.project({})
-end, { desc = "Find [P]rojects" })
+end)
 
 -- Tabs
-map("n", "<leader>,", "<Cmd>BufferPrevious<CR>", { silent = true })
-map("n", "<leader>.", "<Cmd>BufferNext<CR>", { silent = true })
-map("n", "<leader>c", "<Cmd>BufferClose<CR>", { silent = true })
+map("n", "<leader>,", "<Cmd>BufferPrevious<CR>")
+map("n", "<leader>.", "<Cmd>BufferNext<CR>")
+map("n", "<leader>c", "<Cmd>BufferClose<CR>")
+map("n", "<leader><", "<Cmd>BufferMovePrevious<CR>")
+map("n", "<leadear>>", "<Cmd>BufferMoveNext<CR>")
 
 -- Re-order buffers
-map("n", "<leader><", "<Cmd>BufferMovePrevious<CR>", { silent = true })
-map("n", "<leader>>", "<Cmd>BufferMoveNext<CR>", { silent = true })
+map("n", "<leader><", "<Cmd>BufferMovePrevious<CR>")
+map("n", "<leader>>", "<Cmd>BufferMoveNext<CR>")
 
 -- Goto buffer in position...
-map("n", "<leader>1", "<Cmd>BufferGoto 1<CR>", { silent = true })
-map("n", "<leader>2", "<Cmd>BufferGoto 2<CR>", { silent = true })
-map("n", "<leader>3", "<Cmd>BufferGoto 3<CR>", { silent = true })
-map("n", "<leader>4", "<Cmd>BufferGoto 4<CR>", { silent = true })
-map("n", "<leader>5", "<Cmd>BufferGoto 5<CR>", { silent = true })
-map("n", "<leader>6", "<Cmd>BufferGoto 6<CR>", { silent = true })
-map("n", "<leader>7", "<Cmd>BufferGoto 7<CR>", { silent = true })
-map("n", "<leader>8", "<Cmd>BufferGoto 8<CR>", { silent = true })
-map("n", "<leader>9", "<Cmd>BufferGoto 9<CR>", { silent = true })
-map("n", "<leader>0", "<Cmd>BufferLast<CR>", { silent = true })
+map("n", "<leader>1", "<Cmd>BufferGoto 1<CR>")
+map("n", "<leader>2", "<Cmd>BufferGoto 2<CR>")
+map("n", "<leader>3", "<Cmd>BufferGoto 3<CR>")
+map("n", "<leader>4", "<Cmd>BufferGoto 4<CR>")
+map("n", "<leader>5", "<Cmd>BufferGoto 5<CR>")
+map("n", "<leader>6", "<Cmd>BufferGoto 6<CR>")
+map("n", "<leader>7", "<Cmd>BufferGoto 7<CR>")
+map("n", "<leader>8", "<Cmd>BufferGoto 8<CR>")
+map("n", "<leader>9", "<Cmd>BufferGoto 9<CR>")
+map("n", "<leader>0", "<Cmd>BufferLast<CR>")
 
 -- Pin/unpin buffer
-map("n", "<leader>s", "<Cmd>BufferPin<CR>", { silent = true })
+map("n", "<leader>s", "<Cmd>BufferPin<CR>")

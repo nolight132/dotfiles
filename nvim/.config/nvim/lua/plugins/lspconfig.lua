@@ -57,6 +57,7 @@ return {
 			"biome",
 			"pyright",
 			"gdscript",
+			"ts_ls",
 		}
 
 		-- Setup global options for all LSP servers

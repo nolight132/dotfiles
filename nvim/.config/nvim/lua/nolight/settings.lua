@@ -1,5 +1,5 @@
+require("nolight.shortcuts")
 require("nolight.highlights")
-local global = vim.g
 local o = vim.opt
 
 -- Editor options
@@ -20,7 +20,7 @@ o.title = true -- When on, the title of the window will be set to the value of '
 o.hidden = true -- When on a buffer becomes hidden when it is |abandon|ed
 o.ttimeoutlen = 0 -- The time in milliseconds that is waited for a key code or mapped key sequence to complete.
 o.wildmenu = true -- When 'wildmenu' is on, command-line completion operates in an enhanced mode.
-o.showcmd = false -- Show (partial) command in the last line of the screen. Set this option off if your terminal is slow.
+o.showcmd = true -- Show (partial) command in the last line of the screen. Set this option off if your terminal is slow.
 o.showmatch = true -- When a bracket is inserted, briefly jump to the matching one.
 o.inccommand = "split" -- When nonempty, shows the effects of :substitute, :smagic, :snomagic and user commands with the :command-preview flag as you type.
 o.splitright = true
@@ -30,67 +30,3 @@ o.splitbelow = true -- When on, splitting a window will put the new window below
 o.numberwidth = 6
 o.signcolumn = "yes:1"
 o.statuscolumn = "%s%l    "
-global.mapleader = " "
-
-local function map(mode, lhs, rhs)
-	vim.keymap.set(mode, lhs, rhs, { silent = true })
-end
-
--- Exit insert mode
-map("i", "jk", "<ESC>")
-
--- NeoTree
-map("n", "<leader>e", "<CMD>Neotree toggle position=right<CR>")
-map("n", "<leader>r", "<CMD>Neotree focus<CR>")
-
-map("n", "<leader>w", "<CMD>:w<CR>")
-map("n", "<leader>q", "<CMD>:q<CR>")
-
-map("n", "<ESC>", ":nohlsearch<CR>")
-map("n", "<leader>h", ":nohlsearch<CR>")
-
-map("n", "gh", "<CMD>lua vim.lsp.buf.hover()<CR>")
-map("n", "ge", vim.diagnostic.open_float)
-map("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>")
-map("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>")
-map("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>")
-map("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>")
-
--- Inline git commands
-map("n", "<leader>gd", "<CMD>:Gitsigns preview_hunk_inline<CR>")
-map("n", "<leader>gr", "<CMD>:Gitsigns reset_hunk<CR>")
-
--- Terminal mode mappings
-map("t", "jk", "<C-\\><C-n>")
-map("n", "<leader>t", ":ToggleTerm<CR>")
-
--- Project picker
-map("n", "<leader>p", function()
-	require("telescope").extensions.project.project({})
-end)
-
--- Tabs
-map("n", "<leader>,", "<Cmd>BufferPrevious<CR>")
-map("n", "<leader>.", "<Cmd>BufferNext<CR>")
-map("n", "<leader>c", "<Cmd>BufferClose<CR>")
-map("n", "<leader><", "<Cmd>BufferMovePrevious<CR>")
-map("n", "<leadear>>", "<Cmd>BufferMoveNext<CR>")
-
--- Re-order buffers
-map("n", "<leader><", "<Cmd>BufferMovePrevious<CR>")
-map("n", "<leader>>", "<Cmd>BufferMoveNext<CR>")
-
--- Goto buffer in position...
-map("n", "<leader>1", "<Cmd>BufferGoto 1<CR>")
-map("n", "<leader>2", "<Cmd>BufferGoto 2<CR>")
-map("n", "<leader>3", "<Cmd>BufferGoto 3<CR>")
-map("n", "<leader>4", "<Cmd>BufferGoto 4<CR>")
-map("n", "<leader>5", "<Cmd>BufferGoto 5<CR>")
-map("n", "<leader>6", "<Cmd>BufferGoto 6<CR>")
-map("n", "<leader>7", "<Cmd>BufferGoto 7<CR>")
-map("n", "<leader>8", "<Cmd>BufferGoto 8<CR>")
-map("n", "<leader>9", "<Cmd>BufferGoto 9<CR>")
-map("n", "<leader>0", "<Cmd>BufferLast<CR>")
-
--- Pin/unpin buffer
-map("n", "<leader>s", "<Cmd>BufferPin<CR>")

@@ -15,11 +15,11 @@ function M.get_indent_mode()
 	if expandtab then
 		-- If 'expandtab' is true, we are using spaces for indentation.
 		-- The effective width is determined by 'shiftwidth'.
-		return "Spaces: " .. shiftwidth
+		return "󱁐 Spaces: " .. shiftwidth
 	else
 		-- If 'expandtab' is false, we are using tab characters for indentation.
 		-- The effective width is determined by 'tabstop'.
-		return "Tabs: " .. tabstop
+		return " Tabs: " .. tabstop
 	end
 end
 

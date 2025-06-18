@@ -1,3 +1,4 @@
+require("nolight.highlights")
 local global = vim.g
 local o = vim.opt
 
@@ -24,49 +25,11 @@ o.showmatch = true -- When a bracket is inserted, briefly jump to the matching o
 o.inccommand = "split" -- When nonempty, shows the effects of :substitute, :smagic, :snomagic and user commands with the :command-preview flag as you type.
 o.splitright = true
 o.splitbelow = true -- When on, splitting a window will put the new window below the current one
-o.termguicolors = true
+
+-- Number and column options
 o.numberwidth = 6
-o.signcolumn = "yes:2"
-
-vim.diagnostic.enable()
-
-vim.api.nvim_create_autocmd({ "CursorHold" }, {
-	pattern = "*",
-	callback = function()
-		for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
-			if vim.api.nvim_win_get_config(winid).zindex then
-				return
-			end
-		end
-		vim.diagnostic.open_float({
-			scope = "cursor",
-			focusable = false,
-			close_events = {
-				"CursorMoved",
-				"CursorMovedI",
-				"BufHidden",
-				"InsertCharPre",
-				"WinLeave",
-			},
-		})
-	end,
-})
--- Add this line to define your statuscolumn
--- '%s' is for the signcolumn
--- '%l' is for the line number (it automatically handles relative/absolute and aligns)
+o.signcolumn = "yes:1"
 o.statuscolumn = "%s%l    "
-
-local border = "rounded" -- or "single", "double", "solid", etc.
-
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
-
--- Set border for diagnostics (floating window)
-vim.diagnostic.config({
-	float = { border = border },
-})
-
 global.mapleader = " "
 
 local function map(mode, lhs, rhs)
@@ -86,23 +49,8 @@ map("n", "<leader>q", "<CMD>:q<CR>")
 map("n", "<ESC>", ":nohlsearch<CR>")
 map("n", "<leader>h", ":nohlsearch<CR>")
 
-map("n", "K", function()
-	local has_lsp, result = pcall(vim.lsp.buf.hover)
-
-	if has_lsp and result then
-		-- LSP hover was successful, no need to do anything else as
-		-- vim.lsp.buf.hover should handle the display
-		return
-	end
-
-	-- LSP failed, fallback to diagnostic info
-	local has_diagnostic, diagnostic_result = pcall(vim.diagnostic.open_float)
-
-	if has_diagnostic and diagnostic_result then
-		-- Diagnostic info displayed successfully
-		return
-	end
-end)
+map("n", "gh", "<CMD>lua vim.lsp.buf.hover()<CR>")
+map("n", "ge", vim.diagnostic.open_float)
 map("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>")
 map("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>")
 map("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>")

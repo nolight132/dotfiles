@@ -24,10 +24,10 @@ return {
 					find_command = { "fd", "--type", "d", "--hidden", "--glob", ".git" },
 					-- Add the paths where you store your projects
 					base_dirs = {
-						"/Users/pavelolizko/Documents/Code/personal",
-						"/Users/pavelolizko/Documents/Code/external",
-						"/Users/pavelolizko/Documents/Code/uni",
-						"/Users/pavelolizko/Documents/Code/work",
+						"~/Documents/Code/personal",
+						"~/Documents/Code/external",
+						"~/Documents/Code/uni",
+						"~/Documents/Code/work",
 					},
 				},
 			},

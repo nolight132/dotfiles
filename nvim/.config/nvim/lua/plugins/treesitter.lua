@@ -18,6 +18,9 @@ return {
 				enable = true,
 			},
 			ensure_installed = {
+				"gdscript",
+				"godot_resource",
+				"gdshader",
 				"json",
 				"javascript",
 				"typescript",
@@ -38,6 +41,7 @@ return {
 				"cpp",
 				"go",
 			},
+			auto_install = true,
 			incremental_selection = {
 				enable = true,
 				keymaps = {

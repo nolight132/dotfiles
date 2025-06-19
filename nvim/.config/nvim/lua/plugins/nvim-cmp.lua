@@ -42,17 +42,25 @@ return {
 		}
 		cmp.setup({
 			-- Completion menu settings
+			enabled = function()
+				if vim.g.autocomplete == nil then
+					vim.g.autocomplete = true
+				end
+				return vim.g.autocomplete
+			end,
+
 			completion = {
 				completeopt = "menu,menuone,noselect", -- How the completion menu behaves
 			},
 
 			-- Mapping (keybindings)
 			mapping = cmp.mapping.preset.insert({
-				["<C-b>"] = cmp.mapping.scroll_docs(-4), -- Scroll up in documentation
-				["<C-f>"] = cmp.mapping.scroll_docs(4), -- Scroll down in documentation
-				["<C-Space>"] = cmp.mapping.complete(), -- Manually trigger completion
-				["<C-e>"] = cmp.mapping.abort(), -- Abort completion
-				["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept selected item with Enter
+				["<C-b>"] = cmp.mapping.scroll_docs(-4),
+				["<C-f>"] = cmp.mapping.scroll_docs(4),
+				["<C-Space>"] = cmp.mapping.complete(),
+				["<C-e>"] = cmp.mapping.abort(),
+				["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
+				["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
 
 				-- Crucial Tab mapping:
 				["<Tab>"] = cmp.mapping(function(fallback)

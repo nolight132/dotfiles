@@ -6,6 +6,11 @@ return {
 	version = false, -- Never set this value to "*" to avoid unintended updates.
 	opts = {
 		provider = "copilot", -- Specifies the AI provider for assistance.
+		providers = {
+			copilot = {
+				model = "claude-3.7-sonnet",
+			},
+		},
 		mappings = {
 			ask = "<leader>ua", -- ask
 			edit = "<leader>ue", -- edit

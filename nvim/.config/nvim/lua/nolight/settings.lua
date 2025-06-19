@@ -1,4 +1,4 @@
-require("nolight.shortcuts")
+require("nolight.keybindings")
 require("nolight.highlights")
 local o = vim.opt
 
@@ -28,5 +28,5 @@ o.splitbelow = true -- When on, splitting a window will put the new window below
 
 -- Number and column options
 o.numberwidth = 6
-o.signcolumn = "yes:1"
+o.signcolumn = "yes:2"
 o.statuscolumn = "%s%l    "

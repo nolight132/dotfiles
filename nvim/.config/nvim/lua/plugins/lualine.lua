@@ -12,7 +12,20 @@ return {
 			lualine_a = { "mode" },
 			lualine_b = { "branch" },
 			lualine_c = { "filename", "diagnostics" },
-			lualine_x = { "filetype", require("lualine.components.indent_mode"), "lsp_status" },
+			lualine_x = {
+				{
+					function()
+						return require("noice").api.status.command.get()
+					end,
+					cond = function()
+						return package.loaded["noice"] and require("noice").api.status.command.get() ~= ""
+					end,
+					color = { fg = "#888888" }, -- Optional: customize color
+				},
+				"filetype",
+				require("lualine.components.indent_mode"),
+				"lsp_status",
+			},
 			lualine_y = { "progress" },
 			lualine_z = { "location" },
 		},

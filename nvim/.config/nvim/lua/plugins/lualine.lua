@@ -11,7 +11,7 @@ return {
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "branch" },
-			lualine_c = { "filename", "diagnostics" },
+			lualine_c = { "filename", "diagnostics", "diff" },
 			lualine_x = {
 				{
 					function()
@@ -23,7 +23,7 @@ return {
 					color = { fg = "#888888" }, -- Optional: customize color
 				},
 				"filetype",
-				require("lualine.components.indent_mode"),
+				require("custom.lualine.components.indent_mode"),
 				"lsp_status",
 			},
 			lualine_y = { "progress" },

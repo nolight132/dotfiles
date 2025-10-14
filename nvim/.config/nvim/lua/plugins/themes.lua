@@ -5,6 +5,9 @@ return {
 		lazy = false,
 		config = function()
 			require("rose-pine").setup({
+				backend = "ueberzug",
+				kitty_method = "normal",
+				integrations = {},
 				variant = "auto",
 				dark_variant = "main",
 
@@ -152,6 +155,12 @@ return {
 				compile = true, -- Enable for faster startup
 				theme = "wave", -- wave, dragon, lotus
 			})
+		end,
+	},
+	{
+		"vague2k/vague.nvim",
+		config = function()
+			require("vague").setup({})
 		end,
 	},
 }

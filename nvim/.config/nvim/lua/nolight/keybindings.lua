@@ -23,15 +23,15 @@ map("n", "gh", "<CMD>lua vim.lsp.buf.hover()<CR>")
 map("n", "ge", vim.diagnostic.open_float)
 map("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>")
 map("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>")
--- map("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>")
 map("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>")
+map("n", "<leader>rn", vim.lsp.buf.rename)
 
 -- Inline git commands
 map("n", "<leader>gd", "<CMD>:Gitsigns preview_hunk_inline<CR>")
 map("n", "<leader>gr", "<CMD>:Gitsigns reset_hunk<CR>")
 
--- Writer mode
-map("n", "<leader>wm", "<CMD>:Gitsigns toggle_signs<CR><CMD>:NoNeckPain<CR>")
+-- Writer mode (Mode Write)
+map("n", "<leader>mw", "<CMD>:Gitsigns toggle_signs<CR><CMD>:NoNeckPain<CR>")
 
 -- Terminal mode mappings
 map("t", "jk", "<C-\\><C-n>")

@@ -1,0 +1,9 @@
+export TERM=xterm-256color
+export VULKAN_SDK=/Users/pavelolizko/VulkanSDK/1.3.296.0/macOS/
+export DYLD_LIBRARY_PATH=$VULKAN_SDK/lib:$DYLD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=$VULKAN_SDK/lib:$DYLD_LIBRARY_PATH
+export VK_ICD_FILENAMES=$VULKAN_SDK/etc/vulkan/icd.d/MoltenVK_icd.json
+export VK_LAYER_PATH=$VULKAN_SDK/etc/vulkan/explicit_layer.d
+export HOMEBREW_NO_AUTO_UPDATE=1
+export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
+export TERMINFO_DIRS="/usr/share/terminfo:$(brew --prefix)/share/terminfo"

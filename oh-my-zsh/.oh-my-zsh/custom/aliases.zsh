@@ -1,0 +1,16 @@
+# alias python=python3
+# alias py=python3
+alias prismlauncher="nohup /Applications/Prism\ Launcher.app/Contents/MacOS/prismlauncher&"
+alias vencord="sudo /Applications/VencordInstaller.app/Contents/Macos/VencordInstaller"
+alias vscode="/opt/homebrew/bin/code"
+alias code="cd /Users/pavelolizko/Documents/Code/"
+alias cow="fortune -s -n 100 | cowsay"
+alias tux="fortune -s -n 100 | cowsay -f tux"
+alias ls="lsd"
+alias ll="lsd -l"
+alias la="lsd -a"
+alias zed="zed ."
+alias quirrel="python3 /Users/pavelolizko/Documents/Code/personal/anifetch/anifetch.py -f "/Users/pavelolizko/Documents/Code/personal/anifetch/video.mp4" -r 10 -W 69 -H 120 -ff"
+alias fetch="fastfetch"
+alias gvim="nvim --listen /tmp/godothost"
+alias linux='docker run -it --rm -v "$PWD":/home/nolight/ linux-dev:latest'

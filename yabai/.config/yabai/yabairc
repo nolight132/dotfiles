@@ -117,6 +117,7 @@ add_yabai_rules() {
 
   # Global Rules - Using variables for workspace assignment
   yabai -m rule --add app="^Chromium$" space=$main_space || echo "Failed to add Chromium rule" >&2
+  yabai -m rule --add app="^Helium$" space=$main_space || echo "Failed to add Helium rule" >&2
   yabai -m rule --add app="^Zed$" space=$code_space || echo "Failed to add Zed rule" >&2
   yabai -m rule --add app="^Ghostty$" space=$misc_space || echo "Failed to add Ghostty rule" >&2
   yabai -m rule --add app="^Spotify$" space=$music_space || echo "Failed to add Spotify rule" >&2

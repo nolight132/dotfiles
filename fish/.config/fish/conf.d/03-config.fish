@@ -1,0 +1,2 @@
+set pure_color_primary purple
+set pure_truncate_prompt_current_directory_keeps 1

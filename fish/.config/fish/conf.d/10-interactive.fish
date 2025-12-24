@@ -13,7 +13,7 @@ if status is-interactive
     alias ls='lsd'
     alias ll='lsd -l'
     alias la='lsd -a'
-    abbr -a zed zed .
+    abbr -a zed zeditor
     abbr -a fetch fastfetch
     abbr -a gvim nvim --listen /tmp/godothost
     abbr -a linux 'docker run -it --rm -v "$PWD":/home/nolight/ linux-dev:latest'

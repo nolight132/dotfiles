@@ -24,10 +24,10 @@ return {
 					find_command = { "fd", "--type", "d", "--hidden", "--glob", ".git" },
 					-- Add the paths where you store your projects
 					base_dirs = {
-						"~/Documents/Code/personal",
-						"~/Documents/Code/external",
-						"~/Documents/Code/uni",
-						"~/Documents/Code/work",
+						"~/Code/personal",
+						"~/Code/external",
+						"~/Code/uni",
+						"~/Code/work",
 					},
 				},
 			},

@@ -7,7 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
-	"diagnostics": {
+	"agent_servers": {
+  "opencode": {
+   "type": "extension",
+   "default_mode": "orchestrator",
+   "favorite_models": [],
+   "default_config_options": {},
+   "favorite_config_option_values": {}
+  }
+ },
+ "show_edit_predictions": true,
+ "diagnostics": {
 		"inline": {
 			"enabled": true
 		}
@@ -99,14 +109,14 @@
 	"agent": {
 		"inline_assistant_model": {
 			"provider": "copilot_chat",
-			"model": "claude-sonnet-4"
+			"model": "gpt-5-mini"
 		},
 		"always_allow_tool_actions": true,
 		"dock": "right",
-		"default_profile": "ask",
+		"default_profile": "write",
 		"default_model": {
-			"provider": "copilot_chat",
-			"model": "claude-sonnet-4"
+			"provider": "google",
+			"model": "gemini-3-flash-preview"
 		}
 	},
 	"buffer_font_family": "JetBrains Mono",

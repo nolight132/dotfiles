@@ -2,8 +2,7 @@ layout {
     default_tab_template {
         pane size=1 borderless=true {
             plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
-                format_left  "{mode} {tabs}"
-                format_right "#[fg=blue,bold] {session}"
+                format_left  "#[fg=blue,bold] {session} {tabs}"
                 format_space ""
 
                 border_enabled  "false"

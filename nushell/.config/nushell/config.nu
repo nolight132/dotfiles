@@ -59,17 +59,18 @@ $env.config = {
 source ~/.zoxide.nu
 use aliases.nu *
 plugin use gstat
+if ("~/.env.nu" | path exists) { source ~/.env.nu }
 $env.config.hooks.pre_execution = [
     { ||
         # This captures the first word of the command you just typed
         let cmd = (commandline | split row ' ' | first)
-        zellij action rename-tab $cmd
+        ^zellij action rename-tab $cmd
     }
 ]
 
 $env.config.hooks.pre_prompt = [
     { ||
         # This resets the tab name to the shell name when the command finishes
-        zellij action rename-tab "nu"
+        ^zellij action rename-tab "nu"
     }
 ]

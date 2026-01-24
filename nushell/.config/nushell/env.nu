@@ -1,0 +1,1 @@
+$env.RUSTC_WRAPPER = "sccache"

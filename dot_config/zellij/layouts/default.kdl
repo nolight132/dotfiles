@@ -1,0 +1,33 @@
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+                format_left  "{mode}{session} {tabs}"
+                format_space ""
+
+                border_enabled  "false"
+
+                mode_normal        "#[fg=blue,bold] "
+                mode_locked        "#[fg=red,bold] "
+                mode_resize        "#[fg=yellow,bold] "
+                mode_pane          "#[fg=blue,bold] "
+                mode_tab           "#[fg=cyan,bold] "
+                mode_scroll        "#[fg=magenta,bold] "
+                mode_enter_search  "#[fg=orange,bold] "
+                mode_search        "#[fg=orange,bold] "
+                mode_rename_tab    "#[fg=cyan,bold] "
+                mode_rename_pane   "#[fg=blue,bold] "
+                mode_session       "#[fg=blue,bold] "
+                mode_move          "#[fg=magenta,bold]󰆾 "
+                mode_prompt        "#[fg=cyan,bold] "
+                mode_tmux          "#[fg=magenta,bold] "
+
+                tab_normal         "#[fg=#666666] {name} "
+                tab_active         "#[fg=blue,bold] {name} "
+
+                tab_separator      "#[fg=#333333] "
+            }
+        }
+        children
+    }
+}

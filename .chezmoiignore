@@ -1,0 +1,7 @@
+.config/nushell/history.txt
+.config/zed/conversations/**
+.config/nvim/lazy-lock.json
+.config/zellij/plugins/*.wasm
+*backup.json
+**/*.bak
+**/.gitignore

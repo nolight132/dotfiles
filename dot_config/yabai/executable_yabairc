@@ -1,0 +1,143 @@
+#!/usr/bin/env bash
+
+set -x
+
+# ====== Variables =============================
+
+declare -A gaps
+declare -A color
+
+gaps["top"]="0"
+gaps["bottom"]="0"
+gaps["left"]="0"
+gaps["right"]="0"
+gaps["inner"]="0"
+
+color["focused"]="0xE0808080"
+color["normal"]="0x00010101"
+color["preselect"]="0xE02d74da"
+
+# Uncomment to refresh ubersicht widget on workspace change
+# Make sure to replace WIDGET NAME for the name of the ubersicht widget
+#ubersicht_spaces_refresh_command="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"WIDGET NAME\"'"
+
+# ===== Loading Scripting Additions ============
+
+# See: https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#macos-big-sur---automatically-load-scripting-addition-on-startup
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# ===== Tiling setting =========================
+apply_yabai_config() {
+  local yabai_config=(
+    -m config
+    layout stack
+
+    top_padding "${gaps["top"]}"
+    bottom_padding "${gaps["bottom"]}"
+    left_padding "${gaps["left"]}"
+    right_padding "${gaps["right"]}"
+    window_gap "${gaps["inner"]}"
+
+    auto_balance off
+    focus_follows_mouse off
+    mouse_modifier alt
+    mouse_action1 move
+    mouse_action2 resize
+
+    mouse_follows_focus off
+    #focus_follows_mouse         on # Commenting out because it conflicts with mouse_follows_focus off
+
+    window_topmost off
+    window_opacity on
+    window_shadow on
+    window_border on
+    window_border_width 2
+
+    active_window_border_color "${color["focused"]}"
+    normal_window_border_color "${color["normal"]}"
+    insert_feedback_color "${color["preselect"]}"
+
+    active_window_opacity 1.0
+    normal_window_opacity 1.0
+    split_ratio 0.7
+
+    window_placement second_child
+    window_opacity on
+    window_opacity_duration 0.1
+    window_zoom_persist off
+  )
+
+  local yabai_spaces=(
+    -m space 1 --label main
+    -m space 2 --label code
+    -m space 3 --label misc
+    -m space 4 --label music
+    -m space 5 --label discord
+  )
+
+  yabai "${yabai_config[@]}" || {
+    echo "Error applying yabai config" >&2
+    return 1
+  }
+  yabai "${yabai_spaces[@]}" || {
+    echo "Error applying yabai spaces" >&2
+    return 1
+  }
+}
+
+# ===== Rules ==================================
+add_yabai_rules() {
+  local apps_to_exclude=(
+    "^calculator$"
+    "^Software Update$"
+    "^Dictionary$"
+    "^System Preferences$"
+    "^System Settings$"
+    "^System Information"
+    "^Archive Utility$"
+    "^App Store$"
+    "^Raycast$"
+    "^Activity Monitor$"
+    "^Telegram$"
+    "^Finder$"
+    "^Shottr$"
+  )
+
+  for app in "${apps_to_exclude[@]}"; do
+    yabai -m rule --add app="$app" manage=off || echo "Failed to add rule for $app" >&2
+  done
+
+  # Define workspace variables
+  main_space=1
+  code_space=2
+  misc_space=3
+  music_space=4
+  discord_space=5
+
+  # Global Rules - Using variables for workspace assignment
+  yabai -m rule --add app="^Chromium$" space=$main_space || echo "Failed to add Chromium rule" >&2
+  yabai -m rule --add app="^Helium$" space=$main_space || echo "Failed to add Helium rule" >&2
+  yabai -m rule --add app="^Zed$" space=$code_space || echo "Failed to add Zed rule" >&2
+  yabai -m rule --add app="^Ghostty$" space=$misc_space || echo "Failed to add Ghostty rule" >&2
+  yabai -m rule --add app="^Spotify$" space=$music_space || echo "Failed to add Spotify rule" >&2
+  yabai -m rule --add app="^Music$" space=$music_space || echo "Failed to add Apple Music rule" >&2
+  yabai -m rule --add app="^Discord$" space=$discord_space || echo "Failed to add Discord rule" >&2
+  yabai -m rule --add app="^YouTube Music$" space=$music_space || echo "Failed to add YouTube Music rule" >&2
+  yabai -m rule --add app=".*" sub-layer=normal || echo "Failed to add sub-layer rule" >&2
+
+  apply_yabai_rules
+}
+
+apply_yabai_rules() {
+  yabai -m rule --apply || {
+    echo "Error applying rules" >&2
+    return 1
+  }
+}
+
+apply_yabai_config
+add_yabai_rules
+
+set +x
+printf "yabai: configuration loaded...\n"

@@ -1,0 +1,88 @@
+# Show system statistics
+fn + lalt - 1 : "${HOME}"/.config/yabai/scripts/show_cpu.sh
+fn + lalt - 2 : "${HOME}"/.config/yabai/scripts/show_mem.sh
+fn + lalt - 3 : "${HOME}"/.config/yabai/scripts/show_bat.sh
+fn + lalt - 4 : "${HOME}"/.config/yabai/scripts/show_disk.sh
+fn + lalt - 5 : "${HOME}"/.config/yabai/scripts/show_song.sh
+
+# Navigation
+# alt - h : yabai -m window --focus west
+# alt - j : yabai -m window --focus south
+# alt - k : yabai -m window --focus north
+# alt - l : yabai -m window --focus east
+
+# Moving windows
+shift + alt - h : yabai -m window --warp west
+shift + alt - j : yabai -m window --warp south
+shift + alt - k : yabai -m window --warp north
+shift + alt - l : yabai -m window --warp east
+
+# Move focus container to workspace or cycle windows if already focused
+cmd - 1 : yabai -m query --spaces --space | grep '"index" *: 1' && \
+          yabai -m window --focus "$(yabai -m query --windows --space | jq 'map(select(.minimized == 0)) | sort_by(.id) | if any(.focused == 1) then .[index(map(select(.focused == 1))[0]) + 1 % length] else .[0] end.id')" || \
+          yabai -m space --focus 1
+cmd - 2 : yabai -m query --spaces --space | grep '"index" *: 2' && \
+          yabai -m window --focus "$(yabai -m query --windows --space | jq 'map(select(.minimized == 0)) | sort_by(.id) | if any(.focused == 1) then .[index(map(select(.focused == 1))[0]) + 1 % length] else .[0] end.id')" || \
+          yabai -m space --focus 2
+cmd - 3 : yabai -m query --spaces --space | grep '"index" *: 3' && \
+          yabai -m window --focus "$(yabai -m query --windows --space | jq 'map(select(.minimized == 0)) | sort_by(.id) | if any(.focused == 1) then .[index(map(select(.focused == 1))[0]) + 1 % length] else .[0] end.id')" || \
+          yabai -m space --focus 3
+cmd - 4 : yabai -m query --spaces --space | grep '"index" *: 4' && \
+          yabai -m window --focus "$(yabai -m query --windows --space | jq 'map(select(.minimized == 0)) | sort_by(.id) | if any(.focused == 1) then .[index(map(select(.focused == 1))[0]) + 1 % length] else .[0] end.id')" || \
+          yabai -m space --focus 4
+cmd - 5 : yabai -m query --spaces --space | grep '"index" *: 5' && \
+          yabai -m window --focus "$(yabai -m query --windows --space | jq 'map(select(.minimized == 0)) | sort_by(.id) | if any(.focused == 1) then .[index(map(select(.focused == 1))[0]) + 1 % length] else .[0] end.id')" || \
+          yabai -m space --focus 5
+cmd - 6 : yabai -m query --spaces --space | grep '"index" *: 6' && \
+          yabai -m window --focus "$(yabai -m query --windows --space | jq 'map(select(.minimized == 0)) | sort_by(.id) | if any(.focused == 1) then .[index(map(select(.focused == 1))[0]) + 1 % length] else .[0] end.id')" || \
+          yabai -m space --focus 6
+
+cmd + shift - 1 : yabai -m window --space 1
+cmd + shift - 2 : yabai -m window --space 2
+cmd + shift - 3 : yabai -m window --space 3
+cmd + shift - 4 : yabai -m window --space 4
+cmd + shift - 5 : yabai -m window --space 5
+
+# Resize windows
+lctrl + alt - h : yabai -m window --resize left:-50:0; \
+                  yabai -m window --resize right:-50:0
+lctrl + alt - j : yabai -m window --resize bottom:0:50; \
+                  yabai -m window --resize top:0:50
+lctrl + alt - k : yabai -m window --resize top:0:-50; \
+                  yabai -m window --resize bottom:0:-50
+lctrl + alt - l : yabai -m window --resize right:50:0; \
+                  yabai -m window --resize left:50:0
+
+# Equalize size of windows
+lctrl + alt - e : yabai -m space --balance
+
+# Enable / Disable gaps in current workspace
+lctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
+
+# Rotate windows clockwise and anticlockwise
+alt - r         : yabai -m space --rotate 270
+shift + alt - r : yabai -m space --rotate 90
+
+# Rotate on X and Y Axis
+shift + alt - x : yabai -m space --mirror x-axis
+shift + alt - y : yabai -m space --mirror y-axis
+
+# Set insertion point for focused container
+shift + lctrl + alt - h : yabai -m window --insert west
+shift + lctrl + alt - j : yabai -m window --insert south
+shift + lctrl + alt - k : yabai -m window --insert north
+shift + lctrl + alt - l : yabai -m window --insert east
+
+# Float / Unfloat window
+shift + alt - space : \
+    yabai -m window --toggle float; \
+    yabai -m window --toggle border
+
+# Restart Yabai
+shift + lctrl + alt - r : \
+    /usr/bin/env osascript <<< \
+        "display notification \"Restarting Yabai\" with title \"Yabai\""; \
+    launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+# Make window native fullscreen
+alt - f         : yabai -m window --toggle zoom-fullscreen

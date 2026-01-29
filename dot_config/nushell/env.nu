@@ -5,6 +5,8 @@ $env.RUSTC_WRAPPER = "sccache"
 
 let extra_paths = [
     ($env.HOME | path join .opencode bin)
+    ($env.HOME | path join .local bin)
+    ($env.HOME | path join .cargo bin)
 ]
 
 $env.PATH = ($env.PATH

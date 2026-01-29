@@ -79,7 +79,8 @@
 			"show_edit_predictions": true
 		},
 		"C": {
-			"show_edit_predictions": true
+			"show_edit_predictions": true,
+			"tab_size": 2
 		},
 		"Svelte": {
 			"tab_size": 2

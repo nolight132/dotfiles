@@ -14,11 +14,11 @@ def lss [path?: path] {
     }
 }
 
-{{- if eq .chezmoi.osRelease.id "arch" }}
+{{ if eq .chezmoi.osRelease.id "cachyos" }}
 export alias zed = zeditor .
-{{- end}}
-{{- if eq .chezmoi.osRelease.id "fedora" }}
+{{ end}}
+{{- if eq .chezmoi.osRelease.id "fedora-asahi-remix" }}
 export alias zed = zed .
-{{- end}}
+{{ end}}
 export alias cat = bat
 export alias zj = zellij attach -c term

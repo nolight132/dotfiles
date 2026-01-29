@@ -11,7 +11,23 @@ let extra_paths = [
 ]
 
 $env.PATH = ($env.PATH
-    | append $extra_paths
+    | append ($extra_paths | where { |p| $p | path exists })
     | path expand
     | uniq
 )
+
+let nix_share = ($env.HOME | path join .nix-profile share)
+
+if ($nix_share | path exists) {
+    let current_xdg = if "XDG_DATA_DIRS" in $env {
+        $env.XDG_DATA_DIRS | split-row (char esep)
+    } else {
+        ["/usr/local/share", "/usr/share"]
+    }
+
+    $env.XDG_DATA_DIRS = ($current_xdg
+        | append $nix_share
+        | uniq
+        | str join (char esep)
+    )
+}

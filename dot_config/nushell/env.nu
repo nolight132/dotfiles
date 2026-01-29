@@ -7,6 +7,7 @@ let extra_paths = [
     ($env.HOME | path join .opencode bin)
     ($env.HOME | path join .local bin)
     ($env.HOME | path join .cargo bin)
+    ($env.HOME | path join .nix-profile bin)
 ]
 
 $env.PATH = ($env.PATH

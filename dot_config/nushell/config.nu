@@ -60,6 +60,15 @@ source ~/.zoxide.nu
 use aliases.nu *
 plugin use gstat
 if ("~/.env.nu" | path exists) { source ~/.env.nu }
+
+def start_zellij [] {
+  if 'ZELLIJ' not-in ($env | columns) {
+      zj
+  }
+}
+
+start_zellij
+
 $env.config.hooks.pre_execution = [
     { ||
         let cmd = (commandline | split row ' ' | first)

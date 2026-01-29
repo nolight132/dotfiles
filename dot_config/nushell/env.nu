@@ -20,7 +20,7 @@ let nix_share = ($env.HOME | path join .nix-profile share)
 
 if ($nix_share | path exists) {
     let current_xdg = if "XDG_DATA_DIRS" in $env {
-        $env.XDG_DATA_DIRS | split-row (char esep)
+        $env.XDG_DATA_DIRS | split row (char esep)
     } else {
         ["/usr/local/share", "/usr/share"]
     }

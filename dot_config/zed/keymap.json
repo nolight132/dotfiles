@@ -2,26 +2,19 @@
 	{
 		"context": "Editor && vim_mode == normal && vim_operator == none && !vim_waiting",
 		"bindings": {
-			"cmd-b": "project_panel::ToggleFocus",
-			"space e": "workspace::ToggleRightDock",
+			"space e": "workspace::ToggleLeftDock",
 			"cmd-g": "git_panel::ToggleFocus"
 		}
 	},
 	{
 		"context": "ProjectPanel",
 		"bindings": {
-			"space e": null
+			"space e": "workspace::ToggleLeftDock"
 		}
 	},
+
 	{
-		"context": "Editor && vim_mode == insert && !menu",
-		"bindings": {
-			// ~~~~~~ Insert Mode
-			"j k": "vim::SwitchToNormalMode"
-		}
-	},
-	{
-		"context": "Editor && vim_mode == insert && menu",
+		"context": "Editor && vim_mode == insert",
 		"bindings": {
 			// ~~~~~~ Insert Mode
 			"j k": "vim::SwitchToNormalMode"

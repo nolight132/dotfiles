@@ -1,9 +1,18 @@
+{{ if ne .chezmoi.os "darwin" }}
 config-file = ~/.cache/wal/ghostty.conf
+{{ end }}
+macos-option-as-alt = true
 background-opacity = 0.8
 background-opacity-cells = true
-background-blur-radius = 0
+{{ if eq .chezmoi.os "darwin" }}
+background-blur-radius = 60
+{{ end }}
 font-family = JetBrains Mono Medium
+{{ if eq .chezmoi.os "darwin" }}
+font-size = 14
+{{ else }}
 font-size = 11
+{{ end }}
 font-feature = "-calt"
 font-feature = "-liga"
 font-feature = "-dlig"

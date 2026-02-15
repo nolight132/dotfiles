@@ -38,7 +38,8 @@
 		"allowed": false
 	},
 	"edit_predictions": {
-		"mode": "subtle",
+		"provider": "copilot",
+  "mode": "subtle",
 		"copilot": {
 			"proxy": null,
 			"proxy_no_verify": null,
@@ -134,7 +135,7 @@
 	"project_panel": {
 		"button": true,
 		"default_width": 420,
-		"dock": "right",
+		"dock": "left",
 		"file_icons": true,
 		"folder_icons": true,
 		"git_status": true,
@@ -165,9 +166,6 @@
 			"horizontal": true,
 			"vertical": true
 		}
-	},
-	"features": {
-		"edit_prediction_provider": "copilot"
 	},
 	"format_on_save": "on",
 	"calls": {

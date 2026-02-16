@@ -117,8 +117,8 @@
 		"dock": "right",
 		"default_profile": "write",
 		"default_model": {
-			"provider": "google",
-			"model": "gemini-3-flash-preview"
+			"provider": "copilot_chat",
+			"model": "claude-sonnet-4.5"
 		}
 	},
 	"buffer_font_family": "JetBrains Mono",

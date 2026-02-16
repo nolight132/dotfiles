@@ -390,12 +390,11 @@ on_force_close "quit"
 // Examples:
 //
 // copy_command "xclip -selection clipboard" // x11
+{{ if eq .chezmoi.os "darwin" }}
+copy_command "pbcopy"                     // osx
+{{ else if eq .chezmoi.os "linux" }}
 copy_command "wl-copy"                    // wayland
-// copy_command "pbcopy"                     // osx
-//
-// copy_command "pbcopy"
-
-// Choose the destination for copied text
+{{ end }}
 // Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
 // Does not apply when using copy_command.
 // Options:

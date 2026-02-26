@@ -68,20 +68,8 @@ apply_yabai_config() {
     window_zoom_persist off
   )
 
-  local yabai_spaces=(
-    -m space 1 --label main
-    -m space 2 --label code
-    -m space 3 --label misc
-    -m space 4 --label music
-    -m space 5 --label discord
-  )
-
   yabai "${yabai_config[@]}" || {
     echo "Error applying yabai config" >&2
-    return 1
-  }
-  yabai "${yabai_spaces[@]}" || {
-    echo "Error applying yabai spaces" >&2
     return 1
   }
 }
@@ -112,11 +100,11 @@ add_yabai_rules() {
   main_space=1
   code_space=2
   misc_space=3
-  music_space=4
-  discord_space=5
+  discord_space=4
+  music_space=5
 
   # Global Rules - Using variables for workspace assignment
-  yabai -m rule --add app="^Chromium$" space=$main_space || echo "Failed to add Chromium rule" >&2
+  yabai -m rule --add app="^Zen$" space=$main_space || echo "Failed to add Zen rule" >&2
   yabai -m rule --add app="^Helium$" space=$main_space || echo "Failed to add Helium rule" >&2
   yabai -m rule --add app="^Zed$" space=$code_space || echo "Failed to add Zed rule" >&2
   yabai -m rule --add app="^Ghostty$" space=$misc_space || echo "Failed to add Ghostty rule" >&2

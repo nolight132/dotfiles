@@ -8,16 +8,17 @@
 // command palette
 {
 	"agent_servers": {
-  "opencode": {
-   "type": "extension",
-   "default_mode": "orchestrator",
-   "favorite_models": [],
-   "default_config_options": {},
-   "favorite_config_option_values": {}
-  }
- },
- "show_edit_predictions": true,
- "diagnostics": {
+		"opencode": {
+			"default_model": "google/claude-sonnet-4-5-thinking",
+			"type": "extension",
+			"default_mode": "orchestrator",
+			"favorite_models": [],
+			"default_config_options": {},
+			"favorite_config_option_values": {}
+		}
+	},
+	"show_edit_predictions": true,
+	"diagnostics": {
 		"inline": {
 			"enabled": true
 		}
@@ -39,7 +40,7 @@
 	},
 	"edit_predictions": {
 		"provider": "copilot",
-  "mode": "subtle",
+		"mode": "subtle",
 		"copilot": {
 			"proxy": null,
 			"proxy_no_verify": null,
@@ -61,8 +62,27 @@
 		"source.fixAll.biome": true
 	},
 	"languages": {
-		"JavaScript": { "formatter": { "language_server": { "name": "biome" } } },
-		"TypeScript": { "formatter": { "language_server": { "name": "biome" } } },
+		"JavaScript": {
+			"formatter": { "language_server": { "name": "biome" } },
+			"language_servers": [
+				"!tsgo",
+				"!eslint",
+				// "!typescript-language-server",
+				"!tailwindcss-language-server",
+				"..."
+			]
+		},
+		"TypeScript": {
+			"formatter": { "language_server": { "name": "biome" } },
+			"language_servers": [
+				"!tsgo",
+				"!vtsls",
+				"!eslint",
+				// "!typescript-language-server",
+				"!tailwindcss-language-server",
+				"..."
+			]
+		},
 		"TSX": { "formatter": { "language_server": { "name": "biome" } } },
 		"JSON": { "formatter": { "language_server": { "name": "biome" } } },
 		"JSONC": { "formatter": { "language_server": { "name": "biome" } } },
@@ -95,6 +115,21 @@
 		}
 	},
 	"lsp": {
+		"vtsls": {
+			"settings": {
+				"typescript": {
+					"updateImportsOnFileMove": {
+						"enabled": "always"
+					}
+				},
+				"javascript": {
+					"updateImportsOnFileMove": {
+						"enabled": "always"
+					}
+				}
+			},
+			"enable_lsp_tasks": true
+		},
 		"basedpyright": {
 			"settings": {
 				"analysis": {
@@ -109,11 +144,13 @@
 		}
 	},
 	"agent": {
+		"tool_permissions": {
+			"default": "allow"
+		},
 		"inline_assistant_model": {
 			"provider": "copilot_chat",
 			"model": "gpt-5-mini"
 		},
-		"always_allow_tool_actions": true,
 		"dock": "right",
 		"default_profile": "write",
 		"default_model": {

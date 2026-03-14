@@ -1,0 +1,14 @@
+[config]
+wallpaper_tool = "None"
+
+[colors]
+terminal_colors = true
+
+[templates.ghostty]
+input_path = '~/.config/matugen/templates/ghostty.conf'
+output_path = '~/.config/ghostty/themes/matugen'
+post_hook = 'pkill -SIGUSR2 ghostty'
+
+[templates.zed]
+input_path = '~/.config/matugen/templates/zed.json'
+output_path = '~/.config/zed/themes/matugen.json'

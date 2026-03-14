@@ -7,16 +7,6 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
-	"agent_servers": {
-		"opencode": {
-			"default_model": "google/claude-sonnet-4-5-thinking",
-			"type": "extension",
-			"default_mode": "orchestrator",
-			"favorite_models": [],
-			"default_config_options": {},
-			"favorite_config_option_values": {}
-		}
-	},
 	"show_edit_predictions": true,
 	"diagnostics": {
 		"inline": {
@@ -37,16 +27,6 @@
 	"helix_mode": false,
 	"prettier": {
 		"allowed": false
-	},
-	"edit_predictions": {
-		"provider": "copilot",
-		"mode": "subtle",
-		"copilot": {
-			"proxy": null,
-			"proxy_no_verify": null,
-			"enterprise_uri": null
-		},
-		"enabled_in_text_threads": false
 	},
 	"icon_theme": "Zed (Default)",
 	"git_panel": {
@@ -73,6 +53,7 @@
 			]
 		},
 		"TypeScript": {
+			"show_edit_predictions": true,
 			"formatter": { "language_server": { "name": "biome" } },
 			"language_servers": [
 				"!tsgo",
@@ -144,18 +125,37 @@
 		}
 	},
 	"agent": {
-		"tool_permissions": {
-			"default": "allow"
+		"default_model": {
+			"enable_thinking": false,
+			"provider": "lmstudio",
+			"model": "mistralai/devstral-small-2-2512"
 		},
 		"inline_assistant_model": {
-			"provider": "copilot_chat",
-			"model": "gpt-5-mini"
+			"provider": "lmstudio",
+			"model": "mistralai/devstral-small-2-2512"
 		},
-		"dock": "right",
-		"default_profile": "write",
-		"default_model": {
-			"provider": "copilot_chat",
-			"model": "claude-sonnet-4.5"
+		"tool_permissions": {
+			"tools": {
+				"save_file": {
+					"default": "allow"
+				},
+				"terminal": {
+					"default": "allow"
+				}
+			}
+		},
+		"default_profile": "write"
+	},
+	"edit_predictions": {
+		"mode": "subtle",
+		"ollama": {
+			"api_url": "http://localhost:11434/v1/"
+		},
+		"provider": "zed",
+		"open_ai_compatible_api": {
+			"prompt_format": "qwen",
+			"model": "qwen/qwen2.5-coder-14b",
+			"api_url": "http://127.0.0.1:1234/v1/completions/"
 		}
 	},
 	"buffer_font_family": "JetBrains Mono",
@@ -167,7 +167,7 @@
 	"theme": {
 		"mode": "system",
 		"light": "Rosé Pine Dawn",
-		"dark": "Wal-Transparent"
+		"dark": "Matugen-Transparent"
 	},
 	"project_panel": {
 		"button": true,

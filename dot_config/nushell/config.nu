@@ -69,16 +69,8 @@ def start_zellij [] {
 
 start_zellij
 
-$env.config.hooks.pre_execution = [
-    { ||
-        let cmd = (commandline | split row ' ' | first)
-        ^zellij action rename-tab $cmd
-    }
-]
-
 $env.config.hooks.pre_prompt = [
     { ||
-        # This resets the tab name to the shell name when the command finishes
         ^zellij action rename-tab "nu"
     }
 ]

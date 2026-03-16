@@ -7,6 +7,41 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+	"language_models": {
+		"openai_compatible": {
+			"LM-Studio": {
+				"api_url": "http://localhost:1234/v1",
+				"available_models": [
+					{
+						"name": "mistralai/devstral-small-2-2512",
+						"max_tokens": 200000,
+						"max_output_tokens": 32000,
+						"max_completion_tokens": 200000,
+						"capabilities": {
+							"tools": true,
+							"images": true,
+							"parallel_tool_calls": true,
+							"prompt_cache_key": true,
+							"chat_completions": true
+						}
+					},
+					{
+						"name": "qwen2.5-coder-7b-instruct",
+						"max_tokens": 200000,
+						"max_output_tokens": 32000,
+						"max_completion_tokens": 200000,
+						"capabilities": {
+							"tools": true,
+							"images": false,
+							"parallel_tool_calls": true,
+							"prompt_cache_key": true,
+							"chat_completions": true
+						}
+					}
+				]
+			}
+		}
+	},
 	"show_edit_predictions": true,
 	"diagnostics": {
 		"inline": {
@@ -16,9 +51,10 @@
 	"ui_font_family": ".ZedSans",
 	"buffer_line_height": "comfortable",
 	"telemetry": {
-		"diagnostics": true,
-		"metrics": true
+		"diagnostics": false,
+		"metrics": false
 	},
+	"tab_size": 3,
 	"inlay_hints": {
 		"enabled": false
 	},
@@ -125,10 +161,12 @@
 		}
 	},
 	"agent": {
+		"enable_feedback": false,
+		"single_file_review": true,
 		"default_model": {
 			"enable_thinking": false,
-			"provider": "lmstudio",
-			"model": "mistralai/devstral-small-2-2512"
+			"provider": "LM-Studio",
+			"model": "qwen2.5-coder-7b-instructk"
 		},
 		"inline_assistant_model": {
 			"provider": "lmstudio",
@@ -165,7 +203,7 @@
 		}
 	},
 	"theme": {
-		"mode": "system",
+		"mode": "dark",
 		"light": "Rosé Pine Dawn",
 		"dark": "Matugen-Transparent"
 	},

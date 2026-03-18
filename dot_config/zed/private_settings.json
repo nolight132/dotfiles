@@ -7,6 +7,14 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+	"sticky_scroll": {
+  "enabled": false
+ },
+ "agent_servers": {
+		"codex-acp": {
+			"type": "registry"
+		}
+	},
 	"language_models": {
 		"openai_compatible": {
 			"LM-Studio": {
@@ -107,31 +115,26 @@
 			"formatter": { "language_server": { "name": "biome" } },
 			"language_servers": ["tailwindcss-language-server"]
 		},
-		"Go": {
-			"show_edit_predictions": true
-		},
-		"CMake": {
-			"show_edit_predictions": true
-		},
-		"Shell Script": {
-			"show_edit_predictions": true
-		},
-		"C": {
-			"show_edit_predictions": true,
-			"tab_size": 2
-		},
-		"Svelte": {
-			"tab_size": 2
-		},
 		"Python": {
-			"hard_tabs": true,
 			"format_on_save": "on"
-		},
-		"GDScript": {
-			"hard_tabs": true
 		}
 	},
+	"hard_tabs": true,
 	"lsp": {
+		"rust-analyzer": {
+			"initialization_options": {
+				"rustfmt": {
+					"extraArgs": ["--config", "hard_tabs=true"]
+				}
+			}
+		},
+		"ruff": {
+			"initialization_options": {
+				"format": {
+					"indent-style": "tab"
+				}
+			}
+		},
 		"vtsls": {
 			"settings": {
 				"typescript": {
@@ -164,9 +167,10 @@
 		"enable_feedback": false,
 		"single_file_review": true,
 		"default_model": {
-			"enable_thinking": false,
-			"provider": "LM-Studio",
-			"model": "qwen2.5-coder-7b-instructk"
+			"effort": "high",
+			"enable_thinking": true,
+			"provider": "zed.dev",
+			"model": "claude-sonnet-4-6"
 		},
 		"inline_assistant_model": {
 			"provider": "lmstudio",

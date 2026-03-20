@@ -68,12 +68,7 @@ def start_zellij [] {
 }
 
 start_zellij
-
-$env.config.hooks.pre_prompt = [
-    { ||
-        ^zellij action rename-tab "nu"
-    }
-]
+zellij action rename-tab "nu"
 
 def lss [path?: path] {
     let target = ($path | default ".")

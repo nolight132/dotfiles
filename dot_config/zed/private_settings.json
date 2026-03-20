@@ -8,9 +8,9 @@
 // command palette
 {
 	"sticky_scroll": {
-  "enabled": false
- },
- "agent_servers": {
+		"enabled": false
+	},
+	"agent_servers": {
 		"codex-acp": {
 			"type": "registry"
 		}

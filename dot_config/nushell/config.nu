@@ -68,7 +68,7 @@ def start_zellij [] {
 }
 
 start_zellij
-zellij action rename-tab "nu"
+zellij action rename-tab "•"
 
 def lss [path?: path] {
     let target = ($path | default ".")

@@ -61,14 +61,13 @@ use aliases.nu *
 plugin use gstat
 if ("~/.env.nu" | path exists) { source ~/.env.nu }
 
-def start_zellij [] {
-  if 'ZELLIJ' not-in ($env | columns) {
-      zj
-  }
+def start_tmux [] {
+   if 'TMUX' not-in ($env | columns) {
+      tmux
+   }
 }
 
-start_zellij
-zellij action rename-tab "•"
+start_tmux
 
 def lss [path?: path] {
     let target = ($path | default ".")

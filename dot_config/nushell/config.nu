@@ -105,7 +105,8 @@ let external_completer = {|spans|
 	match $spans.0 {
 		nu => $fish_completer
 		git => $fish_completer
-		asdf => $fish_completer
+		yay => $fish_completer
+		pacman => $fish_completer
 		docker => $fish_completer
 		_ => $carapace_completer
 	} | do $in $spans

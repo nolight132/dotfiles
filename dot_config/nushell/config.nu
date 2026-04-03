@@ -102,14 +102,17 @@ let external_completer = {|spans|
 		$spans
 	}
 
-	match $spans.0 {
-		nu => $fish_completer
-		git => $fish_completer
-		yay => $fish_completer
-		pacman => $fish_completer
-		docker => $fish_completer
-		_ => $carapace_completer
-	} | do $in $spans
+	let fish_results = (try {
+		do $fish_completer $spans
+	} catch {
+		null
+	})
+
+	if ($fish_results == null or ($fish_results | is-empty)) {
+		do $carapace_completer $spans
+	} else {
+		$fish_results
+	}
 }
 
 $env.config.completions.external = {

@@ -17,37 +17,7 @@
 	},
 	"language_models": {
 		"openai_compatible": {
-			"LM-Studio": {
-				"api_url": "http://localhost:1234/v1",
-				"available_models": [
-					{
-						"name": "mistralai/devstral-small-2-2512",
-						"max_tokens": 200000,
-						"max_output_tokens": 32000,
-						"max_completion_tokens": 200000,
-						"capabilities": {
-							"tools": true,
-							"images": true,
-							"parallel_tool_calls": true,
-							"prompt_cache_key": true,
-							"chat_completions": true
-						}
-					},
-					{
-						"name": "qwen2.5-coder-7b-instruct",
-						"max_tokens": 200000,
-						"max_output_tokens": 32000,
-						"max_completion_tokens": 200000,
-						"capabilities": {
-							"tools": true,
-							"images": false,
-							"parallel_tool_calls": true,
-							"prompt_cache_key": true,
-							"chat_completions": true
-						}
-					}
-				]
-			}
+			
 		}
 	},
 	"show_edit_predictions": true,
@@ -176,13 +146,13 @@
 		"single_file_review": true,
 		"default_model": {
 			"effort": "high",
-			"enable_thinking": true,
-			"provider": "zed.dev",
-			"model": "claude-sonnet-4-6"
+			"enable_thinking": false,
+			"provider": "copilot_chat",
+			"model": "gpt-5.4-mini"
 		},
 		"inline_assistant_model": {
-			"provider": "lmstudio",
-			"model": "mistralai/devstral-small-2-2512"
+			"provider": "copilot_chat",
+			"model": "grok-code-fast-1"
 		},
 		"tool_permissions": {
 			"tools": {

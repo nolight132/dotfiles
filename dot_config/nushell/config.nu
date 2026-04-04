@@ -13,6 +13,14 @@ $env.config = {
 		vi_normal: block
 	}
 
+	highlight_resolved_externals: true
+
+	color_config: ($env.config.color_config | merge {
+		shape_external: "light_red"
+		shape_external_resolved: "cyan_bold"
+		shape_internalcall: "cyan_bold"
+	})
+
 	keybindings: [
 		{
 			name: multi_stage_tab

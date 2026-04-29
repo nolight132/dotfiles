@@ -16,14 +16,14 @@
 				"editor.invisible": "{{colors.outline.dark.hex}}44",
 				"editor.wrap_guide": "{{colors.outline.dark.hex}}11",
 				"editor.active_wrap_guide": "{{colors.primary.dark.hex | lighten: 40}}33",
-				"editor.highlighted_line.background": "{{colors.primary.dark.hex | lighten: 40}}22",
-				"editor.document_highlight.read_background": "{{colors.primary.dark.hex | lighten: 40}}55",
-				"editor.document_highlight.write_background": "{{colors.primary.dark.hex | lighten: 40}}77",
+				"editor.highlighted_line.background": "{{colors.primary_container.dark.hex}}44",
+				"editor.document_highlight.read_background": "{{colors.primary_container.dark.hex}}66",
+				"editor.document_highlight.write_background": "{{colors.primary_container.dark.hex}}88",
 
 				"border": "{{colors.background.dark.hex}}00",
 				"border.variant": "{{colors.background.dark.hex}}00",
-				"border.focused": "{{colors.primary.dark.hex | lighten: 40}}66",
-				"border.selected": "{{colors.primary.dark.hex | lighten: 40}}66",
+				"border.focused": "{{colors.primary.dark.hex}}99",
+				"border.selected": "{{colors.primary.dark.hex}}99",
 
 				"text": "#e0def4",
 				"text.muted": "{{colors.outline.dark.hex}}",
@@ -47,7 +47,7 @@
 				"element.background": "transparent",
 				"element.hover": "{{colors.on_surface_variant.dark.hex}}22",
 				"element.active": "{{colors.on_surface_variant.dark.hex}}44",
-				"element.selected": "{{colors.primary.dark.hex | lighten: 30}}33",
+				"element.selected": "{{colors.primary_container.dark.hex}}aa",
 
 				"scrollbar.thumb.background": "{{colors.outline.dark.hex}}40",
 				"scrollbar.thumb.hover_background": "{{colors.outline.dark.hex}}66",
@@ -77,44 +77,44 @@
 
 				"players": [
 					{
-						"cursor": "{{colors.primary.dark.hex | lighten: 40}}",
-						"background": "{{colors.primary.dark.hex | lighten: 40}}",
-						"selection": "{{colors.primary.dark.hex | lighten: 40}}3d"
+						"cursor": "{{colors.primary.dark.hex}}",
+						"background": "{{colors.primary.dark.hex}}",
+						"selection": "{{colors.primary_container.dark.hex}}aa"
 					},
 					{
 						"cursor": "{{colors.error.dark.hex}}",
 						"background": "{{colors.error.dark.hex}}",
-						"selection": "{{colors.error.dark.hex}}3d"
+						"selection": "{{colors.error_container.dark.hex}}99"
 					},
 					{
-						"cursor": "{{colors.primary.dark.hex | lighten: 40}}",
-						"background": "{{colors.primary.dark.hex | lighten: 40}}",
-						"selection": "{{colors.primary.dark.hex | lighten: 40}}3d"
+						"cursor": "{{colors.primary.dark.hex}}",
+						"background": "{{colors.primary.dark.hex}}",
+						"selection": "{{colors.primary_container.dark.hex}}aa"
 					},
 					{
 						"cursor": "{{colors.tertiary.dark.hex}}",
 						"background": "{{colors.tertiary.dark.hex}}",
-						"selection": "{{colors.tertiary.dark.hex}}3d"
+						"selection": "{{colors.tertiary_container.dark.hex}}99"
 					},
 					{
 						"cursor": "{{colors.inverse_primary.dark.hex}}",
 						"background": "{{colors.inverse_primary.dark.hex}}",
-						"selection": "{{colors.inverse_primary.dark.hex}}3d"
+						"selection": "{{colors.inverse_primary.dark.hex}}66"
 					},
 					{
 						"cursor": "{{colors.primary_container.dark.hex}}",
 						"background": "{{colors.primary_container.dark.hex}}",
-						"selection": "{{colors.primary_container.dark.hex}}3d"
+						"selection": "{{colors.primary_container.dark.hex}}aa"
 					},
 					{
 						"cursor": "{{colors.on_surface_variant.dark.hex}}",
 						"background": "{{colors.on_surface_variant.dark.hex}}",
-						"selection": "{{colors.on_surface_variant.dark.hex}}3d"
+						"selection": "{{colors.surface_variant.dark.hex}}aa"
 					},
 					{
 						"cursor": "{{colors.outline.dark.hex}}",
 						"background": "{{colors.outline.dark.hex}}",
-						"selection": "{{colors.outline.dark.hex}}3d"
+						"selection": "{{colors.outline.dark.hex}}66"
 					}
 				],
 
@@ -161,7 +161,10 @@
 					"punctuation": { "color": "#908caa" },
 					"punctuation.bracket": { "color": "#908caa" },
 					"punctuation.delimiter": { "color": "#908caa" },
-					"punctuation.list_marker": { "color": "#908caa", "font_weight": 700 },
+					"punctuation.list_marker": {
+						"color": "#908caa",
+						"font_weight": 700
+					},
 					"punctuation.special": { "color": "#31748f" },
 					"string": { "color": "#f6c177" },
 					"string.escape": { "color": "#f6c177" },

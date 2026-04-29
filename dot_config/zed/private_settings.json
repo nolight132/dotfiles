@@ -7,187 +7,215 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+	"diff_view_style": "unified",
+ "cli_default_open_behavior": "new_window",
+	"outline_panel": {
+		"dock": "left",
+	},
+	"collaboration_panel": {
+		"dock": "left",
+	},
+	"terminal": {
+		"flexible": true,
+	},
 	"sticky_scroll": {
-		"enabled": false
+		"enabled": false,
 	},
 	"agent_servers": {
+		"claude-acp": {
+   "type": "registry"
+  },
+  "opencode": {
+			"default_config_options": {
+				"model": "openai/gpt-5.5/medium",
+			},
+			"favorite_config_option_values": {
+				"model": [
+					"openai/gpt-5.5/medium",
+					"openai/gpt-5.5/xhigh",
+					"openai/gpt-5.5-fast/medium",
+				],
+			},
+			"type": "registry",
+		},
 		"codex-acp": {
-			"type": "registry"
-		}
+			"type": "registry",
+		},
 	},
 	"language_models": {
-		"openai_compatible": {
-			
-		}
+		"openai_compatible": {},
 	},
 	"show_edit_predictions": true,
 	"diagnostics": {
 		"inline": {
-			"enabled": true
-		}
+			"enabled": true,
+		},
+	},
+	"languages": {
+		"Svelte": {
+			"formatter": "prettier",
+			"language_servers": [
+				"svelte-language-server",
+				"eslint",
+				"!biome",
+				"...",
+			],
+		},
+		"CSS": {
+			"formatter": "prettier",
+			"language_servers": [
+				"tailwindcss-intellisense-css",
+				"!vscode-css-language-server",
+				"...",
+			],
+		},
 	},
 	"ui_font_family": ".ZedSans",
 	"buffer_line_height": "comfortable",
 	"telemetry": {
 		"diagnostics": false,
-		"metrics": false
+		"metrics": false,
 	},
 	"tab_size": 3,
 	"inlay_hints": {
-		"enabled": false
+		"enabled": false,
 	},
 	"show_signature_help_after_edits": true,
 	"auto_signature_help": false,
 	"helix_mode": false,
 	"prettier": {
-		"allowed": false
+		"allowed": true,
 	},
 	"icon_theme": "Zed (Default)",
 	"git_panel": {
-		"dock": "right"
+		"dock": "right",
 	},
 	"buffer_font_size": 14.0,
 	"vim_mode": true,
 	"vim": {
-		"toggle_relative_line_numbers": true
-	},
-	"code_actions_on_format": {
-		"source.organizeImports.biome": true,
-		"source.fixAll.biome": true
-	},
-	"languages": {
-		"JavaScript": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"language_servers": ["biome", "typescript-language-server"]
-		},
-		"TypeScript": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"language_servers": ["biome", "typescript-language-server"]
-		},
-		"JSX": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"language_servers": [
-				"biome",
-				"typescript-language-server",
-				"tailwindcss-language-server"
-			]
-		},
-		"TSX": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"language_servers": [
-				"biome",
-				"typescript-language-server",
-				"tailwindcss-language-server"
-			]
-		},
-		"JSON": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"language_servers": ["biome"]
-		},
-		"JSONC": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"language_servers": ["biome"]
-		},
-		"CSS": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"language_servers": [
-				"biome",
-				"tailwindcss-language-server",
-				"vscode-css-language-server"
-			]
-		}
+		"toggle_relative_line_numbers": true,
 	},
 	"hard_tabs": true,
 	"lsp": {
+		"tailwindcss-language-server": {
+			"settings": {
+				"includeLanguages": {
+					"svelte": "html",
+				},
+				"experimental": {
+					"classRegex": [
+						"class=\"([^\"]*)\"",
+						"class='([^']*)'",
+						"class:\\s*([^\\s{]+)",
+						"\\{\\s*class:\\s*\"([^\"]*)\"",
+						"\\{\\s*class:\\s*'([^']*)'",
+					],
+				},
+			},
+		},
 		"rust-analyzer": {
 			"initialization_options": {
 				"rustfmt": {
-					"extraArgs": ["--config", "hard_tabs=true"]
-				}
-			}
+					"extraArgs": ["--config", "hard_tabs=true"],
+				},
+			},
 		},
 		"ruff": {
 			"initialization_options": {
 				"format": {
-					"indent-style": "tab"
-				}
-			}
+					"indent-style": "tab",
+				},
+			},
 		},
 		"typescript-language-server": {
 			"settings": {
 				"typescript": {
 					"updateImportsOnFileMove": {
-						"enabled": "always"
-					}
+						"enabled": "always",
+					},
 				},
 				"javascript": {
 					"updateImportsOnFileMove": {
-						"enabled": "always"
-					}
-				}
+						"enabled": "always",
+					},
+				},
 			},
-			"enable_lsp_tasks": true
+			"enable_lsp_tasks": true,
 		},
 		"basedpyright": {
 			"settings": {
 				"analysis": {
 					"diagnosticMode": "workspace",
 					"inlayHints.callArgumentNames": false,
-					"useLibraryCodeForTypes": true
+					"useLibraryCodeForTypes": true,
 				},
 				"python": {
-					"pythonPath": ".venv/bin/python"
-				}
-			}
-		}
+					"pythonPath": ".venv/bin/python",
+				},
+			},
+		},
 	},
 	"agent": {
+		"sidebar_side": "right",
+		"dock": "right",
 		"enable_feedback": false,
 		"single_file_review": true,
 		"default_model": {
 			"effort": "high",
 			"enable_thinking": false,
 			"provider": "copilot_chat",
-			"model": "gpt-5.4-mini"
+			"model": "gpt-5.4-mini",
 		},
 		"inline_assistant_model": {
-			"provider": "copilot_chat",
-			"model": "grok-code-fast-1"
+			"provider": "zed.dev",
+			"model": "",
 		},
 		"tool_permissions": {
 			"tools": {
+				"delete_path": {
+					"default": "allow",
+				},
+				"copy_path": {
+					"default": "allow",
+				},
+				"create_directory": {
+					"default": "allow",
+				},
+				"edit_file": {
+					"default": "allow",
+				},
 				"save_file": {
-					"default": "allow"
+					"default": "allow",
 				},
 				"terminal": {
-					"default": "allow"
-				}
-			}
+					"default": "allow",
+				},
+			},
 		},
-		"default_profile": "write"
+		"default_profile": "write",
 	},
 	"edit_predictions": {
 		"mode": "subtle",
 		"ollama": {
-			"api_url": "http://localhost:11434/v1/"
-		},
+   "api_url": ""
+  },
 		"provider": "zed",
 		"open_ai_compatible_api": {
-			"prompt_format": "qwen",
-			"model": "qwen/qwen2.5-coder-14b",
-			"api_url": "http://127.0.0.1:1234/v1/completions/"
-		}
+			"model": "",
+   "api_url": "",
+   "prompt_format": "infer",
+		},
 	},
 	"buffer_font_family": "JetBrains Mono",
 	"git": {
 		"inline_blame": {
-			"enabled": true
-		}
+			"enabled": true,
+		},
 	},
 	"theme": {
 		"mode": "dark",
 		"light": "Rosé Pine Dawn",
-		"dark": "Matugen-Transparent"
+		"dark": "Matugen-Transparent",
 	},
 	"project_panel": {
 		"button": true,
@@ -200,18 +228,18 @@
 		"auto_reveal_entries": true,
 		"auto_fold_dirs": true,
 		"scrollbar": {
-			"show": null
+			"show": null,
 		},
 		"indent_guides": {
-			"show": "always"
-		}
+			"show": "always",
+		},
 	},
 	"tabs": {
 		"close_position": "right",
 		"file_icons": true,
 		"git_status": false,
 		"activate_on_close": "history",
-		"show_close_button": "hover"
+		"show_close_button": "hover",
 	},
 	"scrollbar": {
 		"show": "auto",
@@ -221,12 +249,12 @@
 		"selected_symbol": true,
 		"axes": {
 			"horizontal": true,
-			"vertical": true
-		}
+			"vertical": true,
+		},
 	},
 	"format_on_save": "on",
 	"calls": {
 		"mute_on_join": false,
-		"share_on_join": true
-	}
+		"share_on_join": true,
+	},
 }

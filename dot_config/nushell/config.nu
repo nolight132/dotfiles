@@ -56,7 +56,11 @@ plugin use gstat
 if ("~/.env.nu" | path exists) { source ~/.env.nu }
 
 def start_tmux [] {
-	if 'TMUX' not-in ($env | columns) {
+	if (
+		'TMUX' not-in ($env | columns)
+		and 'SSH_CONNECTION' not-in ($env | columns)
+		and 'SSH_CLIENT' not-in ($env | columns)
+	) {
 		tmux
 	}
 }

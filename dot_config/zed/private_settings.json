@@ -8,7 +8,7 @@
 // command palette
 {
 	"diff_view_style": "unified",
- "cli_default_open_behavior": "new_window",
+	"cli_default_open_behavior": "new_window",
 	"outline_panel": {
 		"dock": "left",
 	},
@@ -23,9 +23,9 @@
 	},
 	"agent_servers": {
 		"claude-acp": {
-   "type": "registry"
-  },
-  "opencode": {
+			"type": "registry",
+		},
+		"opencode": {
 			"default_config_options": {
 				"model": "openai/gpt-5.5/medium",
 			},
@@ -80,7 +80,7 @@
 	"inlay_hints": {
 		"enabled": false,
 	},
-	"show_signature_help_after_edits": true,
+	"show_signature_help_after_edits": false,
 	"auto_signature_help": false,
 	"helix_mode": false,
 	"prettier": {
@@ -97,7 +97,22 @@
 	},
 	"hard_tabs": true,
 	"lsp": {
-		"tailwindcss-language-server": {
+		"vtsls": {
+   "settings": {
+    "typescript": {
+     "updateImportsOnFileMove": {
+      "enabled": "always"
+     }
+    },
+    "javascript": {
+     "updateImportsOnFileMove": {
+      "enabled": "always"
+     }
+    }
+   },
+   "enable_lsp_tasks": true
+  },
+  "tailwindcss-language-server": {
 			"settings": {
 				"includeLanguages": {
 					"svelte": "html",
@@ -156,7 +171,7 @@
 		},
 	},
 	"agent": {
-		"sidebar_side": "right",
+		"sidebar_side": "left",
 		"dock": "right",
 		"enable_feedback": false,
 		"single_file_review": true,
@@ -195,16 +210,9 @@
 		"default_profile": "write",
 	},
 	"edit_predictions": {
+		"allow_data_collection": "no",
 		"mode": "subtle",
-		"ollama": {
-   "api_url": ""
-  },
 		"provider": "zed",
-		"open_ai_compatible_api": {
-			"model": "",
-   "api_url": "",
-   "prompt_format": "infer",
-		},
 	},
 	"buffer_font_family": "JetBrains Mono",
 	"git": {

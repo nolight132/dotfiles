@@ -52,6 +52,7 @@ $env.config = {
 
 source ~/.zoxide.nu
 source ~/.local/share/atuin/init.nu
+source ~/.secret.nu
 use aliases.nu *
 plugin use gstat
 if ("~/.env.nu" | path exists) { source ~/.env.nu }

@@ -19,7 +19,7 @@ set -l extra_paths \
     "$HOME/.local/bin" \
     "$HOME/.cargo/bin" \
     "$HOME/.bun/bin" \
-    "$HOME/.local/share/go"
+    "$HOME/.local/share/go/bin"
 
 switch (uname -s)
     case Darwin

@@ -18,7 +18,8 @@ set -l extra_paths \
     "$HOME/.opencode/bin" \
     "$HOME/.local/bin" \
     "$HOME/.cargo/bin" \
-    "$HOME/.bun/bin"
+    "$HOME/.bun/bin" \
+    "$HOME/.local/share/go"
 
 switch (uname -s)
     case Darwin

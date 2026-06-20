@@ -12,3 +12,24 @@ post_hook = 'pkill -SIGUSR2 ghostty'
 [templates.zed]
 input_path = '~/.config/matugen/templates/zed.json'
 output_path = '~/.config/zed/themes/matugen.json'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk-4.0/gtk.css'
+output_path = '~/.config/gtk-4.0/gtk.css'
+
+[templates.gtk4_colors]
+input_path = '~/.config/matugen/templates/gtk-4.0/colors.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk-3.0/gtk.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
+
+[templates.gtk3_colors]
+input_path = '~/.config/matugen/templates/gtk-3.0/colors.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+
+[templates.kde]
+input_path = '~/.config/matugen/templates/kde-colors.sh'
+output_path = '~/.config/matugen/kde-colors.sh'
+post_hook = 'sh ~/.config/matugen/kde-colors.sh'

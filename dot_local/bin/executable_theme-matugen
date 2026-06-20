@@ -1,0 +1,21 @@
+#!/bin/sh
+set -eu
+
+color="${1:-#5d43c4}"
+mode="${2:-dark}"
+
+case "$color" in
+  \#*) ;;
+  *) color="#$color" ;;
+esac
+
+matugen color hex "$color" --mode "$mode"
+
+# Some apps do not watch GTK CSS files, but they do watch settings changes.
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' >/dev/null 2>&1 || true
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' >/dev/null 2>&1 || true
+gsettings set org.gnome.desktop.interface accent-color 'purple' >/dev/null 2>&1 || true
+
+qdbus6 org.kde.KWin /KWin reconfigure >/dev/null 2>&1 || true
+kbuildsycoca6 >/dev/null 2>&1 || true
+pkill -SIGUSR2 ghostty >/dev/null 2>&1 || true

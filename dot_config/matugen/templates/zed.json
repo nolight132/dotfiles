@@ -5,7 +5,7 @@
 	"themes": [
 		{
 			"appearance": "dark",
-			"name": "Matugen-Transparent",
+			"name": "Rosépuccin",
 			"style": {
 				"editor.background": "{{colors.background.dark.hex}}89",
 				"editor.gutter.background": "{{colors.background.dark.hex}}90",

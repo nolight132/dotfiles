@@ -16,34 +16,13 @@
 		"dock": "left",
 	},
 	"terminal": {
+		"shell": {
+			"program": "bash",
+		},
 		"flexible": true,
 	},
 	"sticky_scroll": {
 		"enabled": false,
-	},
-	"agent_servers": {
-		"claude-acp": {
-			"type": "registry",
-		},
-		"opencode": {
-			"default_config_options": {
-				"model": "openai/gpt-5.5/medium",
-			},
-			"favorite_config_option_values": {
-				"model": [
-					"openai/gpt-5.5/medium",
-					"openai/gpt-5.5/xhigh",
-					"openai/gpt-5.5-fast/medium",
-				],
-			},
-			"type": "registry",
-		},
-		"codex-acp": {
-			"type": "registry",
-		},
-	},
-	"language_models": {
-		"openai_compatible": {},
 	},
 	"show_edit_predictions": true,
 	"diagnostics": {
@@ -98,21 +77,21 @@
 	"hard_tabs": true,
 	"lsp": {
 		"vtsls": {
-   "settings": {
-    "typescript": {
-     "updateImportsOnFileMove": {
-      "enabled": "always"
-     }
-    },
-    "javascript": {
-     "updateImportsOnFileMove": {
-      "enabled": "always"
-     }
-    }
-   },
-   "enable_lsp_tasks": true
-  },
-  "tailwindcss-language-server": {
+			"settings": {
+				"typescript": {
+					"updateImportsOnFileMove": {
+						"enabled": "always",
+					},
+				},
+				"javascript": {
+					"updateImportsOnFileMove": {
+						"enabled": "always",
+					},
+				},
+			},
+			"enable_lsp_tasks": true,
+		},
+		"tailwindcss-language-server": {
 			"settings": {
 				"includeLanguages": {
 					"svelte": "html",
@@ -170,48 +149,9 @@
 			},
 		},
 	},
-	"agent": {
-		"sidebar_side": "left",
-		"dock": "right",
-		"enable_feedback": false,
-		"single_file_review": true,
-		"default_model": {
-			"effort": "high",
-			"enable_thinking": false,
-			"provider": "copilot_chat",
-			"model": "gpt-5.4-mini",
-		},
-		"inline_assistant_model": {
-			"provider": "zed.dev",
-			"model": "",
-		},
-		"tool_permissions": {
-			"tools": {
-				"delete_path": {
-					"default": "allow",
-				},
-				"copy_path": {
-					"default": "allow",
-				},
-				"create_directory": {
-					"default": "allow",
-				},
-				"edit_file": {
-					"default": "allow",
-				},
-				"save_file": {
-					"default": "allow",
-				},
-				"terminal": {
-					"default": "allow",
-				},
-			},
-		},
-		"default_profile": "write",
-	},
 	"edit_predictions": {
 		"allow_data_collection": "no",
-		"mode": "subtle",
+		"mode": "eager",
 		"provider": "zed",
 	},
 	"buffer_font_family": "JetBrains Mono",

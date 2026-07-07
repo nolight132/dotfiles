@@ -1,6 +1,9 @@
 [config]
 wallpaper_tool = "None"
 
+[config.custom_colors]
+green = { color = "#3fb950", blend = true }
+
 [colors]
 terminal_colors = true
 

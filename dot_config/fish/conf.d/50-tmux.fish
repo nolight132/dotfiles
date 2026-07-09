@@ -1,4 +1,4 @@
-if status is-interactive
+if status is-interactive; and isatty stdout
     if command -sq tmux
         if not set -q TMUX
             if not set -q SSH_CONNECTION; and not set -q SSH_CLIENT

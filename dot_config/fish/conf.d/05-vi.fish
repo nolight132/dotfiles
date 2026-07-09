@@ -1,4 +1,4 @@
-if status is-interactive
+if status is-interactive; and isatty stdout
     fish_vi_key_bindings
     if functions -q fish_user_key_bindings
         fish_user_key_bindings

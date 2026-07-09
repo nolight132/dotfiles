@@ -48,6 +48,23 @@
 				"...",
 			],
 		},
+		"Go": {
+			"formatter": {
+				"language_server": {
+					"name": "gopls",
+				},
+			},
+			"format_on_save": "on",
+			"code_actions_on_format": {
+				"source.organizeImports": true,
+			},
+			"language_servers": [
+				"gopls",
+				"...",
+			],
+			"tab_size": 4,
+			"hard_tabs": true,
+		},
 	},
 	"ui_font_family": ".ZedSans",
 	"buffer_line_height": "comfortable",
@@ -135,6 +152,18 @@
 				},
 			},
 			"enable_lsp_tasks": true,
+		},
+		"gopls": {
+			"settings": {
+				"gofumpt": false,
+				"staticcheck": true,
+				"completeUnimported": true,
+				"usePlaceholders": true,
+				"analyses": {
+					"unusedparams": true,
+					"shadow": true,
+				},
+			},
 		},
 		"basedpyright": {
 			"settings": {

@@ -9,7 +9,6 @@ window-rule {
 
 // screencast privacy
 window-rule {
-	match app-id=r#"^org\.keepassxc\.KeePassXC$"#
 	match app-id=r#"^org\.telegram\.desktop$"#
 
 	block-out-from "screencast"
@@ -26,17 +25,17 @@ window-rule {
 window-rule {
 	match app-id=r#"^zen$"#
 	open-on-workspace "browser"
-	open-maximized true
+	open-maximized-to-edges true
 }
 window-rule {
 	match app-id=r#"^dev\.zed\.Zed$"#
 	open-on-workspace "code"
-	open-maximized true
+	open-maximized-to-edges true
 }
 window-rule {
 	match app-id=r#"^com\.mitchellh\.ghostty$"#
 	open-on-workspace "term"
-	open-maximized true
+	open-maximized-to-edges true
 }
 
 // chat workspace (left monitor, no autostart)
@@ -61,7 +60,7 @@ window-rule {
 // haruna maximized
 window-rule {
 	match app-id=r#"^org\.kde\.haruna$"#
-	open-maximized true
+	open-maximized-to-edges true
 }
 
 // rounded corners (everything except discord, cider, slack)

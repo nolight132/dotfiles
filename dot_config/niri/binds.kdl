@@ -20,8 +20,8 @@ binds {
 	XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
 
 	// brightness
-	XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-	XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+	XF86MonBrightnessUp   allow-when-locked=true { spawn "sh" "-c" "ddcutil --display 1 setvcp 10 + 10 && ddcutil --display 2 setvcp 10 + 10"; }
+	XF86MonBrightnessDown allow-when-locked=true { spawn "sh" "-c" "ddcutil --display 1 setvcp 10 - 10 && ddcutil --display 2 setvcp 10 - 10"; }
 
 	// overview
 	Mod+W repeat=false { toggle-overview; }

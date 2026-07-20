@@ -1,4 +1,5 @@
 .config/nushell/history.txt
+.config/niri/noctalia.kdl
 .config/zed/conversations/**
 .config/nvim/lazy-lock.json
 .config/zellij/plugins/*.wasm

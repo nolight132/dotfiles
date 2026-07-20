@@ -1,0 +1,22 @@
+// startup
+spawn-at-startup "noctalia"
+spawn-at-startup "zen-browser"
+spawn-at-startup "ghostty" "--gtk-single-instance=true"
+prefer-no-csd
+
+// screenshots
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// animations
+animations {
+	slowdown 0.7
+}
+
+include "input.kdl"
+include "outputs.kdl"
+include "workspaces.kdl"
+include "layout.kdl"
+include "window-rules.kdl"
+include "binds.kdl"
+include "noctalia.kdl"
+include "env.kdl"

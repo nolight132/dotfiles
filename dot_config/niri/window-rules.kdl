@@ -1,0 +1,74 @@
+// background blur
+window-rule {
+	match app-id=r#"dev.zed.Zed|ghostty$"#
+	match
+	background-effect {
+		blur true
+	}
+}
+
+// screencast privacy
+window-rule {
+	match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+	match app-id=r#"^org\.telegram\.desktop$"#
+
+	block-out-from "screencast"
+}
+
+// telegram fixed width
+window-rule {
+	match app-id=r#"^org\.telegram\.desktop$"#
+
+	default-column-width { fixed 380; }
+}
+
+// workspace routing + maximize
+window-rule {
+	match app-id=r#"^zen$"#
+	open-on-workspace "browser"
+	open-maximized true
+}
+window-rule {
+	match app-id=r#"^dev\.zed\.Zed$"#
+	open-on-workspace "code"
+	open-maximized true
+}
+window-rule {
+	match app-id=r#"^com\.mitchellh\.ghostty$"#
+	open-on-workspace "term"
+	open-maximized true
+}
+
+// chat workspace (left monitor, no autostart)
+window-rule {
+	match app-id=r#"^cider$"#
+	open-on-workspace "chat"
+	default-column-width { proportion 0.25; }
+}
+window-rule {
+	match app-id=r#"^discord$"#
+	match app-id=r#"(?i)^slack$"#
+	open-on-workspace "chat"
+	default-column-width { proportion 0.75; }
+}
+
+// dolphin floating
+window-rule {
+	match app-id=r#"^org\.kde\.dolphin$"#
+	open-floating true
+}
+
+// haruna maximized
+window-rule {
+	match app-id=r#"^org\.kde\.haruna$"#
+	open-maximized true
+}
+
+// rounded corners (everything except discord, cider, slack)
+window-rule {
+	exclude app-id=r#"^discord$"#
+	exclude app-id=r#"^cider$"#
+	exclude app-id=r#"(?i)^slack$"#
+	geometry-corner-radius 12
+	clip-to-geometry true
+}

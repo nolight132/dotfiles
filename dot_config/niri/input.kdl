@@ -20,6 +20,10 @@ input {
 	}
 }
 
+cursor {
+	hide-when-typing
+}
+
 gestures {
 	hot-corners {
 		off

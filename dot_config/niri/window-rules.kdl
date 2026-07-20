@@ -63,11 +63,9 @@ window-rule {
 	open-maximized-to-edges true
 }
 
-// rounded corners (everything except discord, cider, slack)
+// rounded corners
 window-rule {
-	exclude app-id=r#"^discord$"#
-	exclude app-id=r#"^cider$"#
-	exclude app-id=r#"(?i)^slack$"#
+	match is-floating=true
 	geometry-corner-radius 12
 	clip-to-geometry true
 }

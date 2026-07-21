@@ -1,7 +1,6 @@
 // background blur
 window-rule {
-	match app-id=r#"dev.zed.Zed|ghostty$"#
-	match
+	match app-id=r#"dev.zed.Zed|ghostty|vicinae$"#
 	background-effect {
 		blur true
 	}

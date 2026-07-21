@@ -1,8 +1,9 @@
 input {
+	mod-key "Mod3"
 	keyboard {
 		xkb {
 			layout "pl,ru"
-			options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+			options "grp:win_space_toggle,compose:rctrl,lv5:caps_switch"
 		}
 		repeat-delay 200
 		repeat-rate 50
@@ -18,6 +19,7 @@ input {
 		accel-speed -0.2
 		accel-profile "flat"
 	}
+	focus-follows-mouse
 }
 
 cursor {

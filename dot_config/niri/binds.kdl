@@ -1,12 +1,12 @@
 binds {
 	// launchers
-	Super+Shift+Slash { show-hotkey-overlay; }
-	Super+T hotkey-overlay-title="Run an Application: Telegram" { spawn "Telegram"; }
-	Super+R { spawn-sh "vicinae toggle"; }
-	Super+C { spawn-sh "vicinae deeplink vicinae://launch/clipboard/history"; }
-	Super+E hotkey-overlay-title="Run an Application: Dolphin" { spawn "dolphin"; }
-	Super+Z { spawn-sh "obs-cmd replay save"; }
-	Super+X { spawn-sh "~/.config/niri/scripts/toggle-telegram-screencast.sh"; }
+	Mod+Shift+Slash { show-hotkey-overlay; }
+	Mod+T hotkey-overlay-title="Run an Application: Telegram" { spawn "Telegram"; }
+	Mod+R { spawn-sh "vicinae toggle"; }
+	Mod+C { spawn-sh "vicinae deeplink vicinae://launch/clipboard/history"; }
+	Mod+E hotkey-overlay-title="Run an Application: Dolphin" { spawn "dolphin"; }
+	Mod+Z { spawn-sh "obs-cmd replay save"; }
+	Mod+X { spawn-sh "~/.config/niri/scripts/toggle-telegram-screencast.sh"; }
 
 	// audio
 	XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
@@ -25,121 +25,121 @@ binds {
 	XF86MonBrightnessDown allow-when-locked=true { spawn "sh" "-c" "ddcutil --display 1 setvcp 10 - 10 && ddcutil --display 2 setvcp 10 - 10"; }
 
 	// overview
-	Super+W repeat=false { toggle-overview; }
+	Mod+W repeat=false { toggle-overview; }
 
 	// windows
-	Super+Q repeat=false { close-window; }
-	Super+V { toggle-window-floating; }
+	Mod+Q repeat=false { close-window; }
+	Mod+V { toggle-window-floating; }
 
 	// focus
-	Super+Left  { focus-column-left; }
-	Super+Down  { focus-window-down; }
-	Super+Up    { focus-window-up; }
-	Super+Right { focus-column-right; }
-	Mod+H     { focus-column-left; }
-	Mod+J     { focus-window-down; }
-	Mod+K     { focus-window-up; }
-	Mod+L     { focus-column-right; }
-	Super+Home  { focus-column-first; }
-	Super+End   { focus-column-last; }
+	Mod+Left  { focus-column-left; }
+	Mod+Down  { focus-window-down; }
+	Mod+Up    { focus-window-up; }
+	Mod+Right { focus-column-right; }
+	ISO_Level5_Shift+H     { focus-column-left; }
+	ISO_Level5_Shift+J     { focus-window-down; }
+	ISO_Level5_Shift+K     { focus-window-up; }
+	ISO_Level5_Shift+L     { focus-column-right; }
+	Mod+Home  { focus-column-first; }
+	Mod+End   { focus-column-last; }
 
 	// move
-	Super+Ctrl+Left  { move-column-left; }
-	Super+Ctrl+Down  { move-window-down; }
-	Super+Ctrl+Up    { move-window-up; }
-	Super+Ctrl+Right { move-column-right; }
-	Mod+Ctrl+H     { move-column-left; }
-	Mod+Ctrl+J     { move-window-down; }
-	Mod+Ctrl+K     { move-window-up; }
-	Mod+Ctrl+L     { move-column-right; }
-	Super+Ctrl+Home  { move-column-to-first; }
-	Super+Ctrl+End   { move-column-to-last; }
+	Mod+Ctrl+Left  { move-column-left; }
+	Mod+Ctrl+Down  { move-window-down; }
+	Mod+Ctrl+Up    { move-window-up; }
+	Mod+Ctrl+Right { move-column-right; }
+	ISO_Level5_Shift+Ctrl+H     { move-column-left; }
+	ISO_Level5_Shift+Ctrl+J     { move-window-down; }
+	ISO_Level5_Shift+Ctrl+K     { move-window-up; }
+	ISO_Level5_Shift+Ctrl+L     { move-column-right; }
+	Mod+Ctrl+Home  { move-column-to-first; }
+	Mod+Ctrl+End   { move-column-to-last; }
 
 	// monitors
-	Super+Shift+Left  { focus-monitor-left; }
-	Super+Shift+Down  { focus-monitor-down; }
-	Super+Shift+Up    { focus-monitor-up; }
-	Super+Shift+Right { focus-monitor-right; }
-	Mod+Shift+H     { focus-monitor-left; }
-	Mod+Shift+J     { focus-monitor-down; }
-	Mod+Shift+K     { focus-monitor-up; }
-	Mod+Shift+L     { focus-monitor-right; }
-	Super+Shift+Ctrl+Left  { move-column-to-monitor-left; }
-	Super+Shift+Ctrl+Down  { move-column-to-monitor-down; }
-	Super+Shift+Ctrl+Up    { move-column-to-monitor-up; }
-	Super+Shift+Ctrl+Right { move-column-to-monitor-right; }
-	Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-	Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-	Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-	Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+	Mod+Shift+Left  { focus-monitor-left; }
+	Mod+Shift+Down  { focus-monitor-down; }
+	Mod+Shift+Up    { focus-monitor-up; }
+	Mod+Shift+Right { focus-monitor-right; }
+	ISO_Level5_Shift+Shift+H     { focus-monitor-left; }
+	ISO_Level5_Shift+Shift+J     { focus-monitor-down; }
+	ISO_Level5_Shift+Shift+K     { focus-monitor-up; }
+	ISO_Level5_Shift+Shift+L     { focus-monitor-right; }
+	Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+	Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+	Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+	Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+	ISO_Level5_Shift+Shift+Ctrl+H     { move-column-to-monitor-left; }
+	ISO_Level5_Shift+Shift+Ctrl+J     { move-column-to-monitor-down; }
+	ISO_Level5_Shift+Shift+Ctrl+K     { move-column-to-monitor-up; }
+	ISO_Level5_Shift+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
 	// workspaces
-	Super+Page_Down      { focus-workspace-down; }
-	Super+Page_Up        { focus-workspace-up; }
-	Super+U              { focus-workspace-down; }
-	Super+I              { focus-workspace-up; }
-	Super+Ctrl+Page_Down { move-column-to-workspace-down; }
-	Super+Ctrl+Page_Up   { move-column-to-workspace-up; }
-	Super+Ctrl+U         { move-column-to-workspace-down; }
-	Super+Ctrl+I         { move-column-to-workspace-up; }
-	Super+Shift+Page_Down { move-workspace-down; }
-	Super+Shift+Page_Up   { move-workspace-up; }
-	Super+Shift+U         { move-workspace-down; }
-	Super+Shift+I         { move-workspace-up; }
+	Mod+Page_Down      { focus-workspace-down; }
+	Mod+Page_Up        { focus-workspace-up; }
+	Mod+U              { focus-workspace-down; }
+	Mod+I              { focus-workspace-up; }
+	Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
+	Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+	Mod+Ctrl+U         { move-column-to-workspace-down; }
+	Mod+Ctrl+I         { move-column-to-workspace-up; }
+	Mod+Shift+Page_Down { move-workspace-down; }
+	Mod+Shift+Page_Up   { move-workspace-up; }
+	Mod+Shift+U         { move-workspace-down; }
+	Mod+Shift+I         { move-workspace-up; }
 
 	// numbered workspaces
-	Super+1 { focus-workspace "browser"; }
-	Super+2 { focus-workspace "code"; }
-	Super+3 { focus-workspace "term"; }
-	Super+4 { focus-workspace "misc"; }
-	Super+5 { focus-workspace 5; }
-	Super+6 { focus-workspace 6; }
-	Super+7 { focus-workspace 7; }
-	Super+8 { focus-workspace 8; }
-	Super+9 { focus-workspace 9; }
-	Super+Shift+1 { move-column-to-workspace 1; }
-	Super+Shift+2 { move-column-to-workspace 2; }
-	Super+Shift+3 { move-column-to-workspace 3; }
-	Super+Shift+4 { move-column-to-workspace 4; }
-	Super+Shift+5 { move-column-to-workspace 5; }
-	Super+Shift+6 { move-column-to-workspace 6; }
-	Super+Shift+7 { move-column-to-workspace 7; }
-	Super+Shift+8 { move-column-to-workspace 8; }
-	Super+Shift+9 { move-column-to-workspace 9; }
+	Mod+1 { focus-workspace "browser"; }
+	Mod+2 { focus-workspace "code"; }
+	Mod+3 { focus-workspace "term"; }
+	Mod+4 { focus-workspace "misc"; }
+	Mod+5 { focus-workspace 5; }
+	Mod+6 { focus-workspace 6; }
+	Mod+7 { focus-workspace 7; }
+	Mod+8 { focus-workspace 8; }
+	Mod+9 { focus-workspace 9; }
+	Mod+Shift+1 { move-column-to-workspace 1; }
+	Mod+Shift+2 { move-column-to-workspace 2; }
+	Mod+Shift+3 { move-column-to-workspace 3; }
+	Mod+Shift+4 { move-column-to-workspace 4; }
+	Mod+Shift+5 { move-column-to-workspace 5; }
+	Mod+Shift+6 { move-column-to-workspace 6; }
+	Mod+Shift+7 { move-column-to-workspace 7; }
+	Mod+Shift+8 { move-column-to-workspace 8; }
+	Mod+Shift+9 { move-column-to-workspace 9; }
 
 	// wheel
-	Super+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-	Super+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-	Super+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-	Super+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
-	Super+WheelScrollRight      { focus-column-right; }
-	Super+WheelScrollLeft       { focus-column-left; }
-	Super+Ctrl+WheelScrollRight { move-column-right; }
-	Super+Ctrl+WheelScrollLeft  { move-column-left; }
-	Super+Shift+WheelScrollDown      { focus-column-right; }
-	Super+Shift+WheelScrollUp        { focus-column-left; }
-	Super+Ctrl+Shift+WheelScrollDown { move-column-right; }
-	Super+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+	Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+	Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+	Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+	Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+	Mod+WheelScrollRight      { focus-column-right; }
+	Mod+WheelScrollLeft       { focus-column-left; }
+	Mod+Ctrl+WheelScrollRight { move-column-right; }
+	Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+	Mod+Shift+WheelScrollDown      { focus-column-right; }
+	Mod+Shift+WheelScrollUp        { focus-column-left; }
+	Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+	Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
 	// columns
-	Super+BracketLeft  { consume-or-expel-window-left; }
-	Super+BracketRight { consume-or-expel-window-right; }
-	Super+Comma  { consume-window-into-column; }
-	Super+Period { expel-window-from-column; }
+	Mod+BracketLeft  { consume-or-expel-window-left; }
+	Mod+BracketRight { consume-or-expel-window-right; }
+	Mod+Comma  { consume-window-into-column; }
+	Mod+Period { expel-window-from-column; }
 
 	// sizing
-	Super+G { switch-preset-column-width; }
-	Super+Shift+R { switch-preset-column-width-back; }
-	Super+Ctrl+Shift+R { switch-preset-window-height; }
-	Super+Ctrl+R { reset-window-height; }
-	Super+M { maximize-column; }
-	Super+Shift+G { fullscreen-window; }
-	Super+F { maximize-window-to-edges; }
-	Super+Ctrl+F { expand-column-to-available-width; }
-	Super+Minus { set-column-width "-10%"; }
-	Super+Equal { set-column-width "+10%"; }
-	Super+Shift+Minus { set-window-height "-10%"; }
-	Super+Shift+Equal { set-window-height "+10%"; }
+	Mod+G { switch-preset-column-width; }
+	Mod+Shift+R { switch-preset-column-width-back; }
+	Mod+Ctrl+Shift+R { switch-preset-window-height; }
+	Mod+Ctrl+R { reset-window-height; }
+	Mod+M { maximize-column; }
+	Mod+Shift+G { fullscreen-window; }
+	Mod+F { maximize-window-to-edges; }
+	Mod+Ctrl+F { expand-column-to-available-width; }
+	Mod+Minus { set-column-width "-10%"; }
+	Mod+Equal { set-column-width "+10%"; }
+	Mod+Shift+Minus { set-window-height "-10%"; }
+	Mod+Shift+Equal { set-window-height "+10%"; }
 
 	// screenshots
 	Mod+S { screenshot; }
@@ -147,10 +147,10 @@ binds {
 	Alt+Print { screenshot-window; }
 
 	// session
-	Super+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-	Super+Shift+E { quit; }
+	Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+	Mod+Shift+E { quit; }
 	Ctrl+Alt+Delete { quit; }
-	Super+Shift+P { power-off-monitors; }
+	Mod+Shift+P { power-off-monitors; }
 }
 
 // alt-tab switcher: workspace-only, never global
@@ -161,9 +161,9 @@ recent-windows {
 		Alt+grave       { next-window     scope="workspace" filter="app-id"; }
 		Alt+Shift+grave { previous-window scope="workspace" filter="app-id"; }
 
-		Super+Tab         { next-window     scope="workspace"; }
-		Super+Shift+Tab   { previous-window scope="workspace"; }
-		Super+grave       { next-window     scope="workspace" filter="app-id"; }
-		Super+Shift+grave { previous-window scope="workspace" filter="app-id"; }
+		Mod+Tab         { next-window     scope="workspace"; }
+		Mod+Shift+Tab   { previous-window scope="workspace"; }
+		Mod+grave       { next-window     scope="workspace" filter="app-id"; }
+		Mod+Shift+grave { previous-window scope="workspace" filter="app-id"; }
 	}
 }

@@ -1,5 +1,4 @@
 input {
-	mod-key "Mod3"
 	keyboard {
 		xkb {
 			layout "pl,ru"

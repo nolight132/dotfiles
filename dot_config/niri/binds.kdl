@@ -41,9 +41,9 @@ binds {
 	Mod+Up    { focus-window-up; }
 	Mod+Right { focus-column-right; }
 	ISO_Level5_Shift+H     { focus-column-left; }
-	ISO_Level5_Shift+J     { focus-window-down; }
-	ISO_Level5_Shift+K     { focus-window-up; }
 	ISO_Level5_Shift+L     { focus-column-right; }
+	ISO_Level5_Shift+Shift+J { focus-window-down; }
+	ISO_Level5_Shift+Shift+K { focus-window-up; }
 	Mod+Home  { focus-column-first; }
 	Mod+End   { focus-column-last; }
 
@@ -53,20 +53,12 @@ binds {
 	Mod+Ctrl+Up    { move-window-up; }
 	Mod+Ctrl+Right { move-column-right; }
 	ISO_Level5_Shift+Ctrl+H     { move-column-left; }
-	ISO_Level5_Shift+Ctrl+J     { move-window-down; }
-	ISO_Level5_Shift+Ctrl+K     { move-window-up; }
 	ISO_Level5_Shift+Ctrl+L     { move-column-right; }
 	Mod+Ctrl+Home  { move-column-to-first; }
 	Mod+Ctrl+End   { move-column-to-last; }
 
 	// monitors
-	Mod+Shift+Left  { focus-monitor-left; }
-	Mod+Shift+Down  { focus-monitor-down; }
-	Mod+Shift+Up    { focus-monitor-up; }
-	Mod+Shift+Right { focus-monitor-right; }
 	ISO_Level5_Shift+Shift+H     { focus-monitor-left; }
-	ISO_Level5_Shift+Shift+J     { focus-monitor-down; }
-	ISO_Level5_Shift+Shift+K     { focus-monitor-up; }
 	ISO_Level5_Shift+Shift+L     { focus-monitor-right; }
 	Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
 	Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
@@ -78,18 +70,18 @@ binds {
 	ISO_Level5_Shift+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
 	// workspaces
-	Mod+Page_Down      { focus-workspace-down; }
-	Mod+Page_Up        { focus-workspace-up; }
-	Mod+U              { focus-workspace-down; }
-	Mod+I              { focus-workspace-up; }
-	Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
-	Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
-	Mod+Ctrl+U         { move-column-to-workspace-down; }
-	Mod+Ctrl+I         { move-column-to-workspace-up; }
-	Mod+Shift+Page_Down { move-workspace-down; }
-	Mod+Shift+Page_Up   { move-workspace-up; }
-	Mod+Shift+U         { move-workspace-down; }
-	Mod+Shift+I         { move-workspace-up; }
+	ISO_Level5_Shift+J   { focus-workspace-down; }
+	ISO_Level5_Shift+K   { focus-workspace-up; }
+	Mod+U                { focus-workspace-down; }
+	Mod+I                { focus-workspace-up; }
+	Mod+Ctrl+Page_Down   { move-column-to-workspace-down; }
+	Mod+Ctrl+Page_Up     { move-column-to-workspace-up; }
+	Mod+Ctrl+U           { move-column-to-workspace-down; }
+	Mod+Ctrl+I           { move-column-to-workspace-up; }
+	Mod+Shift+Page_Down  { move-workspace-down; }
+	Mod+Shift+Page_Up    { move-workspace-up; }
+	Mod+Shift+U          { move-workspace-down; }
+	Mod+Shift+I          { move-workspace-up; }
 
 	// numbered workspaces
 	Mod+1 { focus-workspace "browser"; }
@@ -128,6 +120,11 @@ binds {
 	Mod+BracketRight { consume-or-expel-window-right; }
 	Mod+Comma  { consume-window-into-column; }
 	Mod+Period { expel-window-from-column; }
+
+	// tabs
+	Mod+Backslash {
+		toggle-column-tabbed-display;
+	}
 
 	// sizing
 	Mod+G { switch-preset-column-width; }

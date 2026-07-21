@@ -64,6 +64,20 @@ window-rule {
 }
 
 window-rule {
+	match app-id=r#"^org\.gnome\.NautilusPreviewer$"#
+
+	default-column-width { fixed 1280; }
+	default-window-height { fixed 766; }
+}
+
+window-rule {
+	match app-id=r#"^com\.github\.rafostar\.Clapper$"#
+
+	default-column-width { fixed 1280; }
+	default-window-height { fixed 720; }
+}
+
+window-rule {
 	match app-id=r#"^org\.gnome\.Nautilus$"#
 
 	default-column-width { fixed 1000; }

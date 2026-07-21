@@ -6,6 +6,7 @@ binds {
 	Mod+C { spawn-sh "vicinae deeplink vicinae://launch/clipboard/history"; }
 	Mod+E hotkey-overlay-title="Run an Application: Dolphin" { spawn "dolphin"; }
 	Mod+Z { spawn-sh "obs-cmd replay save"; }
+	Mod+X { spawn-sh "~/.config/niri/scripts/toggle-telegram-screencast.sh"; }
 
 	// audio
 	XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }

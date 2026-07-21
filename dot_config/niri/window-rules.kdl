@@ -7,13 +7,6 @@ window-rule {
 	}
 }
 
-// screencast privacy
-window-rule {
-	match app-id=r#"^org\.telegram\.desktop$"#
-
-	block-out-from "screencast"
-}
-
 // telegram fixed width
 window-rule {
 	match app-id=r#"^org\.telegram\.desktop$"#

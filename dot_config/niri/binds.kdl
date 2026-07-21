@@ -4,7 +4,7 @@ binds {
 	Mod+T hotkey-overlay-title="Run an Application: Telegram" { spawn "Telegram"; }
 	Mod+R { spawn-sh "vicinae toggle"; }
 	Mod+C { spawn-sh "vicinae deeplink vicinae://launch/clipboard/history"; }
-	Mod+E hotkey-overlay-title="Run an Application: Dolphin" { spawn "dolphin"; }
+	Mod+E hotkey-overlay-title="Run an Application: Nautilus" { spawn "nautilus"; }
 	Mod+Z { spawn-sh "obs-cmd replay save"; }
 	Mod+X { spawn-sh "~/.config/niri/scripts/toggle-telegram-screencast.sh"; }
 

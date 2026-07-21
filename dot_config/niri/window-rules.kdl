@@ -1,63 +1,86 @@
 // background blur
 window-rule {
-	match app-id=r#"dev.zed.Zed|ghostty|vicinae$"#
+	match app-id=r#"^(dev\.zed\.Zed|com\.mitchellh\.ghostty)$"#
+
 	background-effect {
 		blur true
 	}
 }
 
-// telegram fixed width
+layer-rule {
+	match namespace=r#"^vicinae$"#
+
+	background-effect {
+		blur true
+		xray false
+	}
+}
+
+// workspace routing
+window-rule {
+	match app-id=r#"^zen$"#
+
+	open-on-workspace "browser"
+	open-maximized-to-edges true
+}
+
+window-rule {
+	match app-id=r#"^dev\.zed\.Zed$"#
+
+	open-on-workspace "code"
+	open-maximized-to-edges true
+}
+
+window-rule {
+	match app-id=r#"^com\.mitchellh\.ghostty$"#
+
+	open-on-workspace "term"
+	open-maximized-to-edges true
+}
+
+window-rule {
+	match app-id=r#"^(cider|discord|(?i)slack)$"#
+
+	open-on-workspace "chat"
+}
+
+window-rule {
+	match app-id=r#"^cider$"#
+
+	default-column-width { proportion 0.25; }
+}
+
+window-rule {
+	match app-id=r#"^(discord|(?i)slack)$"#
+
+	default-column-width { proportion 0.75; }
+}
+
+// floating windows
+window-rule {
+	match app-id=r#"^(org\.kde\.dolphin|org\.gnome\.Nautilus|com\.github\.rafostar\.Clapper|org\.gnome\.NautilusPreviewer)$"#
+
+	open-floating true
+}
+
+window-rule {
+	match app-id=r#"^org\.gnome\.Nautilus$"#
+
+	default-column-width { fixed 1000; }
+	default-window-height { fixed 620; }
+}
+
+// telegram
 window-rule {
 	match app-id=r#"^org\.telegram\.desktop$"#
 
 	default-column-width { fixed 380; }
 }
 
-// workspace routing + maximize
-window-rule {
-	match app-id=r#"^zen$"#
-	open-on-workspace "browser"
-	open-maximized-to-edges true
-}
-window-rule {
-	match app-id=r#"^dev\.zed\.Zed$"#
-	open-on-workspace "code"
-	open-maximized-to-edges true
-}
-window-rule {
-	match app-id=r#"^com\.mitchellh\.ghostty$"#
-	open-on-workspace "term"
-	open-maximized-to-edges true
-}
-
-// chat workspace (left monitor, no autostart)
-window-rule {
-	match app-id=r#"^cider$"#
-	open-on-workspace "chat"
-	default-column-width { proportion 0.25; }
-}
-window-rule {
-	match app-id=r#"^discord$"#
-	match app-id=r#"(?i)^slack$"#
-	open-on-workspace "chat"
-	default-column-width { proportion 0.75; }
-}
-
-// dolphin floating
-window-rule {
-	match app-id=r#"^org\.kde\.dolphin$"#
-	open-floating true
-}
-
-// haruna maximized
-window-rule {
-	match app-id=r#"^org\.kde\.haruna$"#
-	open-maximized-to-edges true
-}
-
 // rounded corners
 window-rule {
 	match is-floating=true
+
 	geometry-corner-radius 12
 	clip-to-geometry true
 }

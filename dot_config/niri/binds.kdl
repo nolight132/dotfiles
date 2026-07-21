@@ -25,7 +25,7 @@ binds {
 	XF86MonBrightnessDown allow-when-locked=true { spawn "sh" "-c" "ddcutil --display 1 setvcp 10 - 10 && ddcutil --display 2 setvcp 10 - 10"; }
 
 	ISO_Level5_Shift+Z {
-    spawn "shmooz" "--invert-scroll" "--no-indicator"
+		spawn "wayzoomy"
 	}
 
 	// overview

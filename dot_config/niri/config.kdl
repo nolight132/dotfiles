@@ -1,7 +1,7 @@
 // startup
 spawn-at-startup "noctalia"
 spawn-at-startup "zen-browser"
-spawn-at-startup "ghostty" "--gtk-single-instance=true"
+spawn-at-startup "ghostty"
 prefer-no-csd
 
 // screenshots

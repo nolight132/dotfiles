@@ -154,7 +154,7 @@
           {
             "cursor": "{{colors.primary.dark.hex}}",
             "background": "{{colors.primary_container.dark.hex}}80",
-            "selection": "{{colors.primary_container.dark.hex}}60"
+            "selection": "#c4a7e766"
           },
           {
             "cursor": "{{colors.secondary.dark.hex}}",
@@ -439,7 +439,7 @@
           {
             "cursor": "{{colors.primary.light.hex}}",
             "background": "{{colors.primary_container.light.hex}}80",
-            "selection": "{{colors.primary_container.light.hex}}60"
+            "selection": "#c4a7e766"
           },
           {
             "cursor": "{{colors.secondary.light.hex}}",
@@ -726,7 +726,7 @@
           {
             "cursor": "{{colors.primary.dark.hex}}",
             "background": "{{colors.primary_container.dark.hex}}80",
-            "selection": "{{colors.primary_container.dark.hex}}60"
+            "selection": "#c4a7e766"
           },
           {
             "cursor": "{{colors.secondary.dark.hex}}",
@@ -1013,7 +1013,7 @@
           {
             "cursor": "{{colors.primary.light.hex}}",
             "background": "{{colors.primary_container.light.hex}}80",
-            "selection": "{{colors.primary_container.light.hex}}60"
+            "selection": "#c4a7e766"
           },
           {
             "cursor": "{{colors.secondary.light.hex}}",

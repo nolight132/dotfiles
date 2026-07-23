@@ -231,7 +231,7 @@
     "theme": {
         "mode": "dark",
         "light": "Rosé Pine Dawn",
-        "dark": "Matugen-Transparent",
+        "dark": "Rosépuccin Noctalia Dark Transparent",
     },
     "project_panel": {
         "button": true,
@@ -243,6 +243,7 @@
         "indent_size": 20,
         "auto_reveal_entries": true,
         "auto_fold_dirs": true,
+        "sticky_scroll": false,
         "scrollbar": {
             "show": null,
         },

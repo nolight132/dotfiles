@@ -4,7 +4,7 @@ input {
 			layout "pl,ru"
 			options "grp:win_space_toggle,compose:rctrl,lv5:caps_switch"
 		}
-		repeat-delay 200
+		repeat-delay 300
 		repeat-rate 50
 		numlock
 	}

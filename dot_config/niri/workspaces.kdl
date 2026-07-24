@@ -1,19 +1,18 @@
-// named workspaces — fixed order, declared once, never reshuffled
 // right monitor
 workspace "browser" {
-	open-on-output "DP-2"
+	open-on-output "DP-1"
 }
 workspace "code" {
-	open-on-output "DP-2"
+	open-on-output "DP-1"
 }
 workspace "term" {
-	open-on-output "DP-2"
+	open-on-output "DP-1"
 }
 workspace "misc" {
-	open-on-output "DP-2"
+	open-on-output "DP-1"
 }
 
 // left monitor
 workspace "chat" {
-	open-on-output "DP-1"
+	open-on-output "DP-2"
 }

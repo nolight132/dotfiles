@@ -2,7 +2,13 @@
 spawn-at-startup "noctalia"
 spawn-at-startup "zen-browser"
 spawn-at-startup "ghostty"
+spawn-at-startup "obs"
 prefer-no-csd
+
+// disable help message
+hotkey-overlay {
+    skip-at-startup
+}
 
 // screenshots
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"

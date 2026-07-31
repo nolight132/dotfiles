@@ -27,13 +27,17 @@ switch (uname -s)
 end
 
 if test -d /nix
-    set -a extra_paths "$HOME/.nix-profile/bin" /nix/var/nix/profiles/default/bin /run/current-system/sw/bin
+    set -a extra_paths "$HOME/.nix-profile/bin" /nix/var/nix/profiles/default/bin
 end
 
 for p in $extra_paths
     if test -d "$p"
         fish_add_path -g -a "$p"
     end
+end
+
+if test -d /run/wrappers/bin
+    fish_add_path -g --move --prepend /run/wrappers/bin
 end
 
 set -gx NIX_PATH "nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs"

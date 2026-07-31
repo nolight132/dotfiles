@@ -45,6 +45,11 @@
         },
     },
     "languages": {
+        "Java": {
+            "format_on_save": "off",
+            "hard_tabs": true,
+            "tab_size": 4,
+        },
         "TypeScript": {
             "formatter": "prettier",
             "hard_tabs": false,
@@ -146,6 +151,72 @@
     },
     "hard_tabs": true,
     "lsp": {
+        "jdtls": {
+            "settings": {
+                "java": {
+                    "configuration": {
+                        "runtimes": [
+                            {
+                                "name": "JavaSE-25",
+                                "path": "/home/nolight/.gradle/jdks/eclipse_adoptium-25-amd64-linux.2",
+                                "default": true,
+                            },
+                        ],
+                    },
+                    "format": {
+                        "enabled": true,
+                        "settings": {
+                            "url": "file:///home/nolight/.config/zed/eclipse-java-formatter.xml",
+                            "profile": "PingPing",
+                        },
+                    },
+                    "import": {
+                        "gradle": {
+                            "enabled": true,
+                            "wrapper": {
+                                "enabled": true,
+                            },
+                            "java": {
+                                "home": "/home/nolight/.gradle/jdks/eclipse_adoptium-25-amd64-linux.2",
+                            },
+                        },
+                    },
+                },
+            },
+            "initialization_options": {
+                "settings": {
+                "java": {
+                    "configuration": {
+                        "runtimes": [
+                            {
+                                "name": "JavaSE-25",
+                                "path": "/home/nolight/.gradle/jdks/eclipse_adoptium-25-amd64-linux.2",
+                                "default": true,
+                            },
+                        ],
+                    },
+                    "format": {
+                        "enabled": true,
+                        "settings": {
+                            "url": "file:///home/nolight/.config/zed/eclipse-java-formatter.xml",
+                            "profile": "PingPing",
+                        },
+                    },
+                    "import": {
+                        "gradle": {
+                            "enabled": true,
+                            "wrapper": {
+                                "enabled": true,
+                            },
+                            "java": {
+                                "home": "/home/nolight/.gradle/jdks/eclipse_adoptium-25-amd64-linux.2",
+                            },
+                        },
+                    },
+                },
+            },
+            },
+        },
         "vtsls": {
             "settings": {
                 "typescript": {

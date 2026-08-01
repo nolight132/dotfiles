@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   # Boot
@@ -12,6 +12,9 @@
     "flakes"
   ];
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [
+  	inputs.millennium.overlays.default
+  ];
 
   # Network
   networking.hostName = "nixos";

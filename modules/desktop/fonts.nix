@@ -22,7 +22,7 @@
 
       antialias = true;
       hinting = {
-        enable = true;
+        enable = false;
         style = "slight";
       };
       subpixel = {

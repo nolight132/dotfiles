@@ -121,7 +121,6 @@
     "diagnostics": false,
     "metrics": false,
   },
-  "tab_size": 4,
   "inlay_hints": {
     "enabled": false,
   },

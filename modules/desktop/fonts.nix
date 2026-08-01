@@ -19,6 +19,16 @@
         monospace = [ "JetBrains Mono" ];
         emoji = [ "Noto Color Emoji" ];
       };
+
+      antialias = true;
+      hinting = {
+        enable = true;
+        style = "slight";
+      };
+      subpixel = {
+        rgba = "rgb";
+        lcdfilter = "default";
+      };
     };
   };
 }

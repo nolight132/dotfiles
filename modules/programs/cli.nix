@@ -10,5 +10,10 @@
     fastfetch
     zip
     unzip
+    chafa
+    gh
+    nil
+    bun
+    ddcutil
   ];
 }

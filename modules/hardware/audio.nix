@@ -12,5 +12,8 @@
 
   environment.systemPackages = with pkgs; [
     pulseaudio # pactl and friends
+    pavucontrol
+    easyeffects
+    playerctl
   ];
 }

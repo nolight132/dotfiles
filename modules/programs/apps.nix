@@ -15,6 +15,8 @@ in
     loupe
     cider-2
     obs-studio
+    prismlauncher
+    clapper
 
     inputs.zen-browser.packages.${system}.default
   ];

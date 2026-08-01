@@ -50,7 +50,7 @@ window-rule {
 }
 
 window-rule {
-	match app-id=r#"^(cider|discord|(?i)slack)$"#
+	match app-id=r#"^(cider|discord|vesktop|(?i)slack)$"#
 
 	open-on-workspace "chat"
 }
@@ -62,7 +62,7 @@ window-rule {
 }
 
 window-rule {
-	match app-id=r#"^(discord|(?i)slack)$"#
+	match app-id=r#"^(discord|vesktop|(?i)slack)$"#
 
 	default-column-width { proportion 0.75; }
 }

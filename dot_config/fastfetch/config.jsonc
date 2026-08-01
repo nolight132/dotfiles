@@ -1,11 +1,9 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "type": "file-raw",
-    "source": "~/.config/fastfetch/logo.ans",
-    "width": 18,
-    "height": 9,
-    "padding": { "right": 3 },
+    "type": "kitty-icat",
+    "source": "/home/nolight/.config/fastfetch/nix-snowflake.png",
+    "width": 40,
   },
   "display": {
     "separator": "  ",

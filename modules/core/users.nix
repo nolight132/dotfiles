@@ -4,7 +4,7 @@
   users.users."nolight" = {
     isNormalUser = true;
     description = "nolight";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
 
     shell = pkgs.fish;
   };

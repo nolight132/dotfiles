@@ -1,8 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
+let
+  system = pkgs.stdenv.hostPlatform.system;
+in
 {
   programs.niri.enable = true;
-  programs.fish.enable = true;
 
   services.greetd.enable = true;
   services.greetd.settings.default_session.command =
@@ -11,4 +13,8 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
+
+  environment.systemPackages = [
+    inputs.noctalia.packages.${system}.default
+  ];
 }

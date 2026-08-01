@@ -11,8 +11,11 @@ in
     nautilus
     proton-vpn
     telegram-desktop
-    discord
-    claude-code
+    vesktop
+    kdePackages.filelight
+    loupe
+    cider-2
+    obs-studio
 
     inputs.zen-browser.packages.${system}.default
   ];

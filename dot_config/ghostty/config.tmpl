@@ -1,5 +1,6 @@
 {{ if ne .chezmoi.os "darwin" }}
 config-file = ~/.config/ghostty/themes/matugen
+freetype-load-flags = no-hinting
 {{ end }}
 macos-option-as-alt = true
 background-opacity = 0.82
@@ -8,6 +9,7 @@ background-opacity-cells = true
 background-blur-radius = 60
 {{ end }}
 font-family = JetBrains Mono
+font-style = Medium
 {{ if eq .chezmoi.os "darwin" }}
 font-size = 14
 {{ else }}

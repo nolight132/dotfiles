@@ -15,5 +15,6 @@
     nil
     bun
     ddcutil
+    obs-cmd
   ];
 }

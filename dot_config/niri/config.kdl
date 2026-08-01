@@ -5,6 +5,11 @@ spawn-at-startup "ghostty"
 spawn-at-startup "obs"
 prefer-no-csd
 
+// xwayland
+xwayland-satellite {
+    path "xwayland-satellite"
+}
+
 // disable help message
 hotkey-overlay {
     skip-at-startup

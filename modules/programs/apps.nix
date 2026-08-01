@@ -7,7 +7,6 @@ in
   environment.systemPackages = with pkgs; [
     ghostty
     zed-editor
-    vicinae
     nautilus
     proton-vpn
     telegram-desktop

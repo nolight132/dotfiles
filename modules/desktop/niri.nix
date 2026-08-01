@@ -8,13 +8,17 @@ in
 
   services.greetd.enable = true;
   services.greetd.settings.default_session.command =
-    "${pkgs.tuigreet}/bin/tuigreet --cmd niri-session";
+    "${pkgs.tuigreet}/bin/tuigreet --remember --cmd niri-session";
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
 
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
+    xwayland-satellite
+    wl-clipboard
+    libnotify
+
     inputs.noctalia.packages.${system}.default
   ];
 }

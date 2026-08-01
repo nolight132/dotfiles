@@ -12,6 +12,11 @@ input_path = '~/.config/matugen/templates/ghostty.conf'
 output_path = '~/.config/ghostty/themes/matugen'
 post_hook = 'pkill -SIGUSR2 ghostty'
 
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty.conf'
+output_path = '~/.config/kitty/themes/matugen.conf'
+post_hook = 'pkill -SIGUSR1 kitty'
+
 [templates.zed]
 input_path = '~/.config/matugen/templates/zed.json'
 output_path = '~/.config/zed/themes/rosepuccin.json'

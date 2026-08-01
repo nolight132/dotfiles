@@ -1,0 +1,23 @@
+{{ if ne .chezmoi.os "darwin" }}
+include ~/.config/kitty/themes/matugen.conf
+{{ end }}
+macos_option_as_alt yes
+background_opacity 0.82
+{{ if eq .chezmoi.os "darwin" }}
+background_blur 60
+{{ end }}
+font_family family="JetBrains Mono" style=Medium
+{{ if eq .chezmoi.os "darwin" }}
+font_size 14
+{{ else }}
+font_size 11
+{{ end }}
+disable_ligatures always
+confirm_os_window_close 0
+modify_font cell_height 120%
+{{ if eq .chezmoi.os "darwin" }}
+mouse_hide_wait -1
+{{ else }}
+mouse_hide_wait 3.0
+{{ end }}
+hide_window_decorations yes

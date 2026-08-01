@@ -11,7 +11,7 @@ overview {
 }
 
 window-rule {
-	match app-id=r#"^(dev\.zed\.Zed|com\.mitchellh\.ghostty)$"#
+	match app-id=r#"^(dev\.zed\.Zed|com\.mitchellh\.ghostty|kitty)$"#
 
 	background-effect {
 		blur true
@@ -43,7 +43,7 @@ window-rule {
 }
 
 window-rule {
-	match app-id=r#"^com\.mitchellh\.ghostty$"#
+	match app-id=r#"^(com\.mitchellh\.ghostty|kitty)$"#
 
 	open-on-workspace "term"
 	open-maximized-to-edges true

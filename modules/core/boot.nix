@@ -1,7 +1,20 @@
 { pkgs, ... }:
 
 {
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    kernelPackages = pkgs.linuxPackages_latest;
+    plymouth.enable = true;
+    consoleLogLevel = 3;
+    kernelParams = [
+      "quiet"
+      "rd.systemd.show_status=auto"
+      "rd.udev.log_level=3"
+
+      "systemd.show_status=auto"
+      "udev.log_level=3"
+    ];
+    loader.timeout = 0;
+  };
 }

@@ -108,6 +108,21 @@
       if status is-interactive; and isatty stdout
         if command -sq tmux; and not set -q TMUX
           if not set -q SSH_CONNECTION; and not set -q SSH_CLIENT
+            # Cold boot: bring the server up on its own first so tmux-continuum
+            # can auto-restore. Going straight to `new-session -s term` races
+            # the restore and strands us in a fresh session instead.
+            if not command tmux has-session 2>/dev/null
+              command tmux start-server
+
+              # Keep in sync with @resurrect-dir in home/tmux.nix
+              if test -e $HOME/.local/share/tmux/resurrect/last
+                for i in (seq 40)
+                  command tmux has-session 2>/dev/null; and break
+                  command sleep 0.25
+                end
+              end
+            end
+
             if command tmux has-session 2>/dev/null
               exec tmux attach-session
             else

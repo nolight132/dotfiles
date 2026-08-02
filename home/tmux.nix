@@ -16,7 +16,13 @@
       yank
       {
         plugin = resurrect;
-        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+        # This resurrect defaults to ~/.tmux/resurrect, but the saved history
+        # lives under XDG. Pin it, or every restore looks in an empty dir and
+        # silently comes up with nothing.
+        extraConfig = ''
+          set -g @resurrect-dir '$HOME/.local/share/tmux/resurrect'
+          set -g @resurrect-strategy-nvim 'session'
+        '';
       }
       fzf-tmux-url
       {
@@ -31,10 +37,8 @@
           set -g @floax-border-color 'magenta'
         '';
       }
-      {
-        plugin = continuum;
-        extraConfig = "set -g @continuum-restore 'on'";
-      }
+      # NOTE: continuum is deliberately *not* listed here. See the bottom of
+      # extraConfig for why it has to be loaded last.
     ];
 
     extraConfig = ''
@@ -110,6 +114,15 @@
       set -g status-style bg=default
       set -g window-style 'bg=default'
       set -g window-active-style 'bg=default'
+
+      # tmux-continuum must be sourced *after* status-right is set. Its only
+      # auto-save timer is a #(continuum_save.sh) interpolation it prepends to
+      # the status line, so any later `set -g status-right` silently wipes it
+      # out and nothing is ever saved. home-manager emits plugin run-shell
+      # lines before extraConfig, so it is loaded by hand here instead.
+      set -g @continuum-restore 'on'
+      set -g @continuum-save-interval '5'
+      run-shell ${pkgs.tmuxPlugins.continuum}/share/tmux-plugins/continuum/continuum.tmux
     '';
   };
 }

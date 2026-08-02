@@ -11,5 +11,12 @@
   networking.hostName = "macbook";
   boot.loader.efi.canTouchEfiVariables = false;
 
+  swapDevices = [
+    {
+      device = "/swap/swapfile";
+      size = 8 * 1024;
+    }
+  ];
+
   system.stateVersion = "26.05";
 }

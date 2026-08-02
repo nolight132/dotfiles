@@ -12,6 +12,7 @@ input {
 	touchpad {
 		tap
 		natural-scroll
+		scroll-factor 0.6
 	}
 
 	mouse {

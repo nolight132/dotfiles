@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 let
-  # Papirus ships zen-browser.svg and cider.svg, but the installed desktop
-  # entries are zen.desktop (Icon=zen) and cider-2.desktop (Icon=cider-2), so
-  # those two fall back to their bundled icons. Alias them in an inheriting
-  # theme rather than renaming the dock entries, which would break launching.
   papirus-noctalia =
     let
       papirus = "${pkgs.papirus-icon-theme}/share/icons/Papirus-Dark";
@@ -29,8 +25,6 @@ let
       cp ${index} $out/share/icons/Papirus-Noctalia/index.theme
       ln -s ${papirus}/64x64/apps/zen-browser.svg $dir/zen.svg
       ln -s ${papirus}/64x64/apps/cider.svg $dir/cider-2.svg
-
-      # Papirus draws vesktop as its own logo; prefer the plain Discord one.
       ln -s ${papirus}/64x64/apps/discord.svg $dir/vesktop.svg
     '';
 in
@@ -50,6 +44,8 @@ in
     enable = true;
     profiles.user.databases = [
       {
+        locks = [ "/org/gnome/desktop/interface/icon-theme" ];
+
         settings."org/gnome/desktop/interface" = {
           icon-theme = "Papirus-Noctalia";
           font-name = "Noto Sans 10";

@@ -1,4 +1,4 @@
-config_version = 11
+config_version = 12
 
 [bar.default]
 auto_hide = true
@@ -90,7 +90,7 @@ community_palette = "ADW"
 mode = "dark"
 pure_black_dark = true
 source = "wallpaper"
-wallpaper_scheme = "m3-tonal-spot"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "niri", "qt" ]
@@ -101,13 +101,13 @@ directory = "/home/nolight/Pictures/Wallpapers/Fractal Maze"
 transition = [ "fade" ]
 
     [wallpaper.default]
-    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/46.jpg"
+    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/60.jpg"
 
     [wallpaper.last]
-    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/46.jpg"
+    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/60.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/46.jpg"
+    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/60.jpg"
 
     [[wallpaper.favorite]]
     palette_source = "wallpaper"
@@ -150,9 +150,6 @@ transition = [ "fade" ]
     path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/09.jpg"
     theme_mode = "dark"
     wallpaper_scheme = "m3-content"
-
-[widget.battery]
-enabled = false
 
 [widget.brightness]
 enabled = false

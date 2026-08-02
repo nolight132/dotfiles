@@ -1,4 +1,4 @@
-config_version = 11
+config_version = 12
 
 [bar.default]
 auto_hide = true

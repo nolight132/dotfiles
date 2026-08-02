@@ -17,6 +17,8 @@
     },
   },
   "agent": {
+    "sidebar_side": "left",
+    "button": false,
     "dock": "right",
     "favorite_models": [],
     "model_parameters": [],

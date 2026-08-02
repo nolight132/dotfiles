@@ -102,7 +102,7 @@
       if status is-interactive; and isatty stdout
           if command -sq tmux; and not set -q TMUX
               if not set -q SSH_CONNECTION; and not set -q SSH_CLIENT
-                  exec tmux
+                  exec tmux attach
               end
           end
       end

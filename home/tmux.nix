@@ -18,10 +18,6 @@
         plugin = resurrect;
         extraConfig = "set -g @resurrect-strategy-nvim 'session'";
       }
-      {
-        plugin = continuum;
-        extraConfig = "set -g @continuum-restore 'on'";
-      }
       fzf-tmux-url
       {
         plugin = tmux-sessionx;
@@ -34,6 +30,10 @@
           set -g @floax-height '80%'
           set -g @floax-border-color 'magenta'
         '';
+      }
+      {
+        plugin = continuum;
+        extraConfig = "set -g @continuum-restore 'on'";
       }
     ];
 

@@ -6,12 +6,12 @@ let
   );
 in
 {
-  xdg.configFile = (lib.listToAttrs (
-    map (n: lib.nameValuePair "niri/${n}" { source = ./niri + "/${n}"; }) kdlFiles
-  )) // {
-    "niri/scripts/toggle-telegram-screencast.sh" = {
-      source = ./niri/scripts/toggle-telegram-screencast.sh;
-      executable = true;
+  xdg.configFile =
+    (lib.listToAttrs (map (n: lib.nameValuePair "niri/${n}" { source = ./niri + "/${n}"; }) kdlFiles))
+    // {
+      "niri/scripts/toggle-telegram-screencast.sh" = {
+        source = ./niri/scripts/toggle-telegram-screencast.sh;
+        executable = true;
+      };
     };
-  };
 }

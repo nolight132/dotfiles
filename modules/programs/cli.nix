@@ -13,5 +13,6 @@
     bun
     ddcutil
     obs-cmd
+    tea
   ];
 }

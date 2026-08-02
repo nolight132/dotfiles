@@ -15,6 +15,8 @@ in
     obs-studio
     prismlauncher
     clapper
+    video-trimmer
+    slack
 
     inputs.zen-browser.packages.${system}.default
   ];

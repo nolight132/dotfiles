@@ -1,0 +1,30 @@
+// startup
+spawn-at-startup "noctalia"
+spawn-at-startup "zen-browser"
+spawn-at-startup "ghostty"
+spawn-at-startup "obs"
+prefer-no-csd
+
+// xwayland
+xwayland-satellite {
+    path "xwayland-satellite"
+}
+
+// disable help message
+hotkey-overlay {
+    skip-at-startup
+}
+
+// screenshots
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+include "input.kdl"
+include "outputs.kdl"
+include "workspaces.kdl"
+include "layout.kdl"
+include "window-rules.kdl"
+include "screencast-privacy.kdl"
+include "binds.kdl"
+include "noctalia.kdl"
+include "env.kdl"
+include "animations.kdl"

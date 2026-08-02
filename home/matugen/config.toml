@@ -1,0 +1,38 @@
+[config]
+wallpaper_tool = "None"
+
+[config.custom_colors]
+green = { color = "#3fb950", blend = true }
+
+[colors]
+terminal_colors = true
+
+[templates.ghostty]
+input_path = '~/.config/matugen/templates/ghostty.conf'
+output_path = '~/.config/ghostty/themes/matugen'
+post_hook = 'pkill -SIGUSR2 ghostty'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty.conf'
+output_path = '~/.config/kitty/themes/matugen.conf'
+post_hook = 'pkill -SIGUSR1 kitty'
+
+[templates.zed]
+input_path = '~/.config/matugen/templates/zed.json'
+output_path = '~/.config/zed/themes/rosepuccin.json'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk-4.0/gtk.css'
+output_path = '~/.config/gtk-4.0/gtk.css'
+
+[templates.gtk4_colors]
+input_path = '~/.config/matugen/templates/gtk-4.0/colors.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk-3.0/gtk.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
+
+[templates.gtk3_colors]
+input_path = '~/.config/matugen/templates/gtk-3.0/colors.css'
+output_path = '~/.config/gtk-3.0/colors.css'

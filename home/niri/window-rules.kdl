@@ -1,0 +1,111 @@
+// background blur
+blur {
+	passes 4
+	noise 0.06
+	offset 5
+	saturation 1.8
+}
+
+overview {
+    zoom 0.5
+}
+
+window-rule {
+	match app-id=r#"^(dev\.zed\.Zed|com\.mitchellh\.ghostty|kitty)$"#
+
+	background-effect {
+		blur true
+	}
+}
+
+layer-rule {
+	match namespace=r#"^vicinae$"#
+
+	background-effect {
+		blur true
+		xray false
+	}
+}
+
+// workspace routing
+window-rule {
+	match app-id=r#"^zen$"#
+
+	open-on-workspace "browser"
+	open-maximized-to-edges true
+}
+
+window-rule {
+	match app-id=r#"^dev\.zed\.Zed$"#
+
+	open-on-workspace "code"
+	open-maximized-to-edges true
+}
+
+window-rule {
+	match app-id=r#"^(com\.mitchellh\.ghostty|kitty)$"#
+
+	open-on-workspace "term"
+	open-maximized-to-edges true
+}
+
+window-rule {
+	match app-id=r#"^(cider|Cider|discord|vesktop|(?i)slack)$"#
+
+	open-on-workspace "chat"
+}
+
+window-rule {
+	match app-id=r#"^(cider|Cider)$"#
+
+	default-column-width { proportion 0.25; }
+}
+
+window-rule {
+	match app-id=r#"^(discord|vesktop|(?i)slack)$"#
+
+	default-column-width { proportion 0.75; }
+}
+
+// floating windows
+window-rule {
+	match app-id=r#"^(org\.kde\.dolphin|org\.gnome\.Nautilus|com\.github\.rafostar\.Clapper|org\.gnome\.NautilusPreviewer)$"#
+
+	open-floating true
+}
+
+window-rule {
+	match app-id=r#"^org\.gnome\.NautilusPreviewer$"#
+
+	default-column-width { fixed 1280; }
+	default-window-height { fixed 766; }
+}
+
+window-rule {
+	match app-id=r#"^com\.github\.rafostar\.Clapper$"#
+
+	default-column-width { fixed 1280; }
+	default-window-height { fixed 720; }
+}
+
+window-rule {
+	match app-id=r#"^org\.gnome\.Nautilus$"#
+
+	default-column-width { fixed 1000; }
+	default-window-height { fixed 620; }
+}
+
+// telegram
+window-rule {
+	match app-id=r#"^org\.telegram\.desktop$"#
+
+	default-column-width { fixed 380; }
+}
+
+// rounded corners
+window-rule {
+	match is-floating=true
+
+	geometry-corner-radius 12
+	clip-to-geometry true
+}

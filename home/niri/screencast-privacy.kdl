@@ -1,0 +1,4 @@
+window-rule {
+match app-id=r#"^org\.telegram\.desktop$"#
+block-out-from "screencast"
+}

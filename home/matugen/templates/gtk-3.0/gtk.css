@@ -1,0 +1,42 @@
+/*
+* GTK colors generated with Matugen
+* The source template is here: ~/.config/matugen/templates/gtk-3.0/gtk.css
+*/
+
+/* Accents */
+@define-color accent_color {{colors.primary.dark.hex}};
+@define-color accent_fg_color {{colors.on_primary.dark.hex}};
+@define-color accent_bg_color {{colors.primary.dark.hex}};
+@define-color destructive_bg_color {{colors.error_container.dark.hex}};
+@define-color destructive_fg_color {{colors.on_error_container.dark.hex}};
+@define-color destructive_color {{colors.error.dark.hex}};
+@define-color success_bg_color {{colors.tertiary_container.dark.hex}};
+@define-color success_fg_color {{colors.on_tertiary_container.dark.hex}};
+@define-color success_color {{colors.tertiary.dark.hex}};
+
+/* Pitch-black base surfaces */
+@define-color window_bg_color #000000;
+@define-color window_fg_color {{colors.on_surface.dark.hex}};
+@define-color headerbar_bg_color #000000;
+@define-color headerbar_backdrop_color #000000;
+@define-color headerbar_fg_color {{colors.on_surface.dark.hex}};
+@define-color card_bg_color #000000;
+@define-color card_fg_color {{colors.on_surface.dark.hex}};
+@define-color sidebar_bg_color #000000;
+@define-color sidebar_fg_color {{colors.on_surface.dark.hex}};
+@define-color secondary_sidebar_bg_color #000000;
+@define-color secondary_sidebar_fg_color {{colors.on_surface_variant.dark.hex}};
+@define-color sidebar_border_color @sidebar_bg_color;
+@define-color sidebar_backdrop_color @sidebar_bg_color;
+@define-color view_bg_color #000000;
+@define-color view_fg_color {{colors.on_surface.dark.hex}};
+@define-color overview_bg_color #000000;
+@define-color overview_fg_color {{colors.on_surface.dark.hex}};
+
+/* Popups */
+@define-color popover_bg_color #000000;
+@define-color popover_fg_color {{colors.on_surface.dark.hex}};
+@define-color dialog_bg_color #000000;
+@define-color dialog_fg_color {{colors.on_surface.dark.hex}};
+
+@import 'colors.css';

@@ -1,0 +1,37 @@
+input {
+	keyboard {
+		xkb {
+			layout "pl,ru"
+			options "grp:win_space_toggle,compose:rctrl,lv5:caps_switch"
+		}
+		repeat-delay 300
+		repeat-rate 50
+		numlock
+	}
+
+	touchpad {
+		tap
+		natural-scroll
+	}
+
+	mouse {
+		accel-speed -0.3
+		accel-profile "flat"
+	}
+}
+
+clipboard {
+	disable-primary
+}
+
+cursor {
+	xcursor-theme "Breeze_Light"
+	xcursor-size 24
+	hide-when-typing
+}
+
+gestures {
+	hot-corners {
+		off
+	}
+}

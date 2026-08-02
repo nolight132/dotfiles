@@ -36,7 +36,7 @@
         ];
       };
       laptop = nixpkgs.lib.nixosSystem {
-        system = "aarch_64-linux";
+        system = "aarch64-linux";
         specialArgs = { inherit inputs; };
 
         modules = [

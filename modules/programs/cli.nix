@@ -5,9 +5,6 @@
     vim
     wget
     git
-    chezmoi
-    tmux
-    fastfetch
     zip
     unzip
     chafa

@@ -5,8 +5,6 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    ghostty
-    zed-editor
     nautilus
     proton-vpn
     telegram-desktop

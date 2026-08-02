@@ -103,6 +103,10 @@
         "...",
       ],
     },
+    "Nix": {
+      "language_servers": ["nixd", "!nil"],
+      "formatter": "language_server",
+    },
     "Go": {
       "formatter": {
         "language_server": {
@@ -213,6 +217,29 @@
         },
       },
     },
+    "nixd": {
+      "settings": {
+        "nixpkgs": {
+          "expr": "import (builtins.getFlake \"/home/nolight/Dotfiles\").inputs.nixpkgs { }",
+        },
+
+        "options": {
+          "nixos": {
+            "expr": "(builtins.getFlake \"/home/nolight/Dotfiles\").nixosConfigurations.desktop.options",
+          },
+
+          "home-manager": {
+            "expr": "(builtins.getFlake \"/home/nolight/Dotfiles\").nixosConfigurations.desktop.options.home-manager.users.type.getSubOptions []",
+          },
+        },
+      },
+
+      "initialization_options": {
+        "formatting": {
+          "command": ["nixfmt"],
+        },
+      },
+    },
     "vtsls": {
       "settings": {
         "typescript": {
@@ -286,7 +313,7 @@
   },
   "edit_predictions": {
     "allow_data_collection": "no",
-    "mode": "eager",
+    "mode": "subtle",
     "provider": "zed",
   },
   "buffer_font_family": "JetBrains Mono",

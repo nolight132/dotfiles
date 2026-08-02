@@ -9,7 +9,6 @@
     unzip
     chafa
     gh
-    nil
     bun
     ddcutil
     obs-cmd

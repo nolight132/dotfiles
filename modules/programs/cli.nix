@@ -14,5 +14,7 @@
     ddcutil
     obs-cmd
     tea
+    nixd
+    codex
   ];
 }

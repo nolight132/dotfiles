@@ -13,8 +13,7 @@
 
     functions = {
       nrs = ''
-        sudo nixos-rebuild switch \
-            --flake ~/Dotfiles#desktop
+        sudo nixos-rebuild switch --flake ~/Dotfiles#desktop
         or return
 
         systemctl --user restart vicinae.service
@@ -100,11 +99,15 @@
 
     shellInitLast = ''
       if status is-interactive; and isatty stdout
-          if command -sq tmux; and not set -q TMUX
-              if not set -q SSH_CONNECTION; and not set -q SSH_CLIENT
-                  exec tmux attach
-              end
+        if command -sq tmux; and not set -q TMUX
+          if not set -q SSH_CONNECTION; and not set -q SSH_CLIENT
+            if command tmux has-session 2>/dev/null
+              exec tmux attach-session
+            else
+              exec tmux new-session -s term
+            end
           end
+        end
       end
     '';
   };

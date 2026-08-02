@@ -2,10 +2,10 @@
   description = "nolight's NixOS";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -25,14 +25,24 @@
   };
 
   outputs = inputs@{ self, nixpkgs, ... }: {
-    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+    nixosConfigurations = {
+      desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
 
-      specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; };
 
-      modules = [
-       ./hosts/desktop/configuration.nix
-      ];
+        modules = [
+         ./hosts/desktop/configuration.nix
+        ];
+      };
+      laptop = nixpkgs.lib.nixosSystem {
+        system = "aarch_64-linux";
+        specialArgs = { inherit inputs; };
+
+        modules = [
+          ./hosts/laptop/configuration.nix
+        ];
+      };
     };
   };
 }

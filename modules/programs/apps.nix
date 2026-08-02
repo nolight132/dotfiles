@@ -1,23 +1,26 @@
-{ pkgs, inputs, ... }:
+{ pkgs, lib, inputs, ... }:
 
 let
   system = pkgs.stdenv.hostPlatform.system;
 in
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = (with pkgs; [
     nautilus
     proton-vpn
     telegram-desktop
     vesktop
     kdePackages.filelight
     loupe
-    cider-2
     obs-studio
     prismlauncher
     clapper
     video-trimmer
-    slack
 
     inputs.zen-browser.packages.${system}.default
-  ];
+
+  ])
+  ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 (with pkgs; [
+    slack
+    cider-2
+  ]);
 }

@@ -16,7 +16,7 @@
         	switch $hostname
          		case macbook
            		set config laptop
-            case zapc
+            case nixos
             	set config desktop
           end
 

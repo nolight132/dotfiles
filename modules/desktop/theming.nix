@@ -29,6 +29,9 @@ let
       cp ${index} $out/share/icons/Papirus-Noctalia/index.theme
       ln -s ${papirus}/64x64/apps/zen-browser.svg $dir/zen.svg
       ln -s ${papirus}/64x64/apps/cider.svg $dir/cider-2.svg
+
+      # Papirus draws vesktop as its own logo; prefer the plain Discord one.
+      ln -s ${papirus}/64x64/apps/discord.svg $dir/vesktop.svg
     '';
 in
 {

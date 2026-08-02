@@ -20,6 +20,7 @@
     };
 
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+
     nls.url = "github:nolight132/nls";
   };
 

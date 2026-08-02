@@ -2,7 +2,7 @@
 spawn-at-startup "noctalia"
 spawn-at-startup "zen-browser"
 spawn-at-startup "ghostty"
-spawn-at-startup "obs"
+spawn-at-startup "obs" "--startreplaybuffer"
 prefer-no-csd
 
 // xwayland

@@ -14,5 +14,6 @@
     obs-cmd
     tea
     codex
+    amdgpu_top
   ];
 }

@@ -28,7 +28,7 @@ in
       with pkgs;
       [
         slack
-        cider-2
+        spotify
       ]
     )
     ++ lib.optionals pkgs.stdenv.hostPlatform.isAarch64 (

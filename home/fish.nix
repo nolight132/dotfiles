@@ -21,6 +21,10 @@
           end
 
           sudo nixos-rebuild switch --flake ~/Dotfiles#$config $argv
+          or return
+
+          systemctl --user daemon-reload
+          systemctl --user restart vicinae.service
       '';
 
       claudex = ''

@@ -11,7 +11,7 @@ overview {
 }
 
 window-rule {
-	match app-id=r#"^(dev\.zed\.Zed|com\.mitchellh\.ghostty|kitty)$"#
+	match app-id=r#"^(dev\.zed\.Zed|com\.mitchellh\.ghostty|kitty|com\.mitchellh\.ghostty\.spotatui)$"#
 
 	background-effect {
 		blur true
@@ -50,13 +50,13 @@ window-rule {
 }
 
 window-rule {
-	match app-id=r#"^(cider|Cider|discord|vesktop|(?i)slack)$"#
+	match app-id=r#"^(cider|Cider|com\.mitchellh\.ghostty\.spotatui|discord|vesktop|(?i)slack)$"#
 
 	open-on-workspace "chat"
 }
 
 window-rule {
-	match app-id=r#"^(cider|Cider)$"#
+	match app-id=r#"^(cider|Cider|com\.mitchellh\.ghostty\.spotatui)$"#
 
 	default-column-width { proportion 0.25; }
 }

@@ -23,13 +23,18 @@ in
       video-trimmer
 
       inputs.zen-browser.packages.${system}.default
-
     ])
     ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 (
       with pkgs;
       [
         slack
         cider-2
+      ]
+    )
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isAarch64 (
+      with pkgs;
+      [
+        kdePackages.dolphin
       ]
     );
 }

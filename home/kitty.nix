@@ -5,7 +5,7 @@
     enable = true;
 
     settings = {
-      font_family = ''family="JetBrains Mono" style=Medium'';
+      font_family = "JetBrains Mono";
       font_size = 11;
       disable_ligatures = "always";
       modify_font = "cell_height 120%";

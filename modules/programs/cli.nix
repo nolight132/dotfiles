@@ -11,27 +11,36 @@ in
 {
   environment.systemPackages =
     (with pkgs; [
+      # dev
+      cmake
+      gcc
+      rustc
+      cargo
+      rustfmt
+      clippy
+      rust-analyzer
+      rustPlatform.rustLibSrc
+      gopls
+      uv
       vim
       wget
       git
       zip
       unzip
-      chafa
-      gh
       bun
+      gh
+      tea
+
+      # user
+      chafa
       ddcutil
       obs-cmd
-      tea
       codex
-      cmake
-      gcc
-      rustc
-      cargo
-      uv
       spotify-player
       spotatui
       fzf
       bat
+      btop
 
       inputs.nls.packages.${system}.default
       inputs.wayzoomy.packages.${system}.default

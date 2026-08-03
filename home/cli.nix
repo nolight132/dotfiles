@@ -5,4 +5,9 @@
   programs.carapace.enable = true;
 
   home.sessionVariables.CARAPACE_LENIENT = "1";
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 }

@@ -27,6 +27,7 @@ in
     ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 (
       with pkgs;
       [
+        reaper
         slack
         spotify
       ]

@@ -8,7 +8,6 @@
   };
 
   home.sessionPath = [
-    "$HOME/.opencode/bin"
     "$HOME/.local/bin"
     "$HOME/.cargo/bin"
     "$HOME/.bun/bin"

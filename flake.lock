@@ -106,6 +106,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1785692966,
+        "narHash": "sha256-vUfIeBEfpbAfZ5zjgIkYk7eHBeVfCYVjLbWnMkseYnk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "643809054d65fdd466a63e3155b8c498cb483c04",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nls": {
       "inputs": {
         "nixpkgs": "nixpkgs_3"
@@ -130,7 +146,26 @@
         "millennium": "millennium",
         "nixpkgs": "nixpkgs_2",
         "nls": "nls",
+        "wayzoomy": "wayzoomy",
         "zen-browser": "zen-browser"
+      }
+    },
+    "wayzoomy": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1785759027,
+        "narHash": "sha256-4VKiS00Xa4qXQam1UbmGkYlEJg4NHgXJZe6OJLez9Go=",
+        "owner": "nolight132",
+        "repo": "wayzoomy",
+        "rev": "bfa418f07d51e1fe19c6c888b5a38f735c916a68",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nolight132",
+        "repo": "wayzoomy",
+        "type": "github"
       }
     },
     "zen-browser": {

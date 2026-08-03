@@ -1,5 +1,13 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
+let
+  system = pkgs.stdenv.hostPlatform.system;
+in
 {
   environment.systemPackages =
     (with pkgs; [
@@ -22,6 +30,11 @@
       uv
       spotify-player
       spotatui
+      fzf
+      bat
+
+      inputs.nls.packages.${system}.default
+      inputs.wayzoomy.packages.${system}.default
     ])
     ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 (
       with pkgs;

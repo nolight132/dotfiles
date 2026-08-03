@@ -17,27 +17,30 @@
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
     nls.url = "github:nolight132/nls";
+    wayzoomy.url = "github:nolight132/wayzoomy";
   };
 
-  outputs = inputs@{ self, nixpkgs, ... }: {
-    nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+  outputs =
+    inputs@{ self, nixpkgs, ... }:
+    {
+      nixosConfigurations = {
+        desktop = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
 
-        specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs; };
 
-        modules = [
-         ./hosts/desktop/configuration.nix
-        ];
-      };
-      laptop = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/desktop/configuration.nix
+          ];
+        };
+        laptop = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          specialArgs = { inherit inputs; };
 
-        modules = [
-          ./hosts/laptop/configuration.nix
-        ];
+          modules = [
+            ./hosts/laptop/configuration.nix
+          ];
+        };
       };
     };
-  };
 }

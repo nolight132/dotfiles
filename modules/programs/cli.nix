@@ -15,12 +15,13 @@
       obs-cmd
       tea
       codex
-      spotatui
       cmake
       gcc
       rustc
       cargo
       uv
+      spotify-player
+      spotatui
     ])
     ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 (
       with pkgs;

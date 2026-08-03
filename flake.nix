@@ -14,11 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    noctalia = {
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
     nls.url = "github:nolight132/nls";

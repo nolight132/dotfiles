@@ -1,8 +1,5 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
-let
-  system = pkgs.stdenv.hostPlatform.system;
-in
 {
   programs.niri.enable = true;
 
@@ -15,10 +12,9 @@ in
   };
 
   environment.systemPackages = with pkgs; [
+    noctalia
     xwayland-satellite
     wl-clipboard
     libnotify
-
-    inputs.noctalia.packages.${system}.default
   ];
 }

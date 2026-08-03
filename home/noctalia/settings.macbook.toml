@@ -1,4 +1,4 @@
-config_version = 12
+config_version = 8
 
 [bar.default]
 auto_hide = true
@@ -182,5 +182,5 @@ show_label = false
 enabled = false
 
 [widget.workspaces]
+display = "none"
 pill_scale = 0.80000000000000004
-show_labels = false

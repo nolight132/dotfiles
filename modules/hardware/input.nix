@@ -14,6 +14,10 @@
       ids = [ "*" ];
 
       settings = {
+        main = {
+          rightcontrol = "rightcontrol";
+        };
+
         meta = {
           h = "left";
           j = "down";

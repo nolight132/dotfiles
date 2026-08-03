@@ -15,6 +15,6 @@
       "systemd.show_status=auto"
       "udev.log_level=3"
     ];
-    loader.timeout = 0;
+    loader.timeout = 1;
   };
 }

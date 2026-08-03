@@ -15,5 +15,6 @@
     tea
     codex
     amdgpu_top
+    spotatui
   ];
 }

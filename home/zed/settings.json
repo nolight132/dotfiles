@@ -49,38 +49,15 @@
   "languages": {
     "Java": {
       "format_on_save": "off",
-      "hard_tabs": true,
-      "tab_size": 4,
     },
     "TypeScript": {
       "formatter": "prettier",
-      "hard_tabs": false,
     },
     "TSX": {
       "formatter": "prettier",
-      "hard_tabs": false,
     },
     "JavaScript": {
       "formatter": "prettier",
-      "hard_tabs": false,
-    },
-    "JSON": {
-      "hard_tabs": false,
-    },
-    "JSONC": {
-      "hard_tabs": false,
-    },
-    "HTML": {
-      "hard_tabs": false,
-    },
-    "YAML": {
-      "hard_tabs": false,
-    },
-    "Markdown": {
-      "hard_tabs": false,
-    },
-    "Rust": {
-      "hard_tabs": false,
     },
     "Python": {
       "formatter": {
@@ -91,12 +68,10 @@
     },
     "Svelte": {
       "formatter": "prettier",
-      "hard_tabs": false,
       "language_servers": ["svelte-language-server", "eslint", "!biome", "..."],
     },
     "CSS": {
       "formatter": "prettier",
-      "hard_tabs": false,
       "language_servers": [
         "tailwindcss-intellisense-css",
         "!vscode-css-language-server",
@@ -118,7 +93,10 @@
         "source.organizeImports": true,
       },
       "language_servers": ["gopls", "..."],
-      "hard_tabs": true,
+    },
+    "Rust": {
+      "formatter": "language_server",
+      "format_on_save": "on",
     },
   },
   "ui_font_family": ".ZedSans",
@@ -149,7 +127,6 @@
   "vim": {
     "toggle_relative_line_numbers": true,
   },
-  "hard_tabs": true,
   "lsp": {
     "jdtls": {
       "settings": {
@@ -222,7 +199,6 @@
         "nixpkgs": {
           "expr": "import (builtins.getFlake \"/home/nolight/Dotfiles\").inputs.nixpkgs { }",
         },
-
         "options": {
           "nixos": {
             "expr": "(builtins.getFlake \"/home/nolight/Dotfiles\").nixosConfigurations.desktop.options",

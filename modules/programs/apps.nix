@@ -20,6 +20,11 @@ in
       obs-studio
       prismlauncher
       clapper
+      file-roller
+      ffmpegthumbnailer
+      evince
+      tumbler
+      sushi
       video-trimmer
 
       inputs.zen-browser.packages.${system}.default

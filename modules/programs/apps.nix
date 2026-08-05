@@ -26,6 +26,9 @@ in
       tumbler
       sushi
       video-trimmer
+      (pkgs.discord.override {
+        withVencord = true;
+      })
 
       inputs.zen-browser.packages.${system}.default
     ])

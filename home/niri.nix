@@ -1,9 +1,13 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
 let
+  mutableKdl = "screencast-privacy.kdl";
   kdlFiles = builtins.attrNames (
-    lib.filterAttrs (n: t: t == "regular" && lib.hasSuffix ".kdl" n) (builtins.readDir ./niri)
+    lib.filterAttrs (n: t: t == "regular" && lib.hasSuffix ".kdl" n && n != mutableKdl) (
+      builtins.readDir ./niri
+    )
   );
+  ruleFile = "${config.xdg.configHome}/niri/${mutableKdl}";
 in
 {
   xdg.configFile =
@@ -14,4 +18,14 @@ in
         executable = true;
       };
     };
+
+  # runtime mutable
+  home.activation.niriScreencastPrivacy = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+    if [ -L "${ruleFile}" ]; then
+      run rm -f "${ruleFile}"
+    fi
+    if [ ! -e "${ruleFile}" ]; then
+      run install -Dm644 ${./niri + "/${mutableKdl}"} "${ruleFile}"
+    fi
+  '';
 }

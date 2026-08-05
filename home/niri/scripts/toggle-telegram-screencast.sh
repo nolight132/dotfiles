@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-RULE_FILE="$HOME/.config/niri/screencast-privacy.kdl"
+RULE_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/niri/screencast-privacy.kdl"
 PID_FILE="${XDG_RUNTIME_DIR:-/tmp}/niri-telegram-screencast.pid"
+
+notify() {
+	command -v notify-send >/dev/null && notify-send -a niri "$@" || true
+}
+
+if [[ -L "$RULE_FILE" || ! -w "$RULE_FILE" ]]; then
+	notify "Screencast privacy broken" "$RULE_FILE is not writable"
+	exit 1
+fi
 
 hide() {
 	cat > "$RULE_FILE" <<-'EOF'
@@ -11,10 +20,6 @@ hide() {
 		block-out-from "screencast"
 	}
 	EOF
-}
-
-notify() {
-	command -v notify-send >/dev/null && notify-send -a niri "$@" || true
 }
 
 if grep -q block-out-from "$RULE_FILE" 2>/dev/null; then

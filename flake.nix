@@ -18,7 +18,7 @@
 
     nls.url = "github:nolight132/nls";
     wayzoomy.url = "github:nolight132/wayzoomy";
-    spotty.url = "github:nolight132/spotty";
+    sonora.url = "github:nolight132/sonora";
   };
 
   outputs =

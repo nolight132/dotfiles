@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785958398,
-        "narHash": "sha256-5r/JgsoNMTx+qIh83WkxpujEKBR7PF5ssnh5vYCuSAw=",
+        "lastModified": 1786031233,
+        "narHash": "sha256-TIDlLTLI1/pB7IqgjzcKQjpODQsZE2oII4XGG9B6KjI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a7c70cc290290f373f50cd820403833d250459ac",
+        "rev": "7834e82588860aaf780cec1366524456a70898d7",
         "type": "github"
       },
       "original": {
@@ -162,26 +162,26 @@
         "millennium": "millennium",
         "nixpkgs": "nixpkgs_2",
         "nls": "nls",
-        "spotty": "spotty",
+        "sonora": "sonora",
         "wayzoomy": "wayzoomy",
         "zen-browser": "zen-browser"
       }
     },
-    "spotty": {
+    "sonora": {
       "inputs": {
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1786011700,
-        "narHash": "sha256-8BwdbHtFIl7SSVk6GHSITQSJmDcY3KCfXn+4U4Ca4m0=",
+        "lastModified": 1786155299,
+        "narHash": "sha256-9VxOdyiCSa7NHvXRmw/Yi77MaapInP0pQO28GhMeqNw=",
         "owner": "nolight132",
-        "repo": "spotty",
-        "rev": "7c6a650373c7dc637ccea387310dfb818b23b362",
+        "repo": "sonora",
+        "rev": "37d22f421d3e9abf554029148605a0e68a577817",
         "type": "github"
       },
       "original": {
         "owner": "nolight132",
-        "repo": "spotty",
+        "repo": "sonora",
         "type": "github"
       }
     },

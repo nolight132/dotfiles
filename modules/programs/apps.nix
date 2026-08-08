@@ -26,15 +26,16 @@ in
       tumbler
       sushi
       video-trimmer
-      (pkgs.discord.override {
-        withVencord = true;
-      })
 
       inputs.zen-browser.packages.${system}.default
+      inputs.sonora.packages.${system}.sonora-bin
     ])
     ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 (
       with pkgs;
       [
+        (pkgs.discord.override {
+          withVencord = true;
+        })
         reaper
         slack
         spotify

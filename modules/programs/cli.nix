@@ -44,7 +44,6 @@ in
 
       inputs.nls.packages.${system}.default
       inputs.wayzoomy.packages.${system}.default
-      inputs.spotty.packages.${system}.default
     ])
     ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 (
       with pkgs;

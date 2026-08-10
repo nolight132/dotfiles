@@ -16,6 +16,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    asahi-nixpkgs.url = "github:NixOS/nixpkgs/b7c2ada94fe99c15b0dbcf4d11fd7850b957a436";
+    apple-silicon.url = "github:nix-community/nixos-apple-silicon/3d2325a31f37221e276f721fabac363a65d0cf7d";
+
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
     nls.url = "github:nolight132/nls";
@@ -24,7 +27,13 @@
   };
 
   outputs =
-    inputs@{ self, nixpkgs, ... }:
+    inputs@{
+      self,
+      nixpkgs,
+      apple-silicon,
+      asahi-nixpkgs,
+      ...
+    }:
     {
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
@@ -41,6 +50,19 @@
           specialArgs = { inherit inputs; };
 
           modules = [
+            apple-silicon.nixosModules.apple-silicon-support
+            {
+              hardware.asahi.pkgs = nixpkgs.lib.mkForce (
+                import asahi-nixpkgs {
+                  system = "aarch64-linux";
+
+                  overlays = [
+                    apple-silicon.overlays.default
+                  ];
+                }
+              );
+            }
+
             ./hosts/laptop/configuration.nix
           ];
         };

@@ -2,6 +2,7 @@ config_version = 8
 
 [bar.default]
 auto_hide = true
+center = [ "clock", "battery" ]
 end = [
     "cpu",
     "tray",
@@ -11,7 +12,6 @@ end = [
     "bluetooth",
     "volume",
     "brightness",
-    "battery",
     "control-center",
     "session"
 ]
@@ -170,7 +170,7 @@ community_palette = "ADW"
 mode = "dark"
 pure_black_dark = true
 source = "wallpaper"
-wallpaper_scheme = "m3-tonal-spot"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "niri", "qt" ]
@@ -181,16 +181,19 @@ directory = "/home/nolight/Pictures/Wallpapers/Fractal Maze"
 transition = [ "fade" ]
 
     [wallpaper.default]
-    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/46.jpg"
+    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/60.jpg"
 
     [wallpaper.last]
-    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/46.jpg"
+    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/60.jpg"
 
     [wallpaper.monitors.DP-1]
     path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/46.jpg"
 
     [wallpaper.monitors.DP-2]
     path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/46.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/60.jpg"
 
     [[wallpaper.favorite]]
     palette_source = "wallpaper"
@@ -235,7 +238,7 @@ transition = [ "fade" ]
     wallpaper_scheme = "m3-content"
 
 [widget.battery]
-enabled = false
+display_mode = "graphic"
 
 [widget.brightness]
 enabled = false

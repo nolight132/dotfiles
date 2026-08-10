@@ -11,7 +11,7 @@ overview {
 }
 
 window-rule {
-	match app-id=r#"^(dev\.zed\.Zed|com\.mitchellh\.ghostty|kitty|com\.mitchellh\.ghostty\.spotatui)$"#
+	match app-id=r#"^(dev\.zed\.Zed|com\.mitchellh\.ghostty|kitty|com\.mitchellh\.ghostty\.spotatui|sonora)$"#
 
 	background-effect {
 		blur true

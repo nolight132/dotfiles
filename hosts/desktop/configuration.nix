@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -6,7 +6,7 @@
     ../../modules
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = inputs.kernel-nixpkgs.legacyPackages.${pkgs.system}.linuxPackages_latest;
 
   networking.hostName = "nixos";
   system.stateVersion = "26.05";

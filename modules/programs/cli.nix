@@ -19,6 +19,7 @@ in
       rustfmt
       clippy
       rust-analyzer
+      sccache
       rustPlatform.rustLibSrc
       gopls
       uv

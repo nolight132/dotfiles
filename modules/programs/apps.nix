@@ -26,6 +26,7 @@ in
       tumbler
       sushi
       video-trimmer
+      krita
 
       inputs.zen-browser.packages.${system}.default
       inputs.sonora.packages.${system}.sonora-bin

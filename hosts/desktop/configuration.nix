@@ -6,7 +6,7 @@
     ../../modules
   ];
 
-  boot.kernelPackages = inputs.kernel-nixpkgs.legacyPackages.${pkgs.system}.linuxPackages_latest;
+  boot.kernelPackages = inputs.kernel-nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages_latest;
 
   networking.hostName = "nixos";
   system.stateVersion = "26.05";

@@ -256,11 +256,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1786325243,
-        "narHash": "sha256-94HHxuvYRUHCD0dpF8oT4OQ8XgkNJph9qjkScbVw4Ms=",
+        "lastModified": 1786472745,
+        "narHash": "sha256-wiie7Tz33C6Rb/3YwBpMkWrdFXrT5U9aH4IRfwwI7z4=",
         "owner": "nolight132",
         "repo": "sonora",
-        "rev": "3f4f7542b7b33408b2c387630cbe0fa1ae624d24",
+        "rev": "dc2a603eee64184ef7ffe08137e9a549d418f81e",
         "type": "github"
       },
       "original": {

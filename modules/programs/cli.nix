@@ -31,6 +31,7 @@ in
       bun
       gh
       tea
+      go
 
       # user
       chafa

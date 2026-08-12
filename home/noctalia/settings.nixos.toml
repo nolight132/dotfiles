@@ -213,6 +213,9 @@ enabled = false
 [widget.clipboard]
 enabled = false
 
+[widget.clock]
+tooltip_format = "{:%H:%M:%S}"
+
 [widget.control-center]
 enabled = false
 

@@ -27,6 +27,8 @@ in
       sushi
       video-trimmer
       krita
+      qbittorrent
+      chromium
 
       inputs.zen-browser.packages.${system}.default
       inputs.sonora.packages.${system}.sonora-bin

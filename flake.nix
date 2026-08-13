@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # Temp until kernel is fixed
-    kernel-nixpkgs.url = "github:NixOS/nixpkgs/148bab9";
+    # kernel-nixpkgs.url = "github:NixOS/nixpkgs/148bab9";
 
     home-manager = {
       url = "github:nix-community/home-manager";

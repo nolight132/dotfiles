@@ -37,6 +37,9 @@ show_instance_count = false
 [hooks]
 wallpaper_changed = "$HOME/.config/noctalia/hooks/matugen.sh"
 
+[location]
+address = "Gdańsk"
+
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
@@ -126,6 +129,9 @@ widget_order = [ "lockscreen-login-box@DP-3", "lockscreen-login-box@DP-1", "lock
 monitors = [ "DP-2" ]
 position = "bottom_right"
 show_actions = false
+
+[osd]
+monitors = [ "DP-1" ]
 
 [shell]
 clipboard_enabled = false

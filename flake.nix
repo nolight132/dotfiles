@@ -2,9 +2,7 @@
   description = "nolight's NixOS";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # Temp until kernel is fixed
-    # kernel-nixpkgs.url = "github:NixOS/nixpkgs/148bab9";
+    nixpkgs.url = "github:NixOS/nixpkgs/1e544d5f3944e555dd7919258882562e616407a8";
 
     home-manager = {
       url = "github:nix-community/home-manager";

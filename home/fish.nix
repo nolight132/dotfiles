@@ -9,6 +9,7 @@
       ls = "nls";
       zed = "zeditor .";
       files = "nautilus .";
+      nix-update = "sudo nix flake update --flake ~/Dotfiles && nrs";
     };
 
     functions = {

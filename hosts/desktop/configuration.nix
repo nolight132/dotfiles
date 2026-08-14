@@ -17,4 +17,18 @@
       size = 8 * 1024;
     }
   ];
+
+  fileSystems."/nix".options = [
+    "subvol=nix"
+    "compress=zstd"
+  ];
+
+  fileSystems."/home".options = [
+    "subvol=home"
+    "compress=zstd"
+  ];
+
+  fileSystems."/".options = [
+    "compress=zstd"
+  ];
 }

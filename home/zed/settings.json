@@ -197,15 +197,15 @@
     "nixd": {
       "settings": {
         "nixpkgs": {
-          "expr": "import (builtins.getFlake \"/home/nolight/Dotfiles\").inputs.nixpkgs { }",
+          "expr": "import (builtins.getFlake (builtins.getEnv \"HOME\" + \"/Dotfiles\")).inputs.nixpkgs { }",
         },
         "options": {
           "nixos": {
-            "expr": "(builtins.getFlake \"/home/nolight/Dotfiles\").nixosConfigurations.desktop.options",
+            "expr": "(builtins.getFlake (builtins.getEnv \"HOME\" + \"/Dotfiles\")).nixosConfigurations.desktop.options",
           },
 
           "home-manager": {
-            "expr": "(builtins.getFlake \"/home/nolight/Dotfiles\").nixosConfigurations.desktop.options.home-manager.users.type.getSubOptions []",
+            "expr": "(builtins.getFlake (builtins.getEnv \"HOME\" + \"/Dotfiles\")).nixosConfigurations.desktop.options.home-manager.users.type.getSubOptions []",
           },
         },
       },

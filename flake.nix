@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,6 +46,16 @@
 
           modules = [
             ./hosts/desktop/configuration.nix
+          ];
+        };
+      };
+
+      darwinConfigurations = {
+        macbook-air = inputs.nix-darwin.lib.darwinSystem {
+          specialArgs = { inherit inputs; };
+
+          modules = [
+            ./hosts/macbook-air/configuration.nix
           ];
         };
       };

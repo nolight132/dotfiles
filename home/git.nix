@@ -12,7 +12,13 @@
       push.default = "current";
       remote.pushDefault = "origin";
 
-      credential.helper = "store";
+      credential = {
+        helper = [
+          ""
+          "store"
+        ];
+        "https://github.com".helper = "!gh auth git-credential";
+      };
     };
   };
 }

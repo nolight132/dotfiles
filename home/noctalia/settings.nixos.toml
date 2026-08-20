@@ -1,4 +1,4 @@
-config_version = 8
+config_version = 12
 
 [bar.default]
 auto_hide = true
@@ -29,7 +29,7 @@ inactive_opacity = 0.99999997764825821
 inactive_scale = 1.0
 magnification = false
 main_axis_padding = 12
-pinned = [ "zen", "dev.zed.Zed", "com.mitchellh.ghostty.spotatui", "discord", "org.telegram.desktop" ]
+pinned = [ "zen", "dev.zed.Zed", "discord", "org.telegram.desktop", "sonora" ]
 reserve_space = false
 shadow = false
 show_instance_count = false
@@ -247,5 +247,5 @@ show_label = false
 enabled = false
 
 [widget.workspaces]
-display = "none"
 pill_scale = 0.80000000000000004
+show_labels = false

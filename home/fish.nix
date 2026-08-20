@@ -14,18 +14,11 @@
 
     functions = {
       nrs = ''
-        	switch $hostname
-         		case macbook
-           		set config laptop
-            case nixos
-            	set config desktop
-          end
+        sudo nixos-rebuild switch --flake ~/Dotfiles#desktop $argv
+        or return
 
-          sudo nixos-rebuild switch --flake ~/Dotfiles#$config $argv
-          or return
-
-          systemctl --user daemon-reload
-          systemctl --user restart vicinae.service
+        systemctl --user daemon-reload
+        systemctl --user restart vicinae.service
       '';
 
       claudex = ''

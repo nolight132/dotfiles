@@ -38,6 +38,7 @@ in
       # Music
       reaper
       ratatouille-lv2
+      guitarix-vst
       spotify
       inputs.sonora.packages.${system}.default
 

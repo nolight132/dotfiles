@@ -20,6 +20,9 @@ show_on_workspace_switch = false
 start = [ "launcher", "wallpaper", "workspaces", "media" ]
 widget_spacing = 10
 
+[control_center.calendar]
+show_events_card = false
+
 [dock]
 auto_hide = true
 cross_axis_padding = 4

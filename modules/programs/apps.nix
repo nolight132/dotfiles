@@ -52,6 +52,7 @@ in
       krita
       qbittorrent
       proton-vpn
+      t3code
     ]
   );
 }

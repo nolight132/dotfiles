@@ -3,6 +3,7 @@ config_version = 12
 [bar.default]
 auto_hide = true
 end = [
+    "weather",
     "cpu",
     "tray",
     "notifications",
@@ -17,8 +18,11 @@ end = [
 ]
 reserve_space = false
 show_on_workspace_switch = false
-start = [ "launcher", "wallpaper", "workspaces", "media" ]
+start = [ "launcher", "wallpaper", "workspaces", "media", "audio_visualizer" ]
 widget_spacing = 10
+
+    [bar.default.dead_zone.actions]
+    left = "panel-toggle control-center calendar"
 
 [control_center.calendar]
 show_events_card = false
@@ -213,6 +217,10 @@ transition = [ "fade" ]
     theme_mode = "dark"
     wallpaper_scheme = "m3-content"
 
+[widget.audio_visualizer]
+bands = 76
+mirrored = false
+
 [widget.battery]
 enabled = false
 
@@ -229,7 +237,7 @@ tooltip_format = "{:%H:%M:%S}"
 enabled = false
 
 [widget.cpu]
-scale = 0.90000000000000013
+scale = 0.85000000000000009
 
 [widget.launcher]
 enabled = false
@@ -248,6 +256,10 @@ show_label = false
 
 [widget.wallpaper]
 enabled = false
+
+[widget.weather]
+scale = 0.85000000000000009
+show_condition = false
 
 [widget.workspaces]
 pill_scale = 0.80000000000000004

@@ -1,4 +1,4 @@
-{ config, osConfig, ... }:
+{ config, ... }:
 
 let
   repo = "${config.home.homeDirectory}/Dotfiles/home/noctalia";
@@ -10,7 +10,7 @@ in
   };
 
   xdg.stateFile."noctalia/settings.toml".source =
-    config.lib.file.mkOutOfStoreSymlink "${repo}/settings.${osConfig.networking.hostName}.toml";
+    config.lib.file.mkOutOfStoreSymlink "${repo}/settings.toml";
 
   xdg.stateFile."noctalia/.setup-complete".text = "";
 }

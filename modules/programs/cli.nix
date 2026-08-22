@@ -43,6 +43,7 @@ in
       fzf
       bat
       btop
+      profile-sync-daemon
 
       inputs.nls.packages.${system}.default
       inputs.wayzoomy.packages.${system}.default

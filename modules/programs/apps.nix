@@ -25,6 +25,7 @@ in
 
       # Browsers
       chromium
+      inputs.helium.packages.${system}.default
       inputs.zen-browser.packages.${system}.default
 
       # Communication

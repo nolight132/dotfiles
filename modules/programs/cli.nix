@@ -29,6 +29,8 @@ in
       zip
       unzip
       bun
+      nodejs
+      bubblewrap
       gh
       tea
       go

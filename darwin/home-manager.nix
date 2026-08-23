@@ -36,7 +36,7 @@
 
         home.sessionVariables = {
           PNPM_HOME = "${config.home.homeDirectory}/Library/pnpm";
-          GOBIN = "${config.home.homeDirectory}/.local/share/go/bin";
+          GOBIN = lib.mkForce "${config.home.homeDirectory}/.local/share/go/bin";
         };
 
         home.sessionPath = [

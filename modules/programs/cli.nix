@@ -37,7 +37,6 @@ in
       chafa
       ddcutil
       obs-cmd
-      codex
       spotify-player
       spotatui
       fzf

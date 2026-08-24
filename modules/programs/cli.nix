@@ -14,6 +14,7 @@ in
       # dev
       cmake
       gcc
+      just
       rustc
       cargo
       rustfmt
@@ -29,6 +30,8 @@ in
       zip
       unzip
       bun
+      nodejs
+      bubblewrap
       gh
       tea
       go
@@ -37,7 +40,6 @@ in
       chafa
       ddcutil
       obs-cmd
-      codex
       spotify-player
       spotatui
       fzf

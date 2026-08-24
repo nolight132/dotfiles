@@ -17,6 +17,7 @@ in
     rustc
     rust-analyzer
     nodejs
+    tea
 
     # user
     bat

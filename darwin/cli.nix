@@ -16,6 +16,7 @@ in
     pnpm
     rustc
     rust-analyzer
+    nodejs
 
     # user
     bat

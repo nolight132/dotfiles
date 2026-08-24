@@ -63,11 +63,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787487906,
-        "narHash": "sha256-zIdM+8teujHm5hc5MIPDnV7k2UeOOT/pFyFtWjOCwsY=",
+        "lastModified": 1787540599,
+        "narHash": "sha256-MHwk52ty3NsLhq9a1IbIfBJZlCUJIdiUYFo52JLK9hY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "cfba7ad5886b342b8dd63ba74354b3853ea4cfc9",
+        "rev": "03f4cd46bc1dd4f3a96da778d2ce9f7ce39dd450",
         "type": "github"
       },
       "original": {
@@ -212,6 +212,26 @@
         "type": "github"
       }
     },
+    "noctalia-greeter": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787482410,
+        "narHash": "sha256-R32LF+S4NnmJwSnzt5xKjb15RjYemb/ZZRnDnP5lxfs=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-greeter",
+        "rev": "5956c6f40249b2837bb260d25ea3953a2631fbdc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia-greeter",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "helium": "helium",
@@ -219,6 +239,7 @@
         "millennium": "millennium",
         "nixpkgs": "nixpkgs_2",
         "nls": "nls",
+        "noctalia-greeter": "noctalia-greeter",
         "sonora": "sonora",
         "wayzoomy": "wayzoomy",
         "zen-browser": "zen-browser"
@@ -229,11 +250,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1787497161,
-        "narHash": "sha256-BdoHyhIyzbcJ5rbiLu063P1ifYw1rhfyIwWy7ammSkk=",
+        "lastModified": 1787526847,
+        "narHash": "sha256-lPQ9COKXwFaARPhv7Mg+Qsw1Iaim+mimaAbAf6DSues=",
         "owner": "nolight132",
         "repo": "sonora",
-        "rev": "b781310403b717515b9f2c36fcfc99c093d65d96",
+        "rev": "71b14b730fc67540ed1768663001bafa1fa251cb",
         "type": "github"
       },
       "original": {

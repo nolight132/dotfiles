@@ -14,6 +14,7 @@ in
       # dev
       cmake
       gcc
+      just
       rustc
       cargo
       rustfmt

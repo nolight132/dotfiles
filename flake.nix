@@ -21,6 +21,11 @@
 
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nls.url = "github:nolight132/nls";
     wayzoomy.url = "github:nolight132/wayzoomy";
     sonora.url = "github:nolight132/sonora";

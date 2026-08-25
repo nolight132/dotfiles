@@ -11,11 +11,7 @@
     partOf = [ "graphical-session.target" ];
     after = [ "graphical-session.target" ];
 
-    path = [
-      "/run/wrappers"
-      "/etc/profiles/per-user/nolight"
-      "/run/current-system/sw"
-    ];
+    enableDefaultPath = false;
 
     serviceConfig = {
       ExecStart = "${pkgs.vicinae}/bin/vicinae server";

@@ -1,5 +1,6 @@
 {
   name,
+  uuid,
   memoryKiB,
   currentMemoryKiB,
   cores,
@@ -20,6 +21,7 @@ in
 ''
   <domain type='kvm'>
     <name>${name}</name>
+    <uuid>${uuid}</uuid>
     <metadata>
       <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
         <libosinfo:os id="http://microsoft.com/win/11"/>

@@ -5,6 +5,7 @@ let
   home = "/home/${user}";
 
   vmName = "atlas";
+  vmUuid = "6e5710a7-846f-486c-a258-a62f1c75b2d9";
   cores = 4;
   threads = 2;
   maxMemoryGiB = 16;
@@ -35,6 +36,7 @@ let
   domainXml = pkgs.writeText "${vmName}.xml" (
     import ./domain.nix {
       name = vmName;
+      uuid = vmUuid;
       memoryKiB = maxMemoryGiB * 1024 * 1024;
       currentMemoryKiB = bootMemoryGiB * 1024 * 1024;
       ovmfCode = "${ovmf}/FV/OVMF_CODE.ms.fd";

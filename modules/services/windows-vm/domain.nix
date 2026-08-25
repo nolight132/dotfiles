@@ -1,10 +1,13 @@
 {
   name,
   uuid,
+  mac,
   memoryKiB,
   currentMemoryKiB,
   cores,
   threads,
+  vcpuPins,
+  reservedCpuset,
   diskPath,
   installerIso,
   virtioIso,
@@ -17,6 +20,9 @@
 
 let
   cdromSource = iso: if iso == null then "" else "<source file='${iso}'/>";
+
+  vcpupin = p: "<vcpupin vcpu='${toString p.vcpu}' cpuset='${toString p.cpu}'/>";
+  vcpupins = builtins.concatStringsSep "\n    " (map vcpupin vcpuPins);
 in
 ''
   <domain type='kvm'>
@@ -36,6 +42,13 @@ in
     </memoryBacking>
 
     <vcpu placement='static'>${toString (cores * threads)}</vcpu>
+    <iothreads>1</iothreads>
+    <cputune>
+      ${vcpupins}
+      <emulatorpin cpuset='${reservedCpuset}'/>
+      <iothreadpin iothread='1' cpuset='${reservedCpuset}'/>
+    </cputune>
+
     <cpu mode='host-passthrough' check='none' migratable='on'>
       <topology sockets='1' dies='1' cores='${toString cores}' threads='${toString threads}'/>
       <feature policy='require' name='topoext'/>
@@ -89,7 +102,7 @@ in
 
     <devices>
       <disk type='file' device='disk'>
-        <driver name='qemu' type='qcow2' cache='none' io='native' discard='unmap'/>
+        <driver name='qemu' type='qcow2' cache='none' io='native' discard='unmap' iothread='1'/>
         <source file='${diskPath}'/>
         <target dev='vda' bus='virtio'/>
         <boot order='2'/>
@@ -117,6 +130,7 @@ in
       </filesystem>
 
       <interface type='network'>
+        <mac address='${mac}'/>
         <source network='default'/>
         <model type='virtio'/>
       </interface>
@@ -132,6 +146,7 @@ in
       <graphics type='spice' autoport='yes'>
         <listen type='address'/>
         <image compression='off'/>
+        <streaming mode='off'/>
         <gl enable='no'/>
       </graphics>
 

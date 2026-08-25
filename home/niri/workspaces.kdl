@@ -11,6 +11,9 @@ workspace "term" {
 workspace "misc" {
 	open-on-output "DP-1"
 }
+workspace "windows" {
+	open-on-output "DP-1"
+}
 
 // left monitor
 workspace "chat" {

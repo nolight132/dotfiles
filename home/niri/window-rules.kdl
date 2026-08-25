@@ -109,3 +109,18 @@ window-rule {
 	geometry-corner-radius 12
 	clip-to-geometry true
 }
+
+// windows vm
+window-rule {
+	match app-id=r#"^com\.freerdp\.client\.sdl3$"#
+
+	open-on-workspace "windows"
+	open-fullscreen true
+}
+
+// t3code
+window-rule {
+	match app-id=r#"^t3code$"#
+
+	open-on-workspace "misc"
+}

@@ -76,6 +76,11 @@ let
     ];
 
     text = ''
+      if [ "''${WINVM_DETACHED:-0}" != 1 ]; then
+        WINVM_DETACHED=1 setsid "$0" "$@" >/dev/null 2>&1 < /dev/null &
+        exit 0
+      fi
+
       uri=qemu:///system
       domain=${vmName}
       mac=${vmMac}
@@ -145,6 +150,48 @@ let
         /network:lan
     '';
   };
+  vmIconName = "windows-11";
+
+  vmIconSvg = pkgs.writeText "${vmIconName}.svg" ''
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" version="1">
+     <rect style="opacity:0.2" width="57" height="57" x="4" y="4" rx="2.85" ry="2.85"/>
+     <rect style="fill:#e4e4e4" width="57" height="57" x="4" y="3" rx="2.85" ry="2.85"/>
+     <path style="opacity:0.1" d="M 13,13 H 31 V 31 H 13 Z M 34,13 H 52 V 31 H 34 Z M 13,34 H 31 V 52 H 13 Z M 34,34 H 52 V 52 H 34 Z"/>
+     <path style="fill:#0078d6" d="M 13,12 H 31 V 30 H 13 Z M 34,12 H 52 V 30 H 34 Z M 13,33 H 31 V 51 H 13 Z M 34,33 H 52 V 51 H 34 Z"/>
+     <path style="fill:#ffffff;opacity:0.2" d="M 6.8496094 3 C 5.2707094 3 4 4.2707094 4 5.8496094 L 4 6.8496094 C 4 5.2707094 5.2707094 4 6.8496094 4 L 58.150391 4 C 59.729291 4 61 5.2707094 61 6.8496094 L 61 5.8496094 C 61 4.2707094 59.729291 3 58.150391 3 L 6.8496094 3 z"/>
+    </svg>
+  '';
+
+  vmIcon = pkgs.runCommand "${vmIconName}-icon" { } ''
+    dir=$out/share/icons/hicolor/scalable/apps
+    mkdir -p $dir
+    cp ${vmIconSvg} $dir/${vmIconName}.svg
+  '';
+
+  vmDesktopItem = pkgs.makeDesktopItem {
+    name = "winvm";
+    desktopName = "Windows 11";
+    genericName = "Virtual Machine";
+    comment = "Boot the ${vmName} guest and attach over RDP";
+    icon = vmIconName;
+    exec = "${vmLauncher}/bin/winvm";
+    terminal = false;
+    startupNotify = false;
+    startupWMClass = "com.freerdp.client.sdl3";
+
+    categories = [
+      "System"
+      "Emulator"
+    ];
+
+    keywords = [
+      "windows"
+      "vm"
+      "rdp"
+      vmName
+    ];
+  };
+
   domainXml = pkgs.writeText "${vmName}.xml" (
     import ./domain.nix {
       name = vmName;
@@ -178,7 +225,11 @@ in
     }
   ];
 
-  environment.systemPackages = [ vmLauncher ];
+  environment.systemPackages = [
+    vmLauncher
+    vmIcon
+    vmDesktopItem
+  ];
 
   systemd.tmpfiles.rules = [
     "d ${home}/VMs 0755 ${user} users -"

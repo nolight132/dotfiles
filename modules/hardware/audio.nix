@@ -38,6 +38,37 @@
     ];
   };
 
+  services.pipewire.wireplumber.extraConfig."52-minifuse-driver-priority" = {
+    "monitor.alsa.rules" = [
+      {
+        matches = [
+          {
+            "node.name" = "~alsa_input\\.usb-ARTURIA_MiniFuse_1_.*";
+          }
+        ];
+
+        actions = {
+          update-props = {
+            "priority.driver" = 1000;
+          };
+        };
+      }
+      {
+        matches = [
+          {
+            "node.name" = "~alsa_output\\.usb-ARTURIA_MiniFuse_1_.*";
+          }
+        ];
+
+        actions = {
+          update-props = {
+            "priority.driver" = 3000;
+          };
+        };
+      }
+    ];
+  };
+
   environment.systemPackages = with pkgs; [
     pulseaudio # pactl and friends
     pavucontrol

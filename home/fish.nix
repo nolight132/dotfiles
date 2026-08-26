@@ -13,6 +13,15 @@
     };
 
     functions = {
+      docker = ''
+        if not systemctl is-active --quiet docker.service
+            systemctl is-active --quiet docker.socket
+            or sudo systemctl start docker.socket
+        end
+
+        command docker $argv
+      '';
+
       nrs = ''
         sudo nixos-rebuild switch --flake ~/Dotfiles#desktop $argv
         or return

@@ -36,6 +36,9 @@
     extraConfig = ''
       set -as terminal-features ",xterm-256color:RGB"
 
+      # continuum restore needs
+      set -g exit-empty off
+
       set -g detach-on-destroy off
       set -g renumber-windows on
       set -g set-clipboard on

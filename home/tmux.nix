@@ -29,14 +29,6 @@
         plugin = tmux-sessionx;
         extraConfig = "set -g @sessionx-bind 'o'";
       }
-      {
-        plugin = tmux-floax;
-        extraConfig = ''
-          set -g @floax-width '80%'
-          set -g @floax-height '80%'
-          set -g @floax-border-color 'magenta'
-        '';
-      }
       # NOTE: continuum is deliberately *not* listed here. See the bottom of
       # extraConfig for why it has to be loaded last.
     ];

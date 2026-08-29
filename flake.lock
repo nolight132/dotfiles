@@ -43,11 +43,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787589578,
-        "narHash": "sha256-u2giIP8rY3sKi1Ma3YvbCdlcMAvLyvgl0MSn3Pg3W0U=",
+        "lastModified": 1788008499,
+        "narHash": "sha256-0RfpRmzq2JJdWbiykYxduT1BvMeIzOnljUT775JCHhs=",
         "owner": "AlvaroParker",
         "repo": "helium-nix",
-        "rev": "b838674333c1ac60c46237357e830ac1c6464437",
+        "rev": "ed54f25251951c8570cca7460132c2c2b46522a8",
         "type": "github"
       },
       "original": {
@@ -152,16 +152,16 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1787736819,
-        "narHash": "sha256-cV5xEJJK3BvhU8rEd4mC9UsmDi5qscv/kzGPhBRC5WA=",
-        "owner": "NixOS",
+        "lastModified": 1788019730,
+        "narHash": "sha256-gP1oxhf6FrdID1IVhXNo9ceoFA0uqbOBZJ16MyK2uFI=",
+        "owner": "nolight132",
         "repo": "nixpkgs",
-        "rev": "9fbb54b33e91ee4ca368e35a78e0613c720600b3",
+        "rev": "138c0b2398277f1583de4dc47480eae3cb6157c1",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "owner": "nolight132",
+        "ref": "personal",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -239,11 +239,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787856212,
-        "narHash": "sha256-MMhia1PBaQoQ4iv5f09bGOT00Ni41z8awxXBl97T404=",
+        "lastModified": 1788014766,
+        "narHash": "sha256-iEJ7sw1zfQ7q5TFQObZqDXbaL9ZGDhU1X8lERJh3i60=",
         "owner": "noctalia-dev",
         "repo": "noctalia-greeter",
-        "rev": "eefd43230b34ffbaa9267fede4d8aef1a784294a",
+        "rev": "c095206fcc08955fe8f77b22adea4ece156d296d",
         "type": "github"
       },
       "original": {
@@ -271,11 +271,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1787859142,
-        "narHash": "sha256-Sv96tOXUuzuSpbkjrVAdLEsrds8RIj62fzIkJSMaz7Q=",
+        "lastModified": 1788020291,
+        "narHash": "sha256-S5ymcXXB513lOHzCK6yzcdlroAojuvNiDdX8AzCuknQ=",
         "owner": "nolight132",
         "repo": "sonora",
-        "rev": "ae13c3d7e94a4c520b62bb7ef8b6af16908fbe31",
+        "rev": "b7a7c244bd7ee7afdbb00080b31c7c1011722d32",
         "type": "github"
       },
       "original": {

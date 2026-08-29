@@ -2,7 +2,7 @@
   description = "nolight's NixOS";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nolight132/nixpkgs/personal";
 
     home-manager = {
       url = "github:nix-community/home-manager";

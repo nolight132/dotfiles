@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nolight132/nixpkgs/personal";
 
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,6 +52,7 @@
           specialArgs = { inherit inputs; };
 
           modules = [
+            inputs.determinate.nixosModules.default
             ./hosts/desktop/configuration.nix
           ];
         };

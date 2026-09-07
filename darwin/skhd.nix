@@ -8,9 +8,14 @@ let
     2
     3
     4
+    5
+    6
+    7
   ];
 
-  focus = lib.concatMapStringsSep "\n" (n: "cmd - ${toString n} : ${yabai} -m space --focus ${toString n}") workspaces;
+  focus = lib.concatMapStringsSep "\n" (
+    n: "cmd - ${toString n} : ${yabai} -m space --focus ${toString n}"
+  ) workspaces;
 
   move = lib.concatMapStringsSep "\n" (
     n: "cmd + shift - ${toString n} : ${yabai} -m window --space ${toString n}"

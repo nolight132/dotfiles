@@ -18,6 +18,7 @@ in
     rust-analyzer
     nodejs
     tea
+    cmake
 
     # user
     bat

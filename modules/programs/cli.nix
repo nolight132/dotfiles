@@ -35,6 +35,7 @@ in
       gh
       tea
       go
+      nixpkgs-review
 
       # user
       chafa

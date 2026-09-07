@@ -2,7 +2,9 @@
   description = "nolight's NixOS";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nolight132/nixpkgs/personal";
+
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -50,6 +52,7 @@
           specialArgs = { inherit inputs; };
 
           modules = [
+            inputs.determinate.nixosModules.default
             ./hosts/desktop/configuration.nix
           ];
         };

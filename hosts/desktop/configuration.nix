@@ -11,6 +11,13 @@
   networking.hostName = "nixos";
   system.stateVersion = "26.05";
 
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+    priority = 100;
+  };
+
   swapDevices = [
     {
       device = "/swapfile";

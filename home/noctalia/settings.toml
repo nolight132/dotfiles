@@ -24,8 +24,11 @@ widget_spacing = 10
     [bar.default.dead_zone.actions]
     left = "panel-toggle control-center calendar"
 
-[control_center.calendar]
-show_events_card = false
+[control_center]
+hidden_tabs = [ "power" ]
+
+    [control_center.calendar]
+    show_events_card = false
 
 [dock]
 auto_hide = true

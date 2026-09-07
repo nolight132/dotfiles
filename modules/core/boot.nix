@@ -5,7 +5,7 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
 
-    plymouth.enable = true;
+    plymouth.enable = false;
     consoleLogLevel = 3;
     kernelParams = [
       "quiet"
@@ -16,5 +16,8 @@
       "udev.log_level=3"
     ];
     loader.timeout = 1;
+    initrd.kernelModules = [ "amdgpu" ];
   };
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 }

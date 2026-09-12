@@ -34,7 +34,7 @@ in
       (pkgs.discord.override {
         withVencord = true;
       })
-      slack
+      element-desktop
 
       # Music
       reaper
@@ -50,9 +50,11 @@ in
       # Misc
       obs-studio
       krita
+      shotcut
       qbittorrent
       proton-vpn
       t3code
+      bruno
     ]
   );
 }

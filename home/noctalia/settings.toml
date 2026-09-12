@@ -263,6 +263,7 @@ drawer = true
 drawer_columns = 5
 drawer_item_size = 19.0
 hidden = [ "blueman" ]
+pinned = [ "proton.vpn.app.gtk", "sonora", "obs" ]
 
 [widget.volume]
 show_label = false

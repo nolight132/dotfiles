@@ -22,24 +22,16 @@
         command docker $argv
       '';
 
+      run = ''
+        command nix run "nixpkgs#$argv[1]" -- $argv[2..]
+      '';
+
       nrs = ''
         sudo nixos-rebuild switch --flake ~/Dotfiles#desktop $argv
         or return
 
         systemctl --user daemon-reload
         systemctl --user restart vicinae.service
-      '';
-
-      claudex = ''
-        env \
-            ANTHROPIC_BASE_URL=http://127.0.0.1:8317 \
-            ANTHROPIC_AUTH_TOKEN=$CLAUDEX_TOKEN \
-            ENABLE_CLAUDEAI_MCP_SERVERS=false \
-            CLAUDE_CODE_SUBAGENT_MODEL=gpt-5.6-sol \
-            CLAUDE_CODE_ALWAYS_ENABLE_EFFORT=1 \
-            CLAUDE_CODE_MAX_TOOL_USE_CONCURRENCY=3 \
-            ENABLE_TOOL_SEARCH=false \
-            claude --model gpt-5.6-sol $argv
       '';
 
       __nu_tab = {

@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   programs.ghostty = {
@@ -26,5 +26,21 @@
       confirm-close-surface = false;
       app-notifications = "no-clipboard-copy";
     };
+  };
+
+  systemd.user.services.ghostty = {
+    Unit = {
+      Description = "Ghostty";
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      ExecStart = "${config.programs.ghostty.package}/bin/ghostty --gtk-single-instance=true";
+      Restart = "on-failure";
+      RestartSec = 1;
+    };
+
+    Install.WantedBy = [ "graphical-session.target" ];
   };
 }

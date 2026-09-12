@@ -1,8 +1,7 @@
 // startup
 spawn-at-startup "noctalia"
 spawn-at-startup "playerctld" "daemon"
-spawn-at-startup "zen-browser"
-spawn-at-startup "ghostty"
+spawn-at-startup "zen"
 spawn-at-startup "obs" "--startreplaybuffer"
 spawn-at-startup "protonvpn-app"
 prefer-no-csd

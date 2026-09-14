@@ -1,4 +1,4 @@
-config_version = 13
+config_version = 14
 
 [bar.default]
 auto_hide = true
@@ -23,6 +23,8 @@ widget_spacing = 10
 
     [bar.default.dead_zone.actions]
     left = "panel-toggle control-center calendar"
+
+[calendar]
 
 [control_center]
 hidden_tabs = [ "power" ]

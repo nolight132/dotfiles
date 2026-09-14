@@ -1,7 +1,7 @@
 // background blur
 blur {
 	passes 4
-	noise 0.06
+	noise 0.02
 	offset 5
 	saturation 1.8
 }
@@ -14,6 +14,7 @@ window-rule {
 	match app-id=r#"^(dev\.zed\.Zed|com\.mitchellh\.ghostty|kitty|com\.mitchellh\.ghostty\.spotatui|sonora)$"#
 
 	background-effect {
+	    xray false
 		blur true
 	}
 }

@@ -179,16 +179,16 @@ directory = "/home/nolight/Pictures/Wallpapers/Fractal Maze"
 transition = [ "fade" ]
 
     [wallpaper.default]
-    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/46.jpg"
+    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/33.jpg"
 
     [wallpaper.last]
-    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/46.jpg"
+    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/33.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/46.jpg"
+    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/33.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/46.jpg"
+    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/33.jpg"
 
     [[wallpaper.favorite]]
     palette_source = "wallpaper"

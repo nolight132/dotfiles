@@ -43,6 +43,7 @@ in
       obs-cmd
       spotify-player
       spotatui
+      ffmpeg
       fzf
       bat
       btop

@@ -26,7 +26,17 @@ in
       # Browsers
       chromium
       inputs.helium.packages.${system}.default
-      inputs.zen-browser.packages.${system}.default
+      (pkgs.symlinkJoin {
+        name = "zen-browser";
+        paths = [ inputs.zen-browser.packages.${system}.default ];
+
+        nativeBuildInputs = [ pkgs.makeWrapper ];
+
+        postBuild = ''
+          wrapProgram $out/bin/zen \
+            --set MOZ_GTK_TITLEBAR_DECORATION none
+        '';
+      })
 
       # Communication
       telegram-desktop

@@ -1,24 +1,24 @@
 config_version = 14
 
+[accessibility]
+ui_scale = 0.90000000596046448
+
 [bar.default]
-auto_hide = true
-end = [
-    "weather",
-    "cpu",
-    "tray",
-    "notifications",
-    "clipboard",
-    "network",
-    "bluetooth",
-    "volume",
-    "brightness",
-    "battery",
-    "control-center",
-    "session"
-]
+capsule_thickness = 0.50999999232590199
+center = [ "active_window" ]
+end = [ "tray", "cpu", "sysmon", "notifications", "volume", "control-center" ]
+hover_highlight = false
+margin_edge = 3
+margin_ends = 500
+padding = 11
+radius = 73
 reserve_space = false
+scale = 0.90000000596046448
+shadow = false
 show_on_workspace_switch = false
-start = [ "launcher", "wallpaper", "workspaces", "media", "audio_visualizer" ]
+smart_auto_hide = true
+start = [ "workspaces", "clock", "media" ]
+thickness = 33
 widget_spacing = 10
 
     [bar.default.dead_zone.actions]
@@ -34,6 +34,7 @@ hidden_tabs = [ "power" ]
 
 [dock]
 auto_hide = true
+background_opacity = 0.99999997764825821
 cross_axis_padding = 4
 enabled = true
 icon_size = 28
@@ -41,7 +42,9 @@ inactive_opacity = 0.99999997764825821
 inactive_scale = 1.0
 magnification = false
 main_axis_padding = 12
+margin_edge = 3
 pinned = [ "zen", "dev.zed.Zed", "discord", "org.telegram.desktop", "sonora", "com.mitchellh.ghostty" ]
+radius = 73
 reserve_space = false
 shadow = false
 show_instance_count = false
@@ -152,8 +155,13 @@ show_actions = false
 monitors = [ "DP-1" ]
 
 [shell]
+button_borders = false
+card_borders = false
 clipboard_enabled = false
+corner_radius_scale = 2.0
+input_borders = false
 polkit_agent = true
+popup_borders = false
 popup_shadows = false
 
     [shell.greeter_sync]
@@ -168,7 +176,6 @@ community_palette = "ADW"
 mode = "dark"
 pure_black_dark = true
 source = "wallpaper"
-wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "niri", "qt" ]
@@ -179,16 +186,16 @@ directory = "/home/nolight/Pictures/Wallpapers/Fractal Maze"
 transition = [ "fade" ]
 
     [wallpaper.default]
-    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/33.jpg"
+    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/08.jpg"
 
     [wallpaper.last]
-    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/33.jpg"
+    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/08.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/33.jpg"
+    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/08.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/33.jpg"
+    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/08.jpg"
 
     [[wallpaper.favorite]]
     palette_source = "wallpaper"
@@ -232,6 +239,12 @@ transition = [ "fade" ]
     theme_mode = "dark"
     wallpaper_scheme = "m3-content"
 
+[widget.active_window]
+anchor = true
+display = "text_only"
+interactive = false
+max_length = 221
+
 [widget.audio_visualizer]
 bands = 76
 mirrored = false
@@ -249,25 +262,42 @@ enabled = false
 tooltip_format = "{:%H:%M:%S}"
 
 [widget.control-center]
-enabled = false
+custom_image = "/home/nolight/.config/noctalia/nix-snowflake.svg"
+custom_image_colorize = true
+scale = 1.1500000000000001
 
 [widget.cpu]
-scale = 0.85000000000000009
+scale = 1.1000000000000001
+show_label = false
+show_value = false
 
 [widget.launcher]
 enabled = false
 
+[widget.media]
+art_size = 19
+hide_artist = true
+hide_when_no_media = true
+max_length = 151
+title_scroll = "on_hover"
+
 [widget.network]
 show_label = false
+
+[widget.sysmon]
+scale = 1.05
+show_value = false
+stat = "cpu_temp"
 
 [widget.tray]
 drawer = true
 drawer_columns = 5
-drawer_item_size = 19.0
+drawer_item_size = 15.0
 hidden = [ "blueman" ]
-pinned = [ "proton.vpn.app.gtk", "sonora", "obs" ]
+pinned = [ "sonora" ]
 
 [widget.volume]
+scale = 1.05
 show_label = false
 
 [widget.wallpaper]
@@ -278,5 +308,9 @@ scale = 0.85000000000000009
 show_condition = false
 
 [widget.workspaces]
+active_pill_size = 2.4500000000000002
+hide_when_empty = true
+inactive_pill_size = 1.05
 pill_scale = 0.80000000000000004
+scale = 0.94999999999999996
 show_labels = false

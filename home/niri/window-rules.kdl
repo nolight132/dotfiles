@@ -19,6 +19,15 @@ window-rule {
 	}
 }
 
+// opaque noctalia surfaces gain nothing from blur and leak its noise through anti-aliased corners
+layer-rule {
+	match namespace=r#"^noctalia-(dock|bar-.*)$"#
+
+	background-effect {
+		blur false
+	}
+}
+
 layer-rule {
 	match namespace=r#"^vicinae$"#
 

@@ -63,7 +63,7 @@ in
       shotcut
       qbittorrent
       proton-vpn
-      t3code
+      inputs.t3code.packages.${system}.default
       bruno
     ]
   );

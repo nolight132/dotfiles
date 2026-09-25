@@ -7,18 +7,44 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+  "language_models": {
+    "opencode": {
+      "show_zen_models": false
+    }
+  },
   "proxy": "",
   "node": {
     "ignore_system_version": true,
   },
   "agent_servers": {
     "claude-acp": {
-      "type": "registry",
-    },
+      "favorite_config_option_values": {
+        "mode": [
+          "bypassPermissions"
+        ],
+        "model": [
+          "opus",
+          "opus[1m]"
+        ]
+      },
+      "default_config_options": {
+        "effort": "high",
+        "model": "opus[1m]",
+        "fast": true,
+        "mode": "default"
+      },
+      "type": "registry"
+    }
   },
   "agent": {
-    "sidebar_side": "left",
-    "button": false,
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-6",
+      "enable_thinking": true,
+      "effort": "low"
+    },
+    "sidebar_side": "right",
+    "button": true,
     "dock": "right",
     "favorite_models": [],
     "model_parameters": [],
@@ -120,6 +146,8 @@
     "dark": "Zed (Default)",
   },
   "git_panel": {
+    "group_by": "none",
+    "tree_view": true,
     "dock": "right",
   },
   "buffer_font_size": 14.0,
@@ -308,7 +336,6 @@
     "default_width": 280,
     "dock": "left",
     "file_icons": true,
-    "folder_icons": true,
     "git_status": true,
     "indent_size": 20,
     "auto_reveal_entries": true,

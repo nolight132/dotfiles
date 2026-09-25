@@ -248,8 +248,6 @@ in
       options = "bind";
 
       wantedBy = [ "multi-user.target" ];
-      requires = [ "systemd-tmpfiles-setup.service" ];
-      after = [ "systemd-tmpfiles-setup.service" ];
     }
   ];
 

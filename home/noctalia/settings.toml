@@ -176,7 +176,7 @@ popup_shadows = false
 [theme]
 builtin = "Ayu"
 community_palette = "ADW"
-mode = "auto"
+mode = "dark"
 pure_black_dark = true
 source = "wallpaper"
 wallpaper_scheme = "m3-content"

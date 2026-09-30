@@ -151,7 +151,7 @@ widget_order = [ "lockscreen-login-box@DP-3", "lockscreen-login-box@DP-1", "lock
 
 [notification]
 filter_order = [ "niri-screenshot" ]
-monitors = [ "DP-2" ]
+monitors = [ "DP-3" ]
 position = "bottom_right"
 show_actions = false
 
@@ -212,6 +212,9 @@ transition = [ "fade" ]
     path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/09.jpg"
 
     [wallpaper.monitors.DP-2]
+    path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/09.jpg"
+
+    [wallpaper.monitors.DP-3]
     path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/09.jpg"
 
     [[wallpaper.favorite]]

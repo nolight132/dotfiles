@@ -35,7 +35,7 @@
 
     nls.url = "github:nolight132/nls";
     wayzoomy.url = "github:nolight132/wayzoomy";
-    sonora.url = "github:nolight132/sonora";
+    sonora.url = "github:sonorahq/sonora";
 
     t3code = {
       url = "github:nolight132/t3code-nix";

@@ -182,7 +182,7 @@ source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    builtin_ids = [ "gtk3", "gtk4", "niri", "qt" ]
+    builtin_ids = [ "gtk3", "gtk4", "niri" ]
     community_ids = [ "vicinae", "papirus-icons" ]
 
 [wallpaper]

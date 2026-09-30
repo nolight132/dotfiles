@@ -4,6 +4,12 @@ let
   repo = "${config.home.homeDirectory}/Dotfiles/home/noctalia";
 in
 {
+  home.packages = [
+    pkgs.cosmic-sound-theme
+    pkgs.pantheon.elementary-sound-theme
+    pkgs.yaru-theme
+  ];
+
   xdg.configFile."noctalia/hooks/matugen.sh" = {
     source = ./noctalia/matugen.sh;
     executable = true;

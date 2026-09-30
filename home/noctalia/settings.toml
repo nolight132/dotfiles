@@ -3,6 +3,10 @@ config_version = 14
 [accessibility]
 ui_scale = 0.95000000670552254
 
+[audio]
+sound_theme = "Yaru"
+sound_volume = 0.59999998658895493
+
 [bar.default]
 capsule_thickness = 0.50999999232590199
 end = [ "tray", "cpu", "sysmon", "notifications", "volume", "control-center" ]
@@ -146,9 +150,18 @@ widget_order = [ "lockscreen-login-box@DP-3", "lockscreen-login-box@DP-1", "lock
         show_weather = true
 
 [notification]
+filter_order = [ "niri-screenshot" ]
 monitors = [ "DP-2" ]
 position = "bottom_right"
 show_actions = false
+
+    [notification.filter.niri-screenshot]
+    enabled = true
+    match = "niri"
+    match_content = "^Screenshot captured$"
+    play_sound = false
+    save_history = false
+    show_toast = false
 
 [osd]
 background_opacity = 0.99999997764825821

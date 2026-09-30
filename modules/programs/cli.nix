@@ -33,6 +33,7 @@ in
       nodejs
       bubblewrap
       gh
+      jq
       tea
       go
       nixpkgs-review

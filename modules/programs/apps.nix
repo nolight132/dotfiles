@@ -65,6 +65,7 @@ in
       proton-vpn
       inputs.t3code.packages.${system}.default
       bruno
+      mangohud
     ]
   );
 }

@@ -19,6 +19,14 @@ in
     nodejs
     tea
     cmake
+    jdk21
+    (google-cloud-sdk.withExtraComponents [
+      google-cloud-sdk.components.cloud-firestore-emulator
+    ])
+    (python3.withPackages (ps: [
+      ps.fonttools
+      ps.brotli
+    ]))
 
     # user
     bat

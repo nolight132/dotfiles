@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   nix.settings.experimental-features = [
@@ -21,4 +21,9 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+
+  environment.systemPackages = with pkgs; [
+    nix-output-monitor
+    nh
+  ];
 }

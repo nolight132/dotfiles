@@ -15,6 +15,7 @@ in
       nautilus
       clapper
       file-roller
+      libreoffice
       ffmpegthumbnailer
       tumbler
       evince
@@ -66,6 +67,9 @@ in
       inputs.t3code.packages.${system}.default
       bruno
       mangohud
+
+      # Uni bullshit
+      cisco-packet-tracer_9
     ]
   );
 }

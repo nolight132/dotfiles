@@ -33,6 +33,7 @@ in
       nodejs
       bubblewrap
       gh
+      ripgrep
       jq
       tea
       go

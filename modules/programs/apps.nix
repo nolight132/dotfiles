@@ -61,6 +61,7 @@ in
       # Misc
       obs-studio
       krita
+      inputs.photocraft.packages.${system}.default
       shotcut
       qbittorrent
       proton-vpn

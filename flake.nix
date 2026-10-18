@@ -42,6 +42,11 @@
       url = "github:nolight132/t3code-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    photocraft = {
+      url = "github:nolight132/photocraft-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

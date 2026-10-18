@@ -7,10 +7,13 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+  "cursor_animation": {
+    "enabled": false
+  },
   "language_models": {
     "opencode": {
-      "show_zen_models": false
-    }
+      "show_zen_models": false,
+    },
   },
   "proxy": "",
   "node": {
@@ -19,31 +22,25 @@
   "agent_servers": {
     "claude-acp": {
       "favorite_config_option_values": {
-        "mode": [
-          "bypassPermissions"
-        ],
-        "model": [
-          "opus",
-          "opus[1m]"
-        ]
+        "mode": ["bypassPermissions"],
+        "model": ["opus", "opus[1m]"],
       },
       "default_config_options": {
         "effort": "high",
         "model": "opus[1m]",
         "fast": true,
-        "mode": "default"
+        "mode": "default",
       },
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "agent": {
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-sonnet-4-6",
       "enable_thinking": true,
-      "effort": "low"
+      "effort": "low",
     },
-    "sidebar_side": "right",
     "button": true,
     "dock": "right",
     "favorite_models": [],
@@ -125,7 +122,6 @@
       "format_on_save": "on",
     },
   },
-  "ui_font_family": ".ZedSans",
   "buffer_line_height": "comfortable",
   "telemetry": {
     "diagnostics": false,

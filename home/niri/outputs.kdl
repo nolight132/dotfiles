@@ -3,6 +3,7 @@ output "DP-1" {
     scale 1.25
     transform "normal"
     position x=2048 y=0
+    focus-at-startup
 }
 
 output "DP-3" {

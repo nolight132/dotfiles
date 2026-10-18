@@ -313,7 +313,7 @@ drawer = true
 drawer_columns = 5
 drawer_item_size = 18.0
 hidden = [ "blueman" ]
-pinned = [ "sonora" ]
+pinned = [ "sonora", "tokativ" ]
 
 [widget.volume]
 scale = 1.05

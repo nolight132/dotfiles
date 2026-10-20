@@ -2,16 +2,16 @@ binds {
 	// launchers
 	Mod+Shift+Slash { show-hotkey-overlay; }
 	Mod+T hotkey-overlay-title="Run an Application: Telegram" { spawn "Telegram"; }
+	Mod+Shift+T { spawn-sh "~/.config/niri/scripts/toggle-telegram-screencast.sh"; }
 	Mod+R { spawn-sh "vicinae toggle"; }
 	Mod+C { spawn-sh "vicinae deeplink vicinae://launch/clipboard/history"; }
 	Mod+E hotkey-overlay-title="Run an Application: Nautilus" { spawn "nautilus"; }
 	Mod+Z { spawn-sh "obs-cmd replay save"; }
-	Mod+X { spawn-sh "~/.config/niri/scripts/toggle-telegram-screencast.sh"; }
 	Mod+D hotkey-overlay-title="Dictate: Tokativ" { spawn "tokativ" "toggle"; }
 
 	// audio
-	XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
-	XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+	XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
+	XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
 	XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
 	Insert               allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 

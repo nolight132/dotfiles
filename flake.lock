@@ -529,6 +529,7 @@
         "noctalia-greeter": "noctalia-greeter",
         "photocraft": "photocraft",
         "sonora": "sonora",
+        "sops-nix": "sops-nix",
         "t3code": "t3code",
         "tokativ": "tokativ",
         "wayzoomy": "wayzoomy",
@@ -572,6 +573,26 @@
       "original": {
         "owner": "sonorahq",
         "repo": "sonora",
+        "type": "github"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792056300,
+        "narHash": "sha256-YU1LjDe1o2Ymg5zEiCHbmMXLkDCtxHQRiVqZ3nC5GGk=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "44931708c62937c2b1bf7953902989fa5bb9ee1b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
         "type": "github"
       }
     },

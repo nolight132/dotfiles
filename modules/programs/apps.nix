@@ -26,6 +26,7 @@ in
 
       # Browsers
       chromium
+      firefox
       inputs.helium.packages.${system}.default
       (pkgs.symlinkJoin {
         name = "zen-browser";
@@ -38,6 +39,9 @@ in
             --set MOZ_GTK_TITLEBAR_DECORATION none
         '';
       })
+
+      # Development
+      godot
 
       # Communication
       telegram-desktop
@@ -61,6 +65,7 @@ in
       # Misc
       obs-studio
       krita
+      aseprite
       inputs.photocraft.packages.${system}.default
       shotcut
       qbittorrent

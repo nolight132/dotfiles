@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+  "disable_ai": false,
   "cursor_animation": {
     "enabled": false
   },
@@ -41,7 +42,7 @@
       "enable_thinking": true,
       "effort": "low",
     },
-    "button": true,
+    "button": false,
     "dock": "right",
     "favorite_models": [],
     "model_parameters": [],

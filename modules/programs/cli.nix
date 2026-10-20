@@ -43,8 +43,6 @@ in
       chafa
       ddcutil
       obs-cmd
-      spotify-player
-      spotatui
       ffmpeg
       fzf
       bat

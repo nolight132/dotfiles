@@ -78,6 +78,7 @@
           set -g fish_cursor_insert line
           set -g fish_cursor_replace_one line
           set -g fish_cursor_visual block
+          set -g fish_cursor_external line
       end
 
       set -g fish_pager_color_background normal

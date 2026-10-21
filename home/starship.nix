@@ -6,8 +6,13 @@
 
     settings = {
       format =
-        "$username$hostname$directory$git_branch$git_state"
+        "$hostname$directory$git_branch$git_state"
         + "$git_status$cmd_duration$line_break$python$character";
+
+      hostname = {
+        format = "[$hostname:]($style)";
+        style = "bright-black";
+      };
 
       directory.style = "purple";
 

@@ -31,7 +31,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    millennium.url = "github:nolight132/nixpkgs-ci?dir=flakes/millennium";
 
     noctalia-greeter = {
       url = "github:noctalia-dev/noctalia-greeter";

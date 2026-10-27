@@ -16,9 +16,6 @@
       yank
       {
         plugin = resurrect;
-        # This resurrect defaults to ~/.tmux/resurrect, but the saved history
-        # lives under XDG. Pin it, or every restore looks in an empty dir and
-        # silently comes up with nothing.
         extraConfig = ''
           set -g @resurrect-dir '$HOME/.local/share/tmux/resurrect'
           set -g @resurrect-strategy-nvim 'session'
@@ -29,8 +26,6 @@
         plugin = tmux-sessionx;
         extraConfig = "set -g @sessionx-bind 'o'";
       }
-      # NOTE: continuum is deliberately *not* listed here. See the bottom of
-      # extraConfig for why it has to be loaded last.
     ];
 
     extraConfig = ''
@@ -56,10 +51,16 @@
 
       set -g window-status-format "#[fg=brightblack] #W "
       set -g window-status-current-format "#[fg=magenta,bold] #W "
+      set -g window-status-current-style default
       set -g window-status-separator ""
 
       set -g pane-border-style "fg=brightblack,bg=default"
       set -g pane-active-border-style "fg=magenta,bg=default"
+
+      set -g popup-style default
+      set -g popup-border-style default
+      set -g menu-style default
+      set -g menu-border-style default
 
       bind ^X lock-server
       bind ^C new-window -c "$HOME"

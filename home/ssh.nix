@@ -25,7 +25,7 @@ in
 
     includes = [ config.sops.templates."ssh-hosts".path ];
 
-    matchBlocks = {
+    settings = {
       mac.user = "nolight";
       vps.user = "nolight";
     };

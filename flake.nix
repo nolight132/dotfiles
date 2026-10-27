@@ -31,7 +31,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    millennium.url = "github:nolight132/nixpkgs-ci?dir=flakes/millennium";
+    millennium.url = "github:nolight132/millennium-nix";
 
     noctalia-greeter = {
       url = "github:noctalia-dev/noctalia-greeter";
@@ -40,7 +40,7 @@
 
     nls.url = "github:nolight132/nls";
     wayzoomy.url = "github:nolight132/wayzoomy";
-    sonora.url = "github:sonorahq/sonora";
+    sonora.url = "github:sonorahq/sonora/nightly";
     tokativ.url = "github:nolight132/tokativ";
 
     t3code = {

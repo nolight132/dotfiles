@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
+  imports = [ inputs.mf-cli.nixosModules.default ];
+
+  hardware.minifuse.enable = true;
+
   security.rtkit.enable = true;
 
   services.pipewire = {

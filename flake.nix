@@ -52,6 +52,11 @@
       url = "github:nolight132/photocraft-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mf-cli = {
+      url = "github:nolight132/mf-cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

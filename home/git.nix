@@ -11,6 +11,7 @@
 
       push.default = "current";
       remote.pushDefault = "origin";
+      init.defaultBranch = "main";
 
       credential = {
         helper = [

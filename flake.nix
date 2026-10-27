@@ -53,6 +53,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    delta = {
+      url = "github:zed-industries/delta-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     mf-cli = {
       url = "github:nolight132/mf-cli";
       inputs.nixpkgs.follows = "nixpkgs";

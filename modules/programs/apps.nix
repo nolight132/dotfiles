@@ -41,7 +41,11 @@ in
       })
 
       # Development
+      inputs.t3code.packages.${system}.default
+      inputs.delta.packages.${system}.delta
+      bruno
       godot
+      chatgpt
 
       # Communication
       telegram-desktop
@@ -70,8 +74,6 @@ in
       shotcut
       qbittorrent
       proton-vpn
-      inputs.t3code.packages.${system}.default
-      bruno
       mangohud
 
       # Uni bullshit

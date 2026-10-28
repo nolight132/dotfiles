@@ -124,8 +124,8 @@ ForegroundPositive={{colors.green.dark.red}},{{colors.green.dark.green}},{{color
 ForegroundVisited={{colors.tertiary.dark.red}},{{colors.tertiary.dark.green}},{{colors.tertiary.dark.blue}}
 
 [General]
-ColorScheme=Matugen
-Name=Matugen
+ColorScheme=Rosepuccin
+Name=Rosepuccin
 
 [KDE]
 contrast=4

@@ -5,7 +5,7 @@
     enable = true;
 
     settings = {
-      config-file = "~/.config/ghostty/themes/matugen";
+      config-file = "~/.config/ghostty/themes/rosepuccin";
       freetype-load-flags = "no-hinting";
 
       background-opacity = "0.82";

@@ -5,7 +5,7 @@
     { config, pkgs, ... }:
     let
       home = config.home.homeDirectory;
-      templates = ../home/matugen/templates;
+      templates = ../home/noctalia/templates;
       zedTheme = "${home}/.config/zed/themes/rosepuccin.json";
 
       matugenConfig = (pkgs.formats.toml { }).generate "matugen-config.toml" {

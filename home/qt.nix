@@ -7,7 +7,7 @@
 
   xdg.configFile."qt6ct/qt6ct.conf".text = ''
     [Appearance]
-    color_scheme_path=${config.xdg.configHome}/qt6ct/colors/matugen.conf
+    color_scheme_path=${config.xdg.configHome}/qt6ct/colors/rosepuccin.conf
     custom_palette=true
     icon_theme=Papirus-Noctalia
     standard_dialogs=default

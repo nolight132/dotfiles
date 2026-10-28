@@ -17,7 +17,7 @@
     };
 
     extraConfig = ''
-      include ~/.config/kitty/themes/matugen.conf
+      include ~/.config/kitty/themes/rosepuccin.conf
     '';
   };
 }

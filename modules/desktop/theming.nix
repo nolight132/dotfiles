@@ -69,6 +69,5 @@ in
     glib
     dconf
     gsettings-desktop-schemas
-    matugen
   ];
 }

@@ -41,7 +41,6 @@ in
       })
 
       # Development
-      inputs.t3code.packages.${system}.default
       inputs.delta.packages.${system}.delta
       bruno
       godot

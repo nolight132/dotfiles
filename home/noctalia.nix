@@ -45,6 +45,13 @@ let
           output_path = "${configHome}/zed/themes/rosepuccin.json";
         };
 
+        # T3 Code watches its themes directory and reloads this file live. Select it once with
+        # `t3 theme set rosepuccin`.
+        t3code = {
+          input_path = "${templates}/t3code.json";
+          output_path = "${config.home.homeDirectory}/.t3/userdata/themes/rosepuccin.json";
+        };
+
         gtk3 = {
           input_path = "${templates}/gtk-3.0/gtk.css";
           output_path = "${configHome}/gtk-3.0/gtk.css";

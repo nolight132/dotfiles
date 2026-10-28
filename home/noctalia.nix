@@ -10,6 +10,7 @@ let
   configHome = config.xdg.configHome;
   templates = ./noctalia/templates;
   openrgbScript = "${configHome}/OpenRGB/rosepuccin.sh";
+  keyboardScript = "${configHome}/g75-cli/rosepuccin.sh";
 
   # Noctalia renders these with the active palette whenever it changes, so every app follows
   # the shell's colours whether they come from the wallpaper or a fixed palette.
@@ -76,6 +77,12 @@ let
           input_path = "${templates}/openrgb.sh";
           output_path = openrgbScript;
           post_hook = "sh ${openrgbScript}";
+        };
+
+        keyboard = {
+          input_path = "${templates}/g75.sh";
+          output_path = keyboardScript;
+          post_hook = "sh ${keyboardScript}";
         };
 
         qt6ct = {

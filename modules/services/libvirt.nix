@@ -10,6 +10,12 @@
       package = pkgs.qemu_kvm;
       swtpm.enable = true;
       vhostUserPackages = [ pkgs.virtiofsd ];
+
+      # Any verbatimConfig definition replaces the NixOS default, so this keeps it alongside the
+      # Looking Glass device list.
+      verbatimConfig = ''
+        namespaces = []
+      '';
     };
   };
 

@@ -1,6 +1,8 @@
 { lib, pkgs, ... }:
 
 let
+  devices = import ./devices.nix { inherit pkgs; };
+
   user = "nolight";
   home = "/home/${user}";
 
@@ -9,8 +11,8 @@ let
   vmMac = "52:54:00:97:74:d7";
   cores = 4;
   threads = 2;
-  maxMemoryGiB = 16;
-  bootMemoryGiB = 8;
+  # VFIO pins all guest memory while the VM runs, so this is taken from the host in full.
+  memoryGiB = 12;
   diskGiB = 128;
 
   # ryzen 9600x: sibling of core n is thread n+6
@@ -150,6 +152,35 @@ let
         /network:lan
     '';
   };
+
+  # Boots the guest and shows the iGPU output through Looking Glass. The client waits on its own
+  # until the Windows host application starts writing frames.
+  lgLauncher = pkgs.writeShellApplication {
+    name = "winvm-lg";
+
+    runtimeInputs = [
+      pkgs.libvirt
+      pkgs.looking-glass-client
+      pkgs.coreutils
+    ];
+
+    text = ''
+      if [ "''${WINVM_DETACHED:-0}" != 1 ]; then
+        WINVM_DETACHED=1 setsid "$0" "$@" >/dev/null 2>&1 < /dev/null &
+        exit 0
+      fi
+
+      uri=qemu:///system
+      domain=${vmName}
+
+      if [ "$(virsh -c "$uri" domstate "$domain")" != "running" ]; then
+        virsh -c "$uri" start "$domain"
+      fi
+
+      exec looking-glass-client "$@"
+    '';
+  };
+
   vmIconName = "windows-11";
 
   vmIconSvg = pkgs.writeText "${vmIconName}.svg" ''
@@ -192,13 +223,41 @@ let
     ];
   };
 
+  lgDesktopItem = pkgs.makeDesktopItem {
+    name = "winvm-lg";
+    desktopName = "Windows 11 (Looking Glass)";
+    genericName = "Virtual Machine";
+    comment = "Boot the ${vmName} guest and show its Radeon iGPU through Looking Glass";
+    icon = vmIconName;
+    exec = "${lgLauncher}/bin/winvm-lg";
+    terminal = false;
+    startupNotify = false;
+    startupWMClass = "looking-glass-client";
+
+    categories = [
+      "System"
+      "Emulator"
+    ];
+
+    keywords = [
+      "windows"
+      "vm"
+      "looking glass"
+      vmName
+    ];
+  };
+
   domainXml = pkgs.writeText "${vmName}.xml" (
     import ./domain.nix {
       name = vmName;
       uuid = vmUuid;
       mac = vmMac;
-      memoryKiB = maxMemoryGiB * 1024 * 1024;
-      currentMemoryKiB = bootMemoryGiB * 1024 * 1024;
+      memoryKiB = memoryGiB * 1024 * 1024;
+      hostdevs = [
+        devices.igpu
+        devices.audio
+      ];
+      inherit (devices) kvmfrSizeMiB;
       ovmfCode = "${ovmf}/FV/OVMF_CODE.ms.fd";
       ovmfVars = "${ovmf}/FV/OVMF_VARS.ms.fd";
       installerIso = null;
@@ -218,6 +277,11 @@ let
   );
 in
 {
+  imports = [
+    ./vfio.nix
+    ./looking-glass.nix
+  ];
+
   assertions = [
     {
       assertion = hostReservedCores + cores <= hostCores;
@@ -229,6 +293,8 @@ in
     vmLauncher
     vmIcon
     vmDesktopItem
+    lgLauncher
+    lgDesktopItem
   ];
 
   systemd.tmpfiles.rules = [

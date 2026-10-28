@@ -3,7 +3,6 @@
   uuid,
   mac,
   memoryKiB,
-  currentMemoryKiB,
   cores,
   threads,
   vcpuPins,
@@ -16,6 +15,8 @@
   ovmfCode,
   ovmfVars,
   nvramPath,
+  hostdevs,
+  kvmfrSizeMiB,
 }:
 
 let
@@ -23,9 +24,20 @@ let
 
   vcpupin = p: "<vcpupin vcpu='${toString p.vcpu}' cpuset='${toString p.cpu}'/>";
   vcpupins = builtins.concatStringsSep "\n    " (map vcpupin vcpuPins);
+
+  hostdev = dev: ''
+    <hostdev mode='subsystem' type='pci' managed='yes'>
+          <source>
+            <address domain='0x0000' bus='${dev.address.bus}' slot='${dev.address.slot}' function='${dev.address.function}'/>
+          </source>
+          <rom file='${dev.rom}'/>
+        </hostdev>'';
+  hostdevXml = builtins.concatStringsSep "\n\n    " (map hostdev hostdevs);
+
+  kvmfrBytes = kvmfrSizeMiB * 1024 * 1024;
 in
 ''
-  <domain type='kvm'>
+  <domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
     <name>${name}</name>
     <uuid>${uuid}</uuid>
     <metadata>
@@ -35,7 +47,7 @@ in
     </metadata>
 
     <memory unit='KiB'>${toString memoryKiB}</memory>
-    <currentMemory unit='KiB'>${toString currentMemoryKiB}</currentMemory>
+    <currentMemory unit='KiB'>${toString memoryKiB}</currentMemory>
     <memoryBacking>
       <source type='memfd'/>
       <access mode='shared'/>
@@ -151,14 +163,18 @@ in
       </graphics>
 
       <video>
-        <model type='qxl' ram='65536' vram='65536' vgamem='16384' heads='1' primary='yes'/>
+        <model type='vga' primary='yes'/>
       </video>
 
-      <sound model='ich9'/>
+      ${hostdevXml}
+
+      <sound model='ich9'>
+        <audio id='1'/>
+      </sound>
       <audio id='1' type='spice'/>
 
-      <input type='tablet' bus='usb'/>
-      <input type='keyboard' bus='usb'/>
+      <input type='mouse' bus='virtio'/>
+      <input type='keyboard' bus='virtio'/>
 
       <channel type='spicevmc'>
         <target type='virtio' name='com.redhat.spice.0'/>
@@ -175,7 +191,14 @@ in
         <backend model='random'>/dev/urandom</backend>
       </rng>
 
-      <memballoon model='virtio'/>
+      <memballoon model='none'/>
     </devices>
+
+    <qemu:commandline>
+      <qemu:arg value='-device'/>
+      <qemu:arg value='{"driver":"ivshmem-plain","id":"shmem0","memdev":"looking-glass"}'/>
+      <qemu:arg value='-object'/>
+      <qemu:arg value='{"qom-type":"memory-backend-file","id":"looking-glass","mem-path":"/dev/kvmfr0","size":${toString kvmfrBytes},"share":true}'/>
+    </qemu:commandline>
   </domain>
 ''

@@ -11,7 +11,7 @@ overview {
 }
 
 window-rule {
-	match app-id=r#"^(dev\.zed\.Zed|com\.mitchellh\.ghostty|kitty|com\.mitchellh\.ghostty\.spotatui|sonora)$"#
+	match app-id=r#"^(dev\.zed\.Zed|com\.mitchellh\.ghostty|kitty|com\.mitchellh\.ghostty\.spotatui|sonora|com\.t3tools\.T3Code)$"#
 
 	background-effect {
 	    xray false
@@ -130,7 +130,7 @@ window-rule {
 
 // t3code
 window-rule {
-	match app-id=r#"^t3code$"#
+	match app-id=r#"^com\.t3tools\.T3Code$"#
 
 	open-on-workspace "misc"
 }

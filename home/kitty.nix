@@ -10,7 +10,7 @@
       disable_ligatures = "always";
       modify_font = "cell_height 120%";
 
-      background_opacity = "0.82";
+      background_opacity = "0.88";
       hide_window_decorations = true;
       confirm_os_window_close = 0;
       mouse_hide_wait = "3.0";

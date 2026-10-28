@@ -8,7 +8,7 @@
       config-file = "~/.config/ghostty/themes/rosepuccin";
       freetype-load-flags = "no-hinting";
 
-      background-opacity = "0.82";
+      background-opacity = "0.88";
       background-opacity-cells = true;
 
       font-family = "JetBrains Mono";

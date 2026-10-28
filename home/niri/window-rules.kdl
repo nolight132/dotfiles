@@ -122,7 +122,6 @@ window-rule {
 
 // windows vm
 window-rule {
-	match app-id=r#"^com\.freerdp\.client\.sdl3$"#
 	match app-id=r#"^looking-glass-client$"#
 
 	open-on-workspace "windows"

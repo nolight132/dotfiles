@@ -165,6 +165,26 @@
         "type": "github"
       }
     },
+    "g75-cli": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793144927,
+        "narHash": "sha256-6X8JpIFgZDySWnO2XZBnIfUFVSWX1Rxri5M9/Fdbydo=",
+        "owner": "nolight132",
+        "repo": "g75-cli",
+        "rev": "047b440fae61c14903d84ef06469339b66492edf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nolight132",
+        "repo": "g75-cli",
+        "type": "github"
+      }
+    },
     "git-hooks-nix": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -527,6 +547,7 @@
       "inputs": {
         "delta": "delta",
         "determinate": "determinate",
+        "g75-cli": "g75-cli",
         "helium": "helium",
         "home-manager": "home-manager",
         "mf-cli": "mf-cli",

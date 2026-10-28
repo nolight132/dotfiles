@@ -62,6 +62,11 @@
       url = "github:nolight132/mf-cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    g75-cli = {
+      url = "github:nolight132/g75-cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

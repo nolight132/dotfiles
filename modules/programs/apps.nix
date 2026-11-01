@@ -44,7 +44,6 @@ in
       inputs.delta.packages.${system}.delta
       bruno
       godot
-      chatgpt
 
       # Communication
       telegram-desktop
@@ -64,6 +63,7 @@ in
       # Gaming
       osu-lazer-bin
       prismlauncher
+      inputs.horizon-launcher.packages.${system}.default
 
       # Misc
       obs-studio
@@ -74,9 +74,10 @@ in
       qbittorrent
       proton-vpn
       mangohud
+      openjdk25
 
-      # Uni bullshit
-      cisco-packet-tracer_9
+      # Uni bullshit (doesn't even fucking work)
+      # cisco-packet-tracer_9
     ]
   );
 }

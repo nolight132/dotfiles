@@ -67,6 +67,11 @@
       url = "github:nolight132/g75-cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    horizon-launcher = {
+      url = "github:Granddave/horizon-launcher.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

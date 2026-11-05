@@ -52,6 +52,10 @@ in
         source = ./niri/scripts/toggle-telegram-screencast.sh;
         executable = true;
       };
+      "niri/scripts/dictate.sh" = {
+        source = ./niri/scripts/dictate.sh;
+        executable = true;
+      };
     };
 
   # runtime mutable

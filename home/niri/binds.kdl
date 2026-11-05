@@ -7,7 +7,7 @@ binds {
 	Mod+C { spawn-sh "vicinae deeplink vicinae://launch/clipboard/history"; }
 	Mod+E hotkey-overlay-title="Run an Application: Nautilus" { spawn "nautilus"; }
 	Mod+Z { spawn-sh "obs-cmd replay save"; }
-	Mod+D hotkey-overlay-title="Dictate: Tokativ" { spawn "tokativ" "toggle"; }
+	Mod+D repeat=false hotkey-overlay-title="Dictate: Tokativ" { spawn-sh "~/.config/niri/scripts/dictate.sh"; }
 
 	// audio
 	XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }

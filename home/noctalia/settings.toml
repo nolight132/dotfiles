@@ -253,7 +253,7 @@ transition = [ "fade" ]
     [[wallpaper.favorite]]
     palette_source = "wallpaper"
     path = "/home/nolight/Pictures/Wallpapers/Fractal Maze/09.jpg"
-    theme_mode = "light"
+    theme_mode = "dark"
     wallpaper_scheme = "m3-content"
 
 [widget.active_window]

@@ -30,6 +30,7 @@ let
 in
 {
   qt.enable = true;
+  gtk.iconCache.enable = true;
 
   environment.sessionVariables = {
     XCURSOR_THEME = "Breeze_Light";

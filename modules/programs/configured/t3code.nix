@@ -19,7 +19,7 @@ let
 
         substituteInPlace $out/resources/app/apps/desktop/dist-electron/main.cjs \
           --replace-fail 'return shouldUseDarkColors ? "#000000" : "#ffffff";' 'return "#00000000";' \
-          --replace-fail 'minHeight: 620,' 'minHeight: 620, transparent: true,'
+          --replace-fail 'minHeight: MIN_MAIN_WINDOW_SIZE.height,' 'minHeight: MIN_MAIN_WINDOW_SIZE.height, transparent: true,'
 
         substituteInPlace $out/resources/app/apps/server/dist/client/index.html \
           --replace-fail '</head>' '${rootBackground}${hideWorkspaceRing}</head>'

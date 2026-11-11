@@ -2,7 +2,7 @@
   description = "nolight's NixOS";
 
   inputs = {
-    nixpkgs.url = "github:nolight132/nixpkgs/personal";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
@@ -31,7 +31,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    millennium.url = "github:nolight132/millennium-nix";
+    millennium = {
+      url = "github:nolight132/millennium-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     noctalia-greeter = {
       url = "github:noctalia-dev/noctalia-greeter";

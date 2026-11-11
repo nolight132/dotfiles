@@ -17,6 +17,8 @@
     ];
     loader.timeout = 1;
     initrd.kernelModules = [ "amdgpu" ];
+
+    tmp.cleanOnBoot = true;
   };
 
   systemd.services.NetworkManager-wait-online.enable = false;

@@ -9,7 +9,7 @@
       ls = "nls";
       zed = "zeditor .";
       files = "nautilus .";
-      nix-update = "sudo nix flake update --flake ~/Dotfiles && nrs";
+      nix-update = "nrs --update";
     };
 
     functions = {
@@ -27,7 +27,7 @@
       '';
 
       nrs = ''
-        sudo nixos-rebuild switch --flake ~/Dotfiles#desktop $argv
+        nh os switch ~/Dotfiles -H desktop $argv
         or return
 
         systemctl --user daemon-reload

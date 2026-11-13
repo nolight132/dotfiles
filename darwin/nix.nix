@@ -26,4 +26,6 @@
     nix-output-monitor
     nh
   ];
+
+  environment.variables.NH_FLAKE = "/Users/nolight/Dotfiles";
 }

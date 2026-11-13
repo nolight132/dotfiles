@@ -29,7 +29,7 @@
         programs.man.generateCaches = false;
 
         programs.fish.functions.nrs = lib.mkForce ''
-          sudo darwin-rebuild switch --flake ~/Dotfiles#macbook-air $argv
+          nh darwin switch ~/Dotfiles -H macbook-air $argv
         '';
 
         programs.fish.shellAliases.files = lib.mkForce "open .";

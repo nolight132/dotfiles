@@ -64,8 +64,6 @@ in
       kdePackages.filelight
 
       # Browsers
-      chromium
-      firefox
       inputs.helium.packages.${system}.default
       (pkgs.symlinkJoin {
         name = "zen-browser";
@@ -113,7 +111,6 @@ in
       krita
       aseprite
       inputs.photocraft.packages.${system}.default
-      shotcut
       qbittorrent
       proton-vpn
       mangohud

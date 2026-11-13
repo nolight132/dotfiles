@@ -22,29 +22,6 @@ let
     ]
     ++ old.nativeBuildInputs;
   });
-
-  # Vencord 1.15.13 cannot patch the rspack bundle Discord ships since November 2026,
-  # so the client hangs on "Starting...". 1.15.16 fixes it and drops the deps patch.
-  # TODO: drop this override once nixos-unstable ships vencord 1.15.16 or newer.
-  vencord = pkgs.vencord.overrideAttrs (
-    finalAttrs: old: {
-      version = "1.15.16";
-      src = pkgs.fetchFromGitHub {
-        owner = "Vendicated";
-        repo = "Vencord";
-        tag = "v${finalAttrs.version}";
-        hash = "sha256-aUJubLJpyLAZWiOezqFxPY6oVPgWVPQpajFqrJvrO9U=";
-      };
-      patches = [ ];
-      postPatch = "";
-      pnpmDeps = pkgs.fetchPnpmDeps {
-        inherit (finalAttrs) pname version src;
-        pnpm = pkgs.pnpm_11;
-        fetcherVersion = 4;
-        hash = "sha256-HS8uZNepvDefjrsG3buVLFCVv7sHvazcwdpcT3EQ/78=";
-      };
-    }
-  );
 in
 {
   environment.systemPackages = (
@@ -84,10 +61,7 @@ in
       # Communication
       telegram-desktop
       vesktop
-      (pkgs.discord.override {
-        withVencord = true;
-        inherit vencord;
-      })
+      (pkgs.discord.override { withVencord = true; })
       element-desktop
 
       # Music

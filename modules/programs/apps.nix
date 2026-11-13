@@ -78,7 +78,6 @@ in
       })
 
       # Development
-      inputs.delta.packages.${system}.delta
       bruno
       godot
 
@@ -103,7 +102,6 @@ in
       # Gaming
       osu-lazer-bin
       prismlauncher
-      inputs.horizon-launcher.packages.${system}.default
       vinegar
 
       # Misc

@@ -56,11 +56,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    delta = {
-      url = "github:zed-industries/delta-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     mf-cli = {
       url = "github:nolight132/mf-cli";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -68,11 +63,6 @@
 
     g75-cli = {
       url = "github:nolight132/g75-cli";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    horizon-launcher = {
-      url = "github:Granddave/horizon-launcher.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

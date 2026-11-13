@@ -10,7 +10,8 @@ let
   # patchelf 0.18 and 0.19 move .dynamic of the REAPER binary into its read-only
   # text segment, so ld.so segfaults on startup. 0.15.2 keeps the segments apart.
   # TODO: drop this override once nixpkgs ships a patchelf that patches REAPER correctly.
-  reaper = pkgs.reaper.overrideAttrs (old: {
+  # REAPER loads PipeWire's libjack so its JACK mode plays through PipeWire without a jackd.
+  reaper = (pkgs.reaper.override { jackLibrary = pkgs.pipewire.jack; }).overrideAttrs (old: {
     nativeBuildInputs = [
       (pkgs.patchelf.overrideAttrs {
         version = "0.15.2";

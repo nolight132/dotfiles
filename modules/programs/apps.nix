@@ -69,6 +69,7 @@ in
       reaper
       ratatouille-lv2
       neural-amp-modeler-lv2
+      neuralrack
       calf
       guitarix-vst
       spotify

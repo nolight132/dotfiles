@@ -1,12 +1,12 @@
-{ ... }:
+{ config, ... }:
 
 {
   xdg.userDirs = {
     enable = true;
 
-    desktop = "$HOME";
-    publicShare = "$HOME";
-    templates = "$HOME";
+    desktop = config.home.homeDirectory;
+    publicShare = config.home.homeDirectory;
+    templates = config.home.homeDirectory;
   };
 
   xdg.terminal-exec = {

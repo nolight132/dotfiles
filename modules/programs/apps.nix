@@ -7,22 +7,8 @@
 let
   system = pkgs.stdenv.hostPlatform.system;
 
-  # patchelf 0.18 and 0.19 move .dynamic of the REAPER binary into its read-only
-  # text segment, so ld.so segfaults on startup. 0.15.2 keeps the segments apart.
-  # TODO: drop this override once nixpkgs ships a patchelf that patches REAPER correctly.
   # REAPER loads PipeWire's libjack so its JACK mode plays through PipeWire without a jackd.
-  reaper = (pkgs.reaper.override { jackLibrary = pkgs.pipewire.jack; }).overrideAttrs (old: {
-    nativeBuildInputs = [
-      (pkgs.patchelf.overrideAttrs {
-        version = "0.15.2";
-        src = pkgs.fetchurl {
-          url = "https://github.com/NixOS/patchelf/releases/download/0.15.2/patchelf-0.15.2.tar.bz2";
-          hash = "sha256-F3RfVkFZyOIo/EEtplogSLhGxLa0Igt3y/IkFuAvLXw=";
-        };
-      })
-    ]
-    ++ old.nativeBuildInputs;
-  });
+  reaper = pkgs.reaper.override { jackLibrary = pkgs.pipewire.jack; };
 in
 {
   environment.systemPackages = (

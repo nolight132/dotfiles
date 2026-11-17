@@ -15,7 +15,6 @@
       { config, lib, ... }:
       {
         imports = [
-          ../home/atuin.nix
           ../home/cli.nix
           ../home/env.nix
           ../home/fish.nix

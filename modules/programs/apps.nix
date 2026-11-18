@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   inputs,
   ...
@@ -7,8 +8,17 @@
 let
   system = pkgs.stdenv.hostPlatform.system;
 
-  # REAPER loads PipeWire's libjack so its JACK mode plays through PipeWire without a jackd.
-  reaper = pkgs.reaper.override { jackLibrary = pkgs.pipewire.jack; };
+  reaper = pkgs.symlinkJoin {
+    name = "reaper";
+    paths = [ (pkgs.reaper.override { jackLibrary = pkgs.pipewire.jack; }) ];
+
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+
+    postBuild = ''
+      wrapProgram $out/bin/reaper \
+        --run '${lib.getExe pkgs.yabridgectl} sync --prune >/dev/null 2>&1 || true'
+    '';
+  };
 in
 {
   environment.systemPackages = (
@@ -52,6 +62,9 @@ in
 
       # Music
       reaper
+      yabridge
+      yabridgectl
+      wineWow64Packages.yabridge
       ratatouille-lv2
       neural-amp-modeler-lv2
       neuralrack

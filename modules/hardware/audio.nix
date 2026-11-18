@@ -7,6 +7,23 @@
 
   security.rtkit.enable = true;
 
+  users.users."nolight".extraGroups = [ "audio" ];
+
+  security.pam.loginLimits = [
+    {
+      domain = "@audio";
+      item = "memlock";
+      type = "-";
+      value = "unlimited";
+    }
+    {
+      domain = "@audio";
+      item = "rtprio";
+      type = "-";
+      value = "95";
+    }
+  ];
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;

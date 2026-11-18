@@ -76,17 +76,20 @@ in
       # Gaming
       osu-lazer-bin
       prismlauncher
+      openjdk25
       vinegar
 
-      # Misc
-      obs-studio
+      # Art
       krita
       aseprite
       inputs.photocraft.packages.${system}.default
+      blender
+
+      # Misc
+      obs-studio
       qbittorrent
       proton-vpn
       mangohud
-      openjdk25
 
       # Uni bullshit (doesn't even fucking work)
       # cisco-packet-tracer_9

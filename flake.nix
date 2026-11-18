@@ -65,6 +65,16 @@
       url = "github:nolight132/g75-cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Only its vencord package is used. A bot bumps it to Vencord's main branch every hour.
+    nixcord = {
+      url = "github:4evy/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-packages.follows = "nixpkgs";
+      inputs.nixpkgs-ci.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+      inputs.nix-darwin.follows = "nix-darwin";
+    };
   };
 
   outputs =

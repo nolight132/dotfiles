@@ -48,7 +48,6 @@ in
       # Communication
       telegram-desktop
       vesktop
-      (pkgs.discord.override { withVencord = true; })
       element-desktop
 
       # Music

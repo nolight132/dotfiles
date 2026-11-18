@@ -120,11 +120,8 @@
               end
             end
 
-            if command tmux has-session 2>/dev/null
-              exec tmux attach-session
-            else
-              exec tmux new-session -s term
-            end
+            # Land in `term` rather than whichever session was used last.
+            exec tmux new-session -A -s term
           end
         end
       end

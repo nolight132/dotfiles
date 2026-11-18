@@ -1,0 +1,130 @@
+/**
+ * @name Rosépuccin Noctalia
+ * @description Stock Discord layout as one translucent sheet in the active Noctalia palette, matching T3 Code and Ghostty.
+ * @author nolight
+ * @version 2.0.0
+*/
+
+/* Only midnight's colour mapping, which routes every Discord colour variable through the palette below. Its layout is left out. */
+@import url('https://refact0r.github.io/midnight-discord/src/colors.css');
+
+:root {
+    container-name: root;
+    --colors: on;
+
+    --sheet: {{colors.surface.dark.rgba | set_alpha: 0.88}};
+    --floating: {{colors.surface_container.dark.hex}};
+    --white: {{colors.on_surface.dark.hex}};
+
+    --text-0: {{colors.on_primary.dark.hex}};
+    --text-1: {{colors.on_surface.dark.hex}};
+    --text-2: {{colors.on_surface.dark.hex}};
+    --text-3: {{colors.on_surface_variant.dark.hex}};
+    --text-4: color-mix(in oklab, {{colors.on_surface_variant.dark.hex}}, {{colors.outline.dark.hex}} 50%);
+    --text-5: {{colors.outline.dark.hex}};
+
+    --bg-1: {{colors.surface_container_highest.dark.hex}};
+    --bg-2: {{colors.surface_container_high.dark.hex}};
+    --bg-3: color-mix(in srgb, {{colors.surface_container_high.dark.hex}} 45%, transparent);
+    --bg-4: transparent;
+    --hover: color-mix(in srgb, {{colors.on_surface.dark.hex}} 5%, transparent);
+    --active: color-mix(in srgb, {{colors.on_surface.dark.hex}} 8%, transparent);
+    --active-2: color-mix(in srgb, {{colors.on_surface.dark.hex}} 12%, transparent);
+    --message-hover: var(--hover);
+
+    --accent-1: color-mix(in oklab, {{colors.primary.dark.hex}}, white 25%);
+    --accent-2: {{colors.primary.dark.hex}};
+    --accent-3: {{colors.primary.dark.hex}};
+    --accent-4: color-mix(in oklab, {{colors.primary.dark.hex}}, black 10%);
+    --accent-5: color-mix(in oklab, {{colors.primary.dark.hex}}, black 18%);
+    --accent-new: var(--accent-2);
+    --mention: color-mix(in srgb, var(--accent-2) 8%, transparent);
+    --mention-hover: color-mix(in srgb, var(--accent-2) 12%, transparent);
+    --reply: var(--hover);
+    --reply-hover: var(--active);
+
+    --online: var(--accent-2);
+    --dnd: var(--red-2);
+    --idle: var(--text-4);
+    --streaming: var(--accent-2);
+    --offline: var(--text-5);
+
+    --border-light: color-mix(in srgb, {{colors.on_surface.dark.hex}} 4%, transparent);
+    --border: color-mix(in srgb, {{colors.on_surface.dark.hex}} 7%, transparent);
+    --border-hover: var(--border);
+    --button-border: var(--border-light);
+
+    /* Red is kept for destructive actions. Every other hue collapses onto the accent. */
+    --red-1: color-mix(in oklab, {{colors.error.dark.hex}}, white 20%);
+    --red-2: {{colors.error.dark.hex}};
+    --red-3: {{colors.error.dark.hex}};
+    --red-4: color-mix(in oklab, {{colors.error.dark.hex}}, black 10%);
+    --red-5: color-mix(in oklab, {{colors.error.dark.hex}}, black 18%);
+
+    --green-1: var(--accent-1);
+    --green-2: var(--accent-2);
+    --green-3: var(--accent-3);
+    --green-4: var(--accent-4);
+    --green-5: var(--accent-5);
+
+    --blue-1: var(--accent-1);
+    --blue-2: var(--accent-2);
+    --blue-3: var(--accent-3);
+    --blue-4: var(--accent-4);
+    --blue-5: var(--accent-5);
+
+    --yellow-1: var(--accent-1);
+    --yellow-2: var(--accent-2);
+    --yellow-3: var(--accent-3);
+    --yellow-4: var(--accent-4);
+    --yellow-5: var(--accent-5);
+
+    --purple-1: var(--accent-1);
+    --purple-2: var(--accent-2);
+    --purple-3: var(--accent-3);
+    --purple-4: var(--accent-4);
+    --purple-5: var(--accent-5);
+}
+
+/* Panels stay see-through so the window reads as one sheet. Anything that floats above it stays opaque. */
+body,
+.theme-dark:not(.custom-user-profile-theme),
+.theme-light:not(.custom-user-profile-theme) {
+    --app-frame-background: transparent;
+    --app-frame-border: transparent;
+    --chat-background-default: transparent;
+    --custom-channel-members-bg: transparent;
+    --background-surface-high: var(--floating);
+    --background-surface-higher: var(--floating);
+    --background-surface-highest: var(--floating);
+    --bg-surface-overlay-tmp: var(--floating);
+    --bg-surface-raised: var(--floating);
+    --modal-background: var(--floating);
+    --modal-footer-background: var(--floating);
+}
+
+#app-mount [class^='bg_'],
+#app-mount [class*=' bg_'] {
+    background: var(--sheet) !important;
+}
+
+/* The server and channel lists form one darker sidebar like T3's, reaching up under the title bar. */
+[class^='base_'] > [class^='content_'] > [class^='sidebar_'] {
+    overflow: visible;
+}
+
+[class^='base_'] > [class^='content_'] > [class^='sidebar_']::before {
+    content: '';
+    position: absolute;
+    inset: calc(-1 * var(--custom-app-top-bar-height)) 0 0 0;
+    background: color-mix(in srgb, {{colors.surface_container_lowest.dark.hex}} 50%, transparent);
+    border-inline-end: 1px solid {{colors.surface_container_low.dark.hex}};
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* niri tiles the window, so the minimise, maximise and close buttons have no use. */
+[class^='winButtons_'],
+[class*=' winButtons_'] {
+    display: none !important;
+}

@@ -53,6 +53,11 @@ let
           output_path = "${config.home.homeDirectory}/.t3/userdata/themes/rosepuccin.json";
         };
 
+        vencord = {
+          input_path = "${templates}/vencord.css";
+          output_path = "${configHome}/Vencord/themes/rosepuccin.css";
+        };
+
         gtk3 = {
           input_path = "${templates}/gtk-3.0/gtk.css";
           output_path = "${configHome}/gtk-3.0/gtk.css";

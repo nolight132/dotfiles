@@ -99,6 +99,13 @@ let
           input_path = "${templates}/kdeglobals";
           output_path = "${configHome}/kdeglobals";
         };
+
+        # FL Studio reads its theme at startup, or live when the Noctalia preset is picked in its theme settings.
+        fl_studio = {
+          input_path = "${templates}/fl-studio.colors";
+          output_path = "${config.xdg.cacheHome}/fl-studio/noctalia.colors";
+          post_hook = "${config.home.profileDirectory}/bin/fl-studio-theme";
+        };
       };
     };
   };

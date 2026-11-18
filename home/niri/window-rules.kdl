@@ -128,6 +128,13 @@ window-rule {
 	open-fullscreen true
 }
 
+// fl studio runs inside a wine desktop sized to a whole monitor
+window-rule {
+	match title=r#"^fl-studio - Wine Desktop$"#
+
+	open-maximized-to-edges true
+}
+
 // t3code
 window-rule {
 	match app-id=r#"^com\.t3tools\.T3Code$"#

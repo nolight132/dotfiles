@@ -15,6 +15,7 @@
       { config, lib, ... }:
       {
         imports = [
+          ../home/agents.nix
           ../home/atuin.nix
           ../home/cli.nix
           ../home/env.nix

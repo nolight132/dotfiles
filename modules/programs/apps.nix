@@ -77,6 +77,7 @@ in
       osu-lazer-bin
       prismlauncher
       openjdk25
+      vcmi
       vinegar
 
       # Art

@@ -100,6 +100,8 @@ let
 
   # WineASIO talks to JACK through PipeWire's libjack, and its PE and Unix halves are found through WINEDLLPATH.
   # winemenubuilder stays off so installers do not leave desktop entries that point at a stale Wine.
+  # The quantum is forced rather than requested. WineASIO sizes its buffers from the quantum it sees at start,
+  # and a graph already running at a larger one would make it read past them and send garbage at full scale.
   wineEnv = ''
     export WINEPREFIX="${prefix}"
     mkdir -p "$WINEPREFIX"
@@ -107,7 +109,7 @@ let
     export WINEDLLOVERRIDES="winemenubuilder.exe=d''${WINEDLLOVERRIDES:+;$WINEDLLOVERRIDES}"
     export WINEDEBUG="''${WINEDEBUG:--all}"
     export LD_LIBRARY_PATH="${pkgs.pipewire.jack}/lib''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
-    export PIPEWIRE_LATENCY="''${PIPEWIRE_LATENCY:-128/48000}"
+    export PIPEWIRE_QUANTUM="''${PIPEWIRE_QUANTUM:-128/48000}"
     export PATH="${
       lib.makeBinPath [
         wine

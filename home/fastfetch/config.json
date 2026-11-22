@@ -18,7 +18,7 @@
     "break",
     {
       "type": "os",
-      "key": "󰣇",
+      "key": "\uf313",
       "keyColor": "blue",
       "format": "{name} {arch}"
     },

@@ -9,6 +9,7 @@
     discord = {
       vencord.enable = true;
       openASAR.enable = false;
+      krisp.enable = true;
     };
 
     # Noctalia renders rosepuccin.css into the themes directory and Vencord reloads it on every change.

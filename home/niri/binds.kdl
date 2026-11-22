@@ -1,7 +1,7 @@
 binds {
 	// launchers
 	Mod+Shift+Slash { show-hotkey-overlay; }
-	Mod+T hotkey-overlay-title="Run an Application: Telegram" { spawn "Telegram"; }
+	Mod+T hotkey-overlay-title="Summon Telegram" { spawn-sh "~/.config/niri/scripts/summon-telegram.sh"; }
 	Mod+Shift+T { spawn-sh "~/.config/niri/scripts/toggle-telegram-screencast.sh"; }
 	Mod+R { spawn-sh "vicinae toggle"; }
 	Mod+C { spawn-sh "vicinae deeplink vicinae://launch/clipboard/history"; }

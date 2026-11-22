@@ -1,0 +1,13 @@
+--- a/dlls/winex11.drv/event.c
++++ b/dlls/winex11.drv/event.c
+@@ -1243,6 +1243,10 @@
+     struct x11drv_win_data *data;
+     BOOL flush = FALSE;
+ 
++    /* In a virtual desktop set_input_focus raises the window above its own popup menus, so a window
++     * that is already active is left where it is. Wine bug 58433. */
++    if (is_virtual_desktop() && hwnd == previous) return;
++
+     if (!is_virtual_desktop())
+     {
+         set_net_active_window( hwnd, previous );

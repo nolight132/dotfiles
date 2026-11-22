@@ -8,7 +8,48 @@
 let
   # Staging carries the newest Wine fixes for FL Studio's menus and plugin windows. The prefix is kept apart
   # from ~/.wine, because yabridge pins Wine 9.21 there and a newer Wine would upgrade that prefix under it.
-  wine = pkgs.wineWow64Packages.stagingFull;
+  baseWine = pkgs.wineWow64Packages.stagingFull;
+
+  # Inside a Wine desktop, Wine 10.5 and later raise FL Studio's main window over a submenu the moment it
+  # opens (Wine bug 58433). The fix lives in winex11.so alone, so only that library is built from the same
+  # staging source instead of all of Wine.
+  winex11 = baseWine.overrideAttrs (old: {
+    pname = "winex11-fl-studio";
+    patches = old.patches or [ ] ++ [ ./fl-studio/wine-virtual-desktop-menus.patch ];
+    buildPhase = ''
+      runHook preBuild
+      make -j$NIX_BUILD_CORES dlls/winex11.drv/winex11.so
+      runHook postBuild
+    '';
+    installPhase = ''
+      install -Dm755 dlls/winex11.drv/winex11.so $out/lib/wine/x86_64-unix/winex11.so
+    '';
+    postInstall = "";
+    doInstallCheck = false;
+  });
+
+  # Stock Wine with the patched winex11.so swapped in. Wine resolves its own directories from the real
+  # paths of its loaders and ntdll.so, so those and every file that names the stock store path are copied
+  # and rewritten to this one while the rest links back. The name keeps the stock length so the rewrite is
+  # byte for byte and safe inside binaries.
+  wineName = builtins.replaceStrings [ "staging" ] [ "flpatch" ] baseWine.name;
+  wine =
+    assert lib.assertMsg (
+      builtins.stringLength wineName == builtins.stringLength baseWine.name
+    ) "the patched Wine name must keep the length of ${baseWine.name}";
+    pkgs.runCommand wineName { } ''
+      cp -rs ${baseWine}/. $out
+      chmod -R u+w $out
+      cd ${baseWine}
+      { grep -rlaF ${baseWine} . ; echo ./lib/wine/x86_64-unix/wine; echo ./lib/wine/x86_64-unix/wine-preloader; } \
+        | sort -u > $TMPDIR/self-referencing
+      while read -r file; do
+        cp --remove-destination "$file" "$out/$file"
+        chmod u+w "$out/$file"
+        sed -i "s|${baseWine}|$out|g" "$out/$file"
+      done < $TMPDIR/self-referencing
+      ln -sf ${winex11}/lib/wine/x86_64-unix/winex11.so $out/lib/wine/x86_64-unix/winex11.so
+    '';
   prefix = "${config.xdg.dataHome}/wineprefixes/fl-studio";
   flDir = "${prefix}/drive_c/Program Files/Image-Line/FL Studio 2026";
   iconPath = "${config.xdg.dataHome}/icons/hicolor/256x256/apps/fl-studio.png";

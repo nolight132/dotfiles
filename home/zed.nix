@@ -8,6 +8,7 @@ in
     pkgs.zed-editor
     pkgs.nixd
     pkgs.nixfmt
+    pkgs.clang-tools
   ];
 
   xdg.configFile = {

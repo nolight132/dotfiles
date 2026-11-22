@@ -26,7 +26,7 @@
     --bg-1: {{colors.surface_container_highest.dark.hex}};
     --bg-2: {{colors.surface_container_high.dark.hex}};
     --bg-3: color-mix(in srgb, {{colors.surface_container_high.dark.hex}} 45%, transparent);
-    --bg-4: transparent;
+    --bg-4: {{colors.surface.dark.hex}};
     --hover: color-mix(in srgb, {{colors.on_surface.dark.hex}} 5%, transparent);
     --active: color-mix(in srgb, {{colors.on_surface.dark.hex}} 8%, transparent);
     --active-2: color-mix(in srgb, {{colors.on_surface.dark.hex}} 12%, transparent);
@@ -86,14 +86,23 @@
     --purple-5: var(--accent-5);
 }
 
-/* Panels stay see-through so the window reads as one sheet. Anything that floats above it stays opaque. */
+/*
+ * Panels stay see-through so the window reads as one sheet. Anything that floats above it stays opaque.
+ * --bg-4 itself stays opaque because midnight also uses it as the text colour on light buttons.
+ */
 body,
 .theme-dark:not(.custom-user-profile-theme),
 .theme-light:not(.custom-user-profile-theme) {
     --app-frame-background: transparent;
     --app-frame-border: transparent;
+    --background-base-low: transparent;
+    --background-base-lower: transparent;
+    --background-base-lowest: transparent;
+    --home-background: transparent;
     --chat-background-default: transparent;
     --custom-channel-members-bg: transparent;
+    --channels-default: var(--text-5);
+    --channel-icon: var(--text-5);
     --background-surface-high: var(--floating);
     --background-surface-higher: var(--floating);
     --background-surface-highest: var(--floating);
@@ -106,6 +115,54 @@ body,
 #app-mount [class^='bg_'],
 #app-mount [class*=' bg_'] {
     background: var(--sheet) !important;
+}
+
+/* Settings and other full-screen layers open above the app, which would otherwise show through them. */
+[class^='layers_'] > [class^='layer_'] ~ [class^='layer_'] {
+    background: var(--bg-4) !important;
+}
+
+/* Dialogs, the settings modal among them, take back the opaque base colours that the sheet clears. */
+[role='dialog'],
+[class^='modal_'],
+[class*=' modal_'] {
+    --background-base-low: var(--bg-4);
+    --background-base-lower: var(--bg-4);
+    --background-base-lowest: var(--bg-4);
+    --home-background: var(--bg-4);
+}
+
+/* Stream status cards title their message in --white, which midnight darkens for text on accent buttons. */
+[class*='header_']:has(+ [class*='description_'], + [class*='errorCodeMessage_']) {
+    color: var(--text-1) !important;
+}
+
+/* Unread channels keep full-strength text against the dimmed read ones, and their pill takes the accent. */
+[class*='modeUnread'] [class^='unread_'],
+[class*='modeUnread'] [class*=' unread_'] {
+    background-color: var(--accent-2) !important;
+}
+
+/* Calls paint their container and its frame black, so both are cleared down to the sheet. */
+[class*='callContainer'],
+[class*='callContainer'] [class^='root_'],
+[class^='root_']:has([class*='callContainer']) {
+    background: transparent !important;
+}
+
+/* The call's control overlay fades to black at the top and bottom edges, which darkens its header. */
+[class*='callContainer'] [class^='videoControls_'],
+[class*='callContainer'] [class*=' videoControls_'],
+[class^='videoTop_'],
+[class*=' videoTop_'] {
+    background: none !important;
+}
+
+/* Participant tiles drop the colour taken from each person's banner and become plain cards a step darker than the sheet. */
+[class*='callContainer'] [style*='background-color'],
+[class*='callContainer'] [class^='tile_'],
+[class*='callContainer'] [class*=' tile_'] {
+    background-color: color-mix(in srgb, {{colors.surface_container_lowest.dark.hex}} 85%, transparent) !important;
 }
 
 /* The server and channel lists form one darker sidebar like T3's, reaching up under the title bar. */

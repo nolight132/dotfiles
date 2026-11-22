@@ -226,6 +226,10 @@ in
         "wireplumber.service"
       ];
       PartOf = [ "pipewire.service" ];
+
+      # Restarting the tap recreates its sink, which kills a running Discord screen share's audio capture,
+      # so a switch leaves the running tap alone and a changed script takes over at the next login.
+      X-RestartIfChanged = false;
     };
 
     Service = {

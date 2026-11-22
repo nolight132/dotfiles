@@ -170,8 +170,78 @@ let
     ${pkgs.icoutils}/bin/wrestool -x -t 14 "${flDir}/FL64.exe" > "$ico"
     ${pkgs.icoutils}/bin/icotool -x -w 256 -o "${iconPath}" "$ico"
   '';
+
+  # Discord's screen share captures only PulseAudio sink inputs that carry a process id, and WineASIO is a
+  # JACK client wired straight to the interface, so Discord never hears FL Studio. This keeps an "FL Studio"
+  # stream playing into a silent sink and copies WineASIO's outputs into it, leaving the direct path alone.
+  # The stream must never lose its sink, because Discord's whole capture dies with a protocol error the
+  # moment it monitors a sink input without one.
+  discordTap = pkgs.writeShellScript "fl-studio-discord-tap" ''
+    set -u
+    PATH=${
+      lib.makeBinPath [
+        pkgs.pipewire
+        pkgs.gnugrep
+        pkgs.coreutils
+      ]
+    }
+    sink=fl_studio_discord
+    tap=fl_studio_discord_tap
+
+    # At login the tap starts before the ALSA sinks exist, so the silent sink would become the default and
+    # OBS, which resolves its default Desktop Audio device only once at startup, would record silence.
+    until pw-metadata -n default 0 default.audio.sink | grep -q "key:'default.audio.sink'"; do sleep 0.2; done
+
+    pw-cli destroy "$sink" > /dev/null 2>&1
+    pw-cli create-node adapter "{
+      factory.name = support.null-audio-sink node.name = $sink node.description = \"FL Studio for Discord\"
+      media.class = Audio/Sink audio.position = [ FL FR ] object.linger = true priority.session = 0
+    }" > /dev/null
+    until pw-link -i | grep -qx "$sink:playback_FR"; do sleep 0.1; done
+
+    pw-loopback --name fl-studio-discord --playback "$sink" \
+      --capture-props="{ node.name = $tap node.description = \"FL Studio\" media.class = Stream/Input/Audio node.autoconnect = false }" \
+      --playback-props="{ node.name = fl_studio_discord_stream application.name = \"FL Studio\" media.name = \"FL Studio\" application.process.id = $$ node.dont-reconnect = true }" &
+    loopback=$!
+    trap 'exit 0' TERM INT
+    trap 'kill "$loopback" 2> /dev/null; wait "$loopback"; pw-cli destroy "$sink" > /dev/null 2>&1' EXIT
+    until pw-link -i | grep -qx "$tap:input_FR"; do sleep 0.1; done
+
+    pw-link -m -o | while read -r port; do
+      case "$port" in
+        +FL64:out_1) pw-link FL64:out_1 "$tap:input_FL" 2> /dev/null ;;
+        +FL64:out_2) pw-link FL64:out_2 "$tap:input_FR" 2> /dev/null ;;
+      esac
+    done &
+    wait -n
+    exit 1
+  '';
 in
 {
+  systemd.user.services.fl-studio-discord-tap = {
+    Unit = {
+      Description = "Let Discord screen share capture FL Studio's WineASIO output";
+      After = [
+        "pipewire.service"
+        "wireplumber.service"
+      ];
+      PartOf = [ "pipewire.service" ];
+    };
+
+    Service = {
+      ExecStart = discordTap;
+      KillMode = "mixed";
+      Restart = "always";
+      RestartSec = 2;
+    };
+
+    # default.target lets home-manager start the tap on a switch, which a running PipeWire never triggers.
+    Install.WantedBy = [
+      "pipewire.service"
+      "default.target"
+    ];
+  };
+
   home.packages = [
     flStudio
     flWine

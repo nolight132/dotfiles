@@ -2,7 +2,7 @@
 
 # Runs `t3 serve` as node on port 3773, where Coolify's proxy sends t3.nolight.dev. T3, Claude Code
 # and Codex are npm packages in ~/.local, so they survive redeploys and can update themselves. The
-# T3 version follows the T3_CHANNEL variable that Coolify passes, which also holds the Claude token.
+# T3 version follows the T3_CHANNEL variable that Coolify sets on the container.
 let
   home = "/home/node";
 
@@ -64,8 +64,14 @@ in
       User = "node";
       Group = "node";
       WorkingDirectory = "${home}/projects";
-      # Written by the image's entrypoint from the variables Docker gives the container.
-      EnvironmentFile = "-/run/t3-env";
+      # Coolify's variables reach systemd as the container's environment, and services see only
+      # the ones named here.
+      PassEnvironment = [
+        "T3_CHANNEL"
+        "CLAUDE_CODE_OAUTH_TOKEN"
+        "ANTHROPIC_API_KEY"
+        "OPENAI_API_KEY"
+      ];
       ExecStartPre = install;
       ExecStart = "${home}/.local/bin/t3 serve --host 0.0.0.0 --port 3773 --no-browser";
       Restart = "always";

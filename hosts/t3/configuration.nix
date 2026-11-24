@@ -1,13 +1,12 @@
 {
   inputs,
-  lib,
   pkgs,
   ...
 }:
 
 # The T3 Code server on the VPS: NixOS booted by systemd inside a privileged Docker container that
-# Coolify runs as the app behind t3.nolight.dev. Image.nix turns this system into that image, and
-# the README next to this file covers deploys, in-place switches and the Coolify settings.
+# Coolify runs as the app behind t3.nolight.dev. The Dockerfile next to this file builds the image
+# and its README covers deploys, in-place switches and the Coolify settings.
 let
   system = pkgs.stdenv.hostPlatform.system;
 in
@@ -15,7 +14,6 @@ in
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ../../modules/core/locale.nix
-    ./image.nix
     ./packages.nix
     ./t3code.nix
   ];
@@ -86,7 +84,11 @@ in
   };
   security.sudo.wheelNeedsPassword = false;
 
-  systemd.tmpfiles.rules = [ "d /home/node/projects 0755 node node -" ];
+  # A fresh home volume starts out owned by root.
+  systemd.tmpfiles.rules = [
+    "d /home/node 0755 node node -"
+    "d /home/node/projects 0755 node node -"
+  ];
 
   programs.fish.enable = true;
 

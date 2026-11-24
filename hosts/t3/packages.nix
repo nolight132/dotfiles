@@ -4,8 +4,17 @@
 # project's own toolchain comes from its flake devShell through direnv, so this holds what agents
 # run directly: git and forge clients, JavaScript and Python runtimes, Go, Nix tooling and media
 # tools for screenshots and videos. rustup, rbuild and its cargo wrapper live in the home volume.
+let
+  # Runs gui from the agents checkout, which is private and so cannot be a flake input here. It
+  # always matches the checkout and is built on first use.
+  gui = pkgs.writeShellScriptBin "gui" ''
+    exec nix run "path:$HOME/Projects/agents/gui" -- "$@"
+  '';
+in
 {
   environment.systemPackages = with pkgs; [
+    gui
+
     git
     git-lfs
     gh

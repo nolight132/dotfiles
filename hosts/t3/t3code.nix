@@ -57,6 +57,7 @@ in
       T3CODE_HOME = "${home}/.t3";
       NPM_CONFIG_PREFIX = "${home}/.local";
       NIX_PATH = "nixpkgs=flake:nixpkgs";
+      RBUILD_HOST = "buildbox";
     };
 
     serviceConfig = {

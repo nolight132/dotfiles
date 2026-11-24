@@ -100,7 +100,11 @@ in
 
   environment.sessionVariables = {
     NPM_CONFIG_PREFIX = "$HOME/.local";
+    # The buildbox is on the same Docker network. Without this rbuild sees the `vps` ssh alias
+    # and goes to the VPS's published port 2223, which the firewall closes to containers.
+    RBUILD_HOST = "buildbox";
   };
+  environment.localBinInPath = true;
 
   environment.systemPackages = [ inputs.nls.packages.${system}.default ];
 

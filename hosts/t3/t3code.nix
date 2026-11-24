@@ -71,6 +71,7 @@ in
       RestartSec = 5;
       TimeoutStartSec = "10min";
       LimitNOFILE = 1048576;
+      TasksMax = "infinity";
     };
   };
 }

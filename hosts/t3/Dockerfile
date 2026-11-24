@@ -21,6 +21,7 @@ RUN set -eux \
  && S=$(readlink -f /build/system) \
  && mkdir -p /out/boot /out/nix-image/store /out/nix /out/etc /out/root /out/home/node /out/tmp /out/var/tmp \
  && chmod 1777 /out/tmp /out/var/tmp \
+ && chown 1000:1000 /out/home/node \
  && cp /build/boot/busybox /build/boot/entrypoint /build/boot/system /out/boot/ \
  && closure=$(nix-store -qR "$S") \
  && cp -a $closure /out/nix-image/store/ \

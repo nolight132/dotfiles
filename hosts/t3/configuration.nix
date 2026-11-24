@@ -33,6 +33,10 @@ in
 
   # No console in a Docker container, and its logrotate check fails on the bind-mounted files.
   systemd.services.console-getty.enable = false;
+
+  # systemd would cap every unit at 15% of the container's pids limit, a few hundred processes,
+  # which a T3 server running several agents outgrows. Docker's --pids-limit is the cap instead.
+  systemd.settings.Manager.DefaultTasksMax = "infinity";
   services.logrotate.enable = false;
 
   nix = {
@@ -81,6 +85,8 @@ in
     linger = true;
   };
   security.sudo.wheelNeedsPassword = false;
+
+  systemd.tmpfiles.rules = [ "d /home/node/projects 0755 node node -" ];
 
   programs.fish.enable = true;
 

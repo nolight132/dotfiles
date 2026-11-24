@@ -1,12 +1,8 @@
 { pkgs, ... }:
 
-# Tools for Sonora and the other projects. Native compiles go to the buildbox through rbuild, and a
-# project's own toolchain comes from its flake devShell through direnv, so this holds what agents
-# run directly: git and forge clients, JavaScript and Python runtimes, Go, Nix tooling and media
-# tools for screenshots and videos. rustup, rbuild and its cargo wrapper live in the home volume.
+# Native compiles go through rbuild, project toolchains come from devShells.
 let
-  # Runs gui from the agents checkout, which is private and so cannot be a flake input here. It
-  # always matches the checkout and is built on first use.
+  # The agents repo is private, so it can't be a flake input.
   gui = pkgs.writeShellScriptBin "gui" ''
     exec nix run "path:$HOME/Projects/agents/gui" -- "$@"
   '';
@@ -72,8 +68,7 @@ in
     imagemagick
   ];
 
-  # Prebuilt binaries run through nix-ld: T3's runtime, Claude Code, Codex, rustup's toolchains and
-  # the Chrome that T3 downloads for its preview.
+  # Prebuilt binaries: T3 and its Chrome, Claude Code, Codex, rustup toolchains.
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [

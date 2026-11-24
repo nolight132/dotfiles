@@ -4,9 +4,7 @@
   ...
 }:
 
-# The T3 Code server on the VPS: NixOS booted by systemd inside a privileged Docker container that
-# Coolify runs as the app behind t3.nolight.dev. The Dockerfile next to this file builds the image
-# and its README covers deploys, in-place switches and the Coolify settings.
+# NixOS in the Coolify container behind t3.nolight.dev. See README.md.
 let
   system = pkgs.stdenv.hostPlatform.system;
 in
@@ -20,8 +18,7 @@ in
 
   boot.isContainer = true;
 
-  # Docker bind-mounts /etc/hostname, /etc/hosts and /etc/resolv.conf, so these only have to agree
-  # with the container's --hostname.
+  # Docker owns /etc/hostname, /etc/hosts and /etc/resolv.conf.
   networking = {
     hostName = "vps";
     useHostResolvConf = true;
@@ -29,12 +26,11 @@ in
     firewall.enable = false;
   };
 
-  # No console in a Docker container, and its logrotate check fails on the bind-mounted files.
+  # No console, and the logrotate check fails on Docker's bind mounts.
   systemd.services.console-getty.enable = false;
   services.logrotate.enable = false;
 
-  # systemd would cap every unit at 15% of the container's pids limit, a few hundred processes,
-  # which a T3 server running several agents outgrows. The container's limit of 8192 caps it.
+  # The default caps units at 15% of the container's 8192 pids.
   systemd.settings.Manager.DefaultTasksMax = "infinity";
 
   nix = {
@@ -56,7 +52,6 @@ in
       cores = 4;
     };
 
-    # `nixpkgs#foo` resolves to this system's nixpkgs, which is already in the store.
     registry.nixpkgs.flake = inputs.nixpkgs;
     nixPath = [ "nixpkgs=flake:nixpkgs" ];
 
@@ -70,7 +65,7 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  # uid and gid 1000 own everything in the home volume from the Debian image this replaced.
+  # Matches the owner of the existing home volume.
   users.groups.node.gid = 1000;
   users.users.node = {
     isNormalUser = true;
@@ -102,8 +97,7 @@ in
 
   environment.sessionVariables = {
     NPM_CONFIG_PREFIX = "$HOME/.local";
-    # The buildbox is on the same Docker network. Without this rbuild sees the `vps` ssh alias
-    # and goes to the VPS's published port 2223, which the firewall closes to containers.
+    # Otherwise rbuild takes the vps alias to a port closed to containers.
     RBUILD_HOST = "buildbox";
   };
   environment.localBinInPath = true;

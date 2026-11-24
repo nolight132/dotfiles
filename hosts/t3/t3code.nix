@@ -1,8 +1,6 @@
 { lib, pkgs, ... }:
 
-# Runs `t3 serve` as node on port 3773, where Coolify's proxy sends t3.nolight.dev. T3, Claude Code
-# and Codex are npm packages in ~/.local, so they survive redeploys and can update themselves. The
-# T3 version follows the T3_CHANNEL variable that Coolify sets on the container.
+# T3, Claude Code and Codex live in ~/.local and update themselves.
 let
   home = "/home/node";
 
@@ -16,8 +14,7 @@ let
     "/run/current-system/sw/bin"
   ];
 
-  # Installs T3 when the wanted version is missing and Claude Code or Codex when either is absent.
-  # A failed lookup keeps whatever is installed, so the server still starts without the registry.
+  # Keeps the installed version when the registry is unreachable.
   install = pkgs.writeShellScript "t3-install" ''
     set -u
     want=$(npm view "t3@''${T3_CHANNEL:-latest}" version 2>/dev/null || true)
@@ -43,8 +40,7 @@ in
       "home-manager-node.service"
     ];
 
-    # A switch from inside a T3 thread would otherwise kill that thread. The new generation takes
-    # over at the next container restart or `systemctl restart t3`.
+    # Keeps the thread that runs nrs alive.
     restartIfChanged = false;
 
     path = lib.mkForce [ ];
@@ -64,8 +60,7 @@ in
       User = "node";
       Group = "node";
       WorkingDirectory = "${home}/projects";
-      # Coolify's variables reach systemd as the container's environment, and services see only
-      # the ones named here.
+      # Coolify's variables arrive as the container's environment.
       PassEnvironment = [
         "T3_CHANNEL"
         "CLAUDE_CODE_OAUTH_TOKEN"

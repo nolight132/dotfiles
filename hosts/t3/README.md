@@ -35,7 +35,7 @@ The Dockerfile is stored in Coolify's database (`applications.dockerfile`), so c
 after changing it. The custom Docker options are
 
 ```
---privileged --tmpfs /run --tmpfs /run/lock --pids-limit=16384 --shm-size=2g --hostname vps --add-host=host.docker.internal:host-gateway
+--privileged --tmpfs /run --tmpfs /run/lock --shm-size=2g --hostname vps --add-host=host.docker.internal:host-gateway
 ```
 
 systemd needs `--privileged` for a writable cgroup tree, and the tmpfs mounts give it a clean

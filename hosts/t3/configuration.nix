@@ -35,7 +35,7 @@ in
   systemd.services.console-getty.enable = false;
 
   # systemd would cap every unit at 15% of the container's pids limit, a few hundred processes,
-  # which a T3 server running several agents outgrows. Docker's --pids-limit is the cap instead.
+  # which a T3 server running several agents outgrows. The container's limit of 8192 caps it.
   systemd.settings.Manager.DefaultTasksMax = "infinity";
   services.logrotate.enable = false;
 

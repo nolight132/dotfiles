@@ -5,12 +5,12 @@
   ...
 }:
 
-# Keeps the private nolight132/agents repo checked out in ~/Agents and links the Claude Code,
+# Keeps the private nolight132/agents repo checked out in ~/Projects/agents and links the Claude Code,
 # Codex and OpenCode configuration to it on every switch. A clean checkout is fast-forwarded, and a
 # dirty or diverged one is left for the agents to commit and reconcile. Nothing here commits or
 # pushes. A failure only prints a warning, so a missing GitHub login never blocks a switch.
 let
-  dir = "${config.home.homeDirectory}/Agents";
+  dir = "${config.home.homeDirectory}/Projects/agents";
   path = lib.makeBinPath [
     pkgs.coreutils
     pkgs.findutils

@@ -26,6 +26,30 @@ in
     firewall.enable = false;
   };
 
+  # Joins the tailnet as `t3` so threads reach the desktop (see `desk` in the agents repo). Docker
+  # owns resolv.conf, so names resolve through `tailscale nc` in the ssh config below.
+  services.tailscale = {
+    enable = true;
+    extraSetFlags = [
+      "--hostname=t3"
+      "--accept-dns=false"
+      "--operator=node"
+    ];
+  };
+  # The node key has to outlive a redeploy, which keeps only /home/node.
+  systemd.services.tailscaled.serviceConfig.BindPaths = [
+    "/home/node/.local/state/tailscale:/var/lib/tailscale"
+  ];
+
+  programs.ssh.extraConfig = ''
+    Host nixos
+      User nolight
+      IdentityFile ~/.ssh/nixos
+      IdentitiesOnly yes
+      StrictHostKeyChecking accept-new
+      ProxyCommand tailscale nc %h %p
+  '';
+
   # No console, and the logrotate check fails on Docker's bind mounts.
   systemd.services.console-getty.enable = false;
   services.logrotate.enable = false;
@@ -83,6 +107,7 @@ in
   systemd.tmpfiles.rules = [
     "d /home/node 0755 node node -"
     "d /home/node/projects 0755 node node -"
+    "d /home/node/.local/state/tailscale 0700 root root -"
   ];
 
   programs.fish.enable = true;

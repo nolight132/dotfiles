@@ -6,10 +6,14 @@ let
   gui = pkgs.writeShellScriptBin "gui" ''
     exec nix run "path:$HOME/Projects/agents/gui" -- "$@"
   '';
+  desk = pkgs.writeShellScriptBin "desk" ''
+    exec ${pkgs.bash}/bin/bash "$HOME/Projects/agents/desk/desk" "$@"
+  '';
 in
 {
   environment.systemPackages = with pkgs; [
     gui
+    desk
 
     git
     git-lfs
